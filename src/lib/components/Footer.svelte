@@ -23,15 +23,6 @@
 	>
 		Scroll to top &uarr;
 	</p>
-	<!-- <div class="links">
-    {#each navItems as page, i (i)}
-        <a
-            href={page.route}
-            class:active={isActive(`${page.route}`)}>
-            {page.title}
-        </a>
-    {/each}
-</div> -->
 </footer>
 
 <style lang="scss">

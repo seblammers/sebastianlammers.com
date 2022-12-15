@@ -6,6 +6,10 @@ categories:
   - 'even'
 ---
 
+<script>
+    let doh = "nuts";
+</script>
+
 Hello, I am _Post Two._
 
 **You again!?**

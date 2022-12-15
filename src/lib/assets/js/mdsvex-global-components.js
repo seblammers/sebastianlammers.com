@@ -52,20 +52,18 @@
    const preprocessor = {
      script(thing) {
        const { content, filename, attributes, markup } = thing;
+       
        if (!filename.match(extensionsRegex)) {
          return { code: content };
        }
-       const hasModuleContext = /^<script context="module">/.test(markup);
- 
-       const isModulePass = attributes?.context === "module";
-       if (!isModulePass || !hasModuleContext) {
-         return { code: content };
-       }
-       const isValidPass =
-         (hasModuleContext && isModulePass) || !hasModuleContext;
-       if (!isValidPass) {
-         return { code: content };
-       }
+
+      const hasModuleContext = /^<script context="module">/.test(markup)
+      const isModulePass = attributes?.context === 'module'
+      const isValidPass = (hasModuleContext && isModulePass) || !hasModuleContext
+      
+      if (!isValidPass) {
+        return { code: content }
+      }
        return { code: `${imports}\n${content}` };
      },
    };
