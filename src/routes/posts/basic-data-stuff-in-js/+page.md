@@ -9,16 +9,14 @@ categories:
 ---
 
 <script>
-  import Accordion from '$lib/components/Accordion.svelte';
-  import Blockquote from '$lib/components/Blockquote.svelte';
   import Table from '$lib/components/posts/TableView.svelte';
 
   let simpleData = [
-    {a: 1, b: "dog"},
-    {a: 2, b: "dog"},
-    {a: 3, b: "cat"},
-    {a: 4, b: "dog"},
-    {a: 5, b: "cat"},
+    {id: 1, animal: "dog"},
+    {id: 2, animal: "dog"},
+    {id: 3, animal: "cat"},
+    {id: 4, animal: "dog"},
+    {id: 5, animal: "cat"},
   ]
 </script>
 
@@ -41,11 +39,11 @@ Let's get some terminology out of the way before we start to work with the real 
 
 ```js
 let simpleData = [
-    {a: 1, b: "dog"},
-    {a: 2, b: "dog"},
-    {a: 3, b: "cat"},
-    {a: 4, b: "dog"},
-    {a: 5, b: "cat"},
+    {id: 1, animal: "dog"},
+    {id: 2, animal: "dog"},
+    {id: 3, animal: "cat"},
+    {id: 4, animal: "dog"},
+    {id: 5, animal: "cat"},
   ]
 ```
 <Table data={simpleData} />

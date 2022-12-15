@@ -9,12 +9,6 @@ categories:
   - 'markdown'
 ---
 
-<script>
-  import Accordion from '$lib/components/Accordion.svelte';
-  import Blockquote from '$lib/components/Blockquote.svelte';
-</script>
-
-
 
 Here is my new blockquote:
 <Blockquote 

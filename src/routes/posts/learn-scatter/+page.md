@@ -10,7 +10,6 @@ categories:
 ---
 
 <script>
-  import Accordion from '$lib/components/Accordion.svelte'
   import Scatter from '$lib/components/posts/Scatter.svelte'
 </script>
 

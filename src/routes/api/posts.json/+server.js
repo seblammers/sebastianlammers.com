@@ -1,12 +1,14 @@
-export const get = async () => {
-    const allPostFiles = import.meta.glob('../posts/*.md')
+import { json } from '@sveltejs/kit'
+
+export const GET = async () => {
+    const allPostFiles = import.meta.glob('../../posts/**/*.md')
     const iterablePostFiles = Object.entries(allPostFiles)
   
     const allPosts = await Promise.all(
       iterablePostFiles.map(async ([path, resolver]) => {
         const { metadata } = await resolver()
-        const postPath = path.slice(2, -3)
-  
+        const postPath = path.slice(5, -9)
+        
         return {
           meta: metadata,
           path: postPath,
@@ -18,7 +20,5 @@ export const get = async () => {
       return new Date(b.meta.date) - new Date(a.meta.date)
     })
   
-    return {
-      body: sortedPosts
-    }
+    return json(sortedPosts)
   }
