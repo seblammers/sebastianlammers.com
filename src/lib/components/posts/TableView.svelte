@@ -43,6 +43,7 @@
 		overflow-x: auto;
 		overflow-y: hidden;
 		max-width: 60ch;
+		font-family: var(--codeFont);
 	}
 
 	table {
