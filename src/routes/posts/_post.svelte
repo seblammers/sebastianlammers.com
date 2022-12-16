@@ -2,7 +2,6 @@
 	import { siteURL, siteAuthor } from '$lib/config';
 	import { page } from '$app/stores';
 	import { dateFormat } from '$lib/assets/js/utils';
-	// import Readotron from '$lib/components/Readotron.svelte';
 	import { onMount } from 'svelte';
 	import Heading from '$lib/components/Heading.svelte';
 	import { Head } from 'svead';
@@ -41,11 +40,6 @@
 	{#if typeof updated !== 'undefined'}
 		<time>Updated: {dateFormat(updated)}</time>
 	{/if}
-
-	<!-- <Readotron
-		selector=".post"
-		template={(time) => `Reading Time: ${time} ${time > 1 ? 'minutes' : 'minute'}`}
-	/> -->
 
 	<div class="readingTime">
 		{`Reading Time: ${time} ${time > 1 ? 'minutes' : 'minute'}`}
