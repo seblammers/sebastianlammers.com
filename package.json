@@ -6,7 +6,6 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"package": "vite package",
-		"preview": "vite preview",
 		"prepare": "vite sync",
 		"test": "playwright test",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
