@@ -1,85 +1,85 @@
 <script>
-    // copied and modified from
-    // https://github.com/untemps/svelte-readotron/blob/main/src/components/Readotron.svelte
-    // because direct installation via npm gave error related to SSR
-    import {createEventDispatcher, onDestroy, onMount} from 'svelte'
-    import {ReadPerMinute} from '@untemps/read-per-minute'
-    import {DOMObserver} from '@untemps/dom-observer'
-	import { interpolate } from '@untemps/utils/string/interpolate'
-	import { isFunction } from '@untemps/utils/function/isFunction'
+	// copied and modified from
+	// https://github.com/untemps/svelte-readotron/blob/main/src/components/Readotron.svelte
+	// because direct installation via npm gave error related to SSR
+	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
+	import { ReadPerMinute } from '@untemps/read-per-minute';
+	import { DOMObserver } from '@untemps/dom-observer';
+	import { interpolate } from '@untemps/utils/string/interpolate';
+	import { isFunction } from '@untemps/utils/function/isFunction';
 
-    // don't need it
-    //import ScrollProgress from '../scroll/ScrollProgress'
+	// don't need it
+	//import ScrollProgress from '../scroll/ScrollProgress'
 
-    export let selector
-    export let lang = 'en'
-    export let template = '%time% min read'
-    //export let withScroll = false
+	export let selector;
+	export let lang = 'en';
+	export let template = '%time% min read';
+	//export let withScroll = false
 
-    let totalTime = 0
-    let time = 0
-    let words = 0
-    let rate = 0
-    let isParsed = false
-    let error = null
-    let empty = 'No content to parse'
+	let totalTime = 0;
+	let time = 0;
+	let words = 0;
+	let rate = 0;
+	let isParsed = false;
+	let error = null;
+	let empty = 'No content to parse';
 
-    let domObserver = null
-    let progressObserver = null
+	let domObserver = null;
+	let progressObserver = null;
 
-    const dispatch = createEventDispatcher()
+	const dispatch = createEventDispatcher();
 
-    onMount(async () => {
-        if (!selector) {
-            return
-        }
-        try {
-            domObserver = new DOMObserver()
-            const { node: el } = await domObserver.wait(selector, null, {timeout: 1000})
+	onMount(async () => {
+		if (!selector) {
+			return;
+		}
+		try {
+			domObserver = new DOMObserver();
+			const { node: el } = await domObserver.wait(selector, null, { timeout: 1000 });
 
-            const rdm = new ReadPerMinute()
-            ;({time, time: totalTime, words, rate} = rdm.parse(el.textContent, lang))
+			const rdm = new ReadPerMinute();
+			({ time, time: totalTime, words, rate } = rdm.parse(el.textContent, lang));
 
-            // if (withScroll) {
-            //     progressObserver = new ScrollProgress((_, progress) => {
-	        //         time = Math.max(Math.round(totalTime - totalTime * progress), 0)
-	        //         words = Math.max(Math.round((totalTime - totalTime * progress) * rate), 0)
-	        //         dispatch('change', {
-		    //             time,
-		    //             words,
-		    //             progress
-	        //         })
-            //     })
-            // }
+			// if (withScroll) {
+			//     progressObserver = new ScrollProgress((_, progress) => {
+			//         time = Math.max(Math.round(totalTime - totalTime * progress), 0)
+			//         words = Math.max(Math.round((totalTime - totalTime * progress) * rate), 0)
+			//         dispatch('change', {
+			//             time,
+			//             words,
+			//             progress
+			//         })
+			//     })
+			// }
 
-            isParsed = true
-        } catch (err) {
-            error = err.message
-        }
-    })
+			isParsed = true;
+		} catch (err) {
+			error = err.message;
+		}
+	});
 
-    onDestroy(() => {
-        domObserver?.clear()
-        progressObserver?.destroy()
-    })
+	onDestroy(() => {
+		domObserver?.clear();
+		progressObserver?.destroy();
+	});
 </script>
 
 {#if $$slots.error && !!error}
-    <slot name="error" {error}/>
+	<slot name="error" {error} />
 {:else if $$slots.content && !error && isParsed}
-    <slot name="content" {time} {words}/>
+	<slot name="content" {time} {words} />
 {:else}
-    <span data-testid='__readotron-root__' {...$$restProps}>
-        {#if !!error}
-            {error}
-        {:else if isParsed}
+	<span data-testid="__readotron-root__" {...$$restProps}>
+		{#if !!error}
+			{error}
+		{:else if isParsed}
 			{#if isFunction(template)}
 				{@html template(time, words)}
 			{:else}
-				{interpolate(template, {time, words}, '%')}
+				{interpolate(template, { time, words }, '%')}
 			{/if}
 		{:else}
 			{empty}
-        {/if}
-    </span>
+		{/if}
+	</span>
 {/if}

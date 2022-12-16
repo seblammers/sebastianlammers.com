@@ -2,7 +2,8 @@
 	import { siteURL, siteAuthor } from '$lib/config';
 	import { page } from '$app/stores';
 	import { dateFormat } from '$lib/assets/js/utils';
-	import Readotron from '$lib/components/Readotron.svelte';
+	// import Readotron from '$lib/components/Readotron.svelte';
+	import { onMount } from 'svelte';
 	import Heading from '$lib/components/Heading.svelte';
 	import { Head } from 'svead';
 	export let title;
@@ -14,6 +15,18 @@
 	let authorName = siteAuthor;
 	let website = siteURL;
 	let image = `https://ik.imagekit.io/seblammers/tr:otf-Inter-SemiBold_zoEu2Lj-l.otf,ot-${title},ots-72,otc-FFF,ox-10,oy-20,otw-700/twittercard_-1cx8-LQN.png`;
+	let article;
+	let time;
+	onMount(() => {
+		time = getReadingTime();
+	});
+	// https://dev.to/michaelburrows/calculate-the-estimated-reading-time-of-an-article-using-javascript-2k9l
+	function getReadingTime() {
+		let text = article.innerText;
+		let wpm = 225;
+		let words = text.trim().split(/\s+/).length;
+		return Math.ceil(words / wpm);
+	}
 </script>
 
 <Head {title} {description} {image} {url} {authorName} {website} />
@@ -29,11 +42,14 @@
 		<time>Updated: {dateFormat(updated)}</time>
 	{/if}
 
-	<Readotron
+	<!-- <Readotron
 		selector=".post"
 		template={(time) => `Reading Time: ${time} ${time > 1 ? 'minutes' : 'minute'}`}
-	/>
+	/> -->
 
+	<div class="readingTime">
+		{`Reading Time: ${time} ${time > 1 ? 'minutes' : 'minute'}`}
+	</div>
 	{#if categories.length}
 		<div class="flow tags">
 			<ul class="tags">
@@ -49,7 +65,7 @@
 	{/if}
 </div>
 
-<article class="post flow">
+<article class="post flow" bind:this={article}>
 	<slot />
 </article>
 

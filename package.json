@@ -14,7 +14,6 @@
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/adapter-netlify": "^1.0.0",
 		"@sveltejs/kit": "^1.0.0",
-		"@untemps/svelte-readotron": "^1.5.2",
 		"d3": "^7.7.0",
 		"eslint": "^8.12.0",
 		"eslint-config-prettier": "^8.3.0",
