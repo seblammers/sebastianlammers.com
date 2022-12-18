@@ -1,5 +1,5 @@
 ---
-title: Post One
+title: This is some long Text
 date: '2021-12-14'
 categories:
   - 'numbers'
