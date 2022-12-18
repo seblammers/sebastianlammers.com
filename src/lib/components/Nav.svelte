@@ -43,19 +43,9 @@
 		{#if $mounted && (open || !mobile)}
 			<div class="nav-sh" transition:slide class:open={!$navigating && (open || !mobile)}>
 				<div class="links">
-					<a href="/" class:active={$page.url.pathname === '/'} in:fly={{ y: -20, duration: 750 }}>
-						Home
-					</a>
+					<a href="/" class:active={$page.url.pathname === '/'}> Home </a>
 					{#each navItems as page, i (i)}
-						<a
-							href={page.route}
-							class:active={isActive(`${page.route}`)}
-							in:fly={{
-								y: -20,
-								duration: 750,
-								delay: (i + 1) * 100
-							}}
-						>
+						<a href={page.route} class:active={isActive(`${page.route}`)}>
 							{page.title}
 						</a>
 					{/each}
