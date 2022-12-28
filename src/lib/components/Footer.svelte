@@ -10,10 +10,18 @@
 <footer class:mobile>
 	<p>&copy; {new Date().getFullYear()} {siteAuthor}</p>
 
-	<IconStroke stroke="white" />
+	<IconStroke stroke="#f2e9dd" />
+
 	<p
 		class="scroll-to-top"
 		on:click={() => {
+			window.scrollTo({
+				top: 0,
+				left: 0,
+				behavior: 'smooth'
+			});
+		}}
+		on:keydown={() => {
 			window.scrollTo({
 				top: 0,
 				left: 0,
@@ -40,7 +48,7 @@
 		font-family: var(--accentFont);
 		font-weight: 300;
 		background: var(--ink);
-		color: var(--surface2-light);
+		color: var(--background);
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
@@ -60,15 +68,4 @@
 	.scroll-to-top {
 		cursor: pointer;
 	}
-	//   .links {
-	//     margin: 0px auto;
-	//     display: flex;
-	//     flex-direction: column;
-	//     gap: var(--space-s);
-	//     a {
-	//         font-size: var(--step-1);
-	//         border-width: 2px;
-	//         // border: none;
-	//     }
-	// }
 </style>
