@@ -17,10 +17,6 @@ pre {
 
 code {
   color: var(--dark);
-  // by default the type-scale is not applicable to this second font
-  // to make the two fonts work together, I apply a custom factor
-  // to homogenize the font sizes
-  // font-size: var(--step--1);
   padding: var(--space-3xs);
   border-radius: var(--space-2xs);
   border-color: var(--accent);
@@ -44,4 +40,17 @@ p > code {
   background: var(--surface2-light);
   border-width: 0.1rem;
   font-weight: 400;
+}
+
+a > code {
+  border-style: solid;
+  background: var(--surface2-light);
+  border-width: 0.1rem;
+  font-weight: 400;
+
+  &:hover {
+    color: var(--surface2-light);
+    background-color: var(--accent);
+    text-decoration-color: var(--surface2-light);
+  }
 }
