@@ -5,20 +5,20 @@
 	import { onMount } from 'svelte';
 	import Heading from '$lib/components/Heading.svelte';
 	import { Head } from 'svead';
-	export let title;
-	export let date;
-	export let categories;
-	export let updated;
-	export let description;
+	export let title = 'I forgot the title!';
+	export let date = '1999-12-31';
+	export let categories = undefined;
+	export let updated = undefined;
+	export let description = 'Whoops, no description!';
 	let url = $page.url.toString;
 	let authorName = siteAuthor;
 	let website = siteURL;
 	let image = `https://ik.imagekit.io/seblammers/tr:otf-Inter-SemiBold_zoEu2Lj-l.otf,ot-${title},ots-72,otc-FFF,ox-10,oy-20,otw-700/twittercard_-1cx8-LQN.png`;
+
+	// setting up reading-time variables
 	let article;
 	let time;
-	onMount(() => {
-		time = getReadingTime();
-	});
+	// function to estimate reading time
 	// https://dev.to/michaelburrows/calculate-the-estimated-reading-time-of-an-article-using-javascript-2k9l
 	function getReadingTime() {
 		let text = article.innerText;
@@ -26,6 +26,11 @@
 		let words = text.trim().split(/\s+/).length;
 		return Math.ceil(words / wpm);
 	}
+
+	// read on mount
+	onMount(() => {
+		time = getReadingTime();
+	});
 </script>
 
 <Head {title} {description} {image} {url} {authorName} {website} />
