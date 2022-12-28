@@ -3,6 +3,7 @@
  */
 
  code[class*="language-"],
+ div[class*="language-"],
  pre[class*="language-"] {
    color: #f8f8f2;
    background: none;
@@ -20,6 +21,11 @@
    -moz-hyphens: none;
    -ms-hyphens: none;
    hyphens: none;
+
+   & ::selection {
+    color: var(--dark);
+    background: var(--surface2-light);
+  }
  }
  
  /* Code blocks */
