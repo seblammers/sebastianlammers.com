@@ -54,7 +54,7 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
 	.sticky {
 		padding-bottom: 0.25rem;
 		padding-top: 0.25rem;
@@ -76,6 +76,11 @@
 		font-weight: 400;
 		margin-left: var(--space-xs);
 		color: var(--surface2-light);
+
+		& ::selection {
+			color: var(--dark);
+			background: var(--surface2-light);
+		}
 	}
 
 	.button {
