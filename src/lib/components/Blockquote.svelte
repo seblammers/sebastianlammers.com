@@ -2,7 +2,7 @@
 	export let text = 'Default quote text.';
 	export let url = undefined; //A URL that designates a source document or message for the information quoted. This attribute is intended to point to information explaining the context or the reference for the quote.
 	export let author = 'Some Person';
-	export let source = 'Some source';
+	export let source = undefined;
 </script>
 
 <!--starting it all with a figure tag to hold things together -->
@@ -14,7 +14,10 @@
 	</blockquote>
 
 	<!--and right below we put the author and source -->
-	<figcaption>—{author}, <cite>{source}</cite></figcaption>
+	<figcaption>
+		—{author}
+		{#if source}, <cite>{source}</cite>{/if}
+	</figcaption>
 </figure>
 
 <style>
