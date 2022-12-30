@@ -1,4 +1,4 @@
-import { error } from '@sveltejs/kit'
+import { error } from '@sveltejs/kit';
 
 export const load = async ({ url, fetch }) => {
 	try {
@@ -9,4 +9,6 @@ export const load = async ({ url, fetch }) => {
 	catch(err) {
 		throw error(500, err)
 	}
-}
+};
+
+export const prerender = true;
