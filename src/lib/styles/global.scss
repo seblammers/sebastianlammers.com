@@ -44,3 +44,18 @@ body {
 .flow > * + * {
   margin-top: var(--flow-space, 1em);
 }
+
+// @media (prefers-color-scheme: dark) {
+//   body, h1, h2, h3, h4 {
+//      --background: var(--text1-light);
+//      --ink: var(--surface2-light);
+//      background: var(--background);
+//      color: var(--ink)
+//   }
+// }
+
+// @media (prefers-color-scheme: light) {
+//   body {
+//     color: var(--ink);
+//   }
+// }

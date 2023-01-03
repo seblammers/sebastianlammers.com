@@ -318,6 +318,30 @@ text = "The <code>reduce()</code> method executes a user-supplied 'reducer' call
 author="MDN Web Docs"
 url="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce"/>
 
+To introduce reduce, I'll reach to a standard example: computing the sum of something.
+Let's make it really simple:
+
+```js
+let bodyMassGrams = [3750, 3800, 3250];
+
+let sum = bodyMassGrams.reduce(
+  (accumulator, currentValue) => accumulator + currentValue
+  );
+```
+
+<Accordion summary="Why accumulator?">
+
+The variable-name `accumulator` or the shorter version `acc` is a very common choice for Javascript's reduce(). When I first encountered reduce(), I found it always used `(acc, cur)` and I honestly found it not very intuitive. 
+_______________________
+
+The main take-away is this: the whole idea of the reduce() function is to go from many values to a single value. The way to get there is to work with some sort of *last value* and *current value* that can be used to compute stuff with. It so happens that a majority of persons is calling the *last value* the `accumulator`, because it **persists** and is **updated** while iterating through all values. In contrast, the *current value*, often called `cur` is simply updated to the value at hand.
+
+________________________
+
+In our example above, `accumulator` is literally accumulating all values by adding them, one by one.
+  
+</Accordion>
+
 ```js
 
 let initialValue = 0;
@@ -341,4 +365,12 @@ Palmer Penguins Data were collected and made available by [Dr. Kristen Gorman](
 3. [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
 4. [map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 5. [reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+
+### Math nethods
+1. [sign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sign)
+2. [round()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round)
+3. [random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+4. [min()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min)
+5. [floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor)
+6. [abs()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs)
 

@@ -163,3 +163,8 @@ aside > ul {
     color: var(--surface2-light);
   }
 }
+
+hr {
+  border: calc(var(--space-3xs)/5) solid var(--accent);
+  border-radius: 5px;
+}

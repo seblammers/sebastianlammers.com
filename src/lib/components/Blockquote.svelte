@@ -15,7 +15,8 @@
 
 	<!--and right below we put the author and source -->
 	<figcaption>
-		—{author}
+		<a href={url} target="blank" rel="noopener noreferrer" class="no-underline">—{author}</a>
+
 		{#if source}, <cite>{source}</cite>{/if}
 	</figcaption>
 </figure>
@@ -34,7 +35,7 @@
 	}
 
 	blockquote p {
-		padding: 15px;
+		padding: var(--space-xs);
 		font-style: italic;
 	}
 
