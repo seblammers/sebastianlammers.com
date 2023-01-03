@@ -10,5 +10,3 @@ export const load = async ({ url, fetch }) => {
 		throw error(500, err)
 	}
 };
-
-export const prerender = true;
