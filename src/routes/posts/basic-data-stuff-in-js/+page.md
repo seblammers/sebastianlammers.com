@@ -85,7 +85,6 @@ If you're new to JavaScript and you're not sure what an **array** and an **objec
 An array is just a convenient way to store of similar things under the a single variable name. Like this:
 
 ```js
-
 let penguinSpecies = ["Adelie", "Adelie", "Chinstrap"];
 ```
 
@@ -112,7 +111,6 @@ That is to say, it is not a function that you can call, but simply a property th
 ### Objects in JavaScript
 Let's say we want to document some facts about one of our penguins. Let's put down where Rita lives and what type of penguin she is:
 ```js
-
 let factsAboutRita = {species: "Adelie", island: "Dream"}
 ```
 
@@ -163,7 +161,6 @@ Remember that there is a way to access all keys in a given object?
 That's exactly what we need to get our column names!
 
 ```js
-
 let columnNames = Object.keys(data[0]); 
 
 console.log(columnNames); // logs ["species", "island", "bill_length_mm","bill_depth_mm","flipper_length_mm","body_mass_g","sex","year"]
@@ -192,7 +189,6 @@ This is a simple sanity check that is useful for at least two things:
 You already know how to do this one: get the length of the array! 
 
 ```js
-
 let observations = data.length; 
 
 console.log(observations); // logs 344
@@ -209,7 +205,6 @@ Instead, let's take a glimpse on the first 3 rows of the data to get a feel for 
 To do that we use a standard array method called `slice()`:
 
 ```js
-
 let head = data.slice(0, 3); 
 ```
 
@@ -249,7 +244,6 @@ So, we'll take advantage of the fact that a **set** only retains **unique values
 Let's pull back our simple example array and then use it create a set from it. 
 
 ```js
-
 // our original array has 3 entries, but only 2 of them are unique
 let penguinSpecies = ["Adelie", "Adelie", "Chinstrap"];
 
@@ -266,7 +260,6 @@ This is where `map()` comes in to save your day!
 Here is a super-duper simple example of what `map()` can do:
 
 ```js
-
 // starting out with our weights in grams
 let bodyMassGrams = [3750, 3800, 3250];
 
@@ -280,7 +273,6 @@ Simple: for each entry in our array, divide it by 1000 and then save the result 
 Nice, now we put set and map together to finally retrieve our distinct species values:
 
 ```js
-
 let distinctSpecies = [...new Set(data.map(row => row.species))]; 
 
 console.log(distinctSpecies); // logs ["Adelie", "Gentoo", "Chinstrap"]
@@ -308,8 +300,8 @@ Doing the same for the islands is trivial now...
 Now that we know there are only 3 species in our dataset, an obvious next question is: how many of the 344 observations does each of the 3 species account for?
 
 Let's first do it for just one species to understand what kind of operation is needed for this task.
-Out of the 3 species names, *Gentoo* sounds like the most fun to me, so we'll count these first.
-Basically, we want to take the array and summarize the number of appearances of *Gentoo*. Another way of saying the same is: we want to reduce the array (many observations) to a single value (number of *Gentoo* penguins).
+Out of the 3 species at hand, *Gentoo* sounds like the most fun to me, so we'll count these first.
+Basically, we want to take the array and summarize the number of appearances of *Gentoo*. Another way of saying the same is: we want to *reduce* the array (many observations) to a single value (number of *Gentoo* penguins).
 
 Drumroll..
 
@@ -318,32 +310,67 @@ text = "The <code>reduce()</code> method executes a user-supplied 'reducer' call
 author="MDN Web Docs"
 url="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce"/>
 
-To introduce reduce, I'll reach to a standard example: computing the sum of something.
+To introduce reduce, I'll reach to a standard example: computing the sum of *something*.
 Let's make it really simple:
 
 ```js
 let bodyMassGrams = [3750, 3800, 3250];
 
-let sum = bodyMassGrams.reduce(
-  (accumulator, currentValue) => accumulator + currentValue
+let initialValue = 0;
+
+let bodyMassSum = bodyMassGrams.reduce(
+  (accumulator, currentValue) => accumulator + currentValue, initialValue
   );
+
+console.log(bodyMassSum) // logs 10800
 ```
 
-<Accordion summary="Why accumulator?">
 
-The variable-name `accumulator` or the shorter version `acc` is a very common choice for Javascript's reduce(). When I first encountered reduce(), I found it always used `(acc, cur)` and I honestly found it not very intuitive. 
-_______________________
 
-The main take-away is this: the whole idea of the reduce() function is to go from many values to a single value. The way to get there is to work with some sort of *last value* and *current value* that can be used to compute stuff with. It so happens that a majority of persons is calling the *last value* the `accumulator`, because it **persists** and is **updated** while iterating through all values. In contrast, the *current value*, often called `cur` is simply updated to the value at hand.
+This code takes the array of 3 numbers and adds them up together.
+It goes through the array, takes the *last value* (accumulator) and adds the *current value* to it.
+Because we specify an *initial value*, this will be the first value that accumulator takes.
+*Current value* will be 3750 and the sum of both is also 3750.
+Moving on to the next step, *now* accumulator is 3750 and *current value* is 3800 and so on and so on.
 
-________________________
+<Accordion summary="Under the hood of reduce()">
 
-In our example above, `accumulator` is literally accumulating all values by adding them, one by one.
-  
-</Accordion>
+Curious to see how *accumulator* and *current value* change while reduce() works through the array?
+What do you think happens when you omit an initial value?
+Run this code to find out!
+<br>
 
 ```js
+let bodyMassGrams = [3750, 3800, 3250];
 
+// this function will do the summation-part and log all values
+function logger(accumulator, currentValue, index) {
+  const returns = accumulator + currentValue;
+  console.log(
+    `index: ${index}, 
+    accumulator: ${accumulator}, 
+    currentValue: ${currentValue}, 
+    returns: ${returns}
+==============================`,
+  );
+  return returns;
+}
+
+// run the reduce-logger to see whats inside
+bodyMassGrams.reduce(logger);
+```
+
+<br>  
+
+Notice how reduce starts at index 1! Try changing the last line to `bodyMassGrams.reduce(logger, 0);` to add an initial value and see what happens.
+
+</Accordion>
+
+
+Back to our data (an array of objects, remember?). Let's count all those *Gentoo* penguins with the help of reduce:
+
+
+```js
 let initialValue = 0;
 
 let countGentoo = data.reduce((counter, row) => {
@@ -353,6 +380,66 @@ let countGentoo = data.reduce((counter, row) => {
 
 console.log(countGentoo); // logs 124
 ```
+
+I deviated from the traditional variable names here, because basically what we do is **counting**. And since we're iterating through the rows of our table (aka the objects inside our array), I use *row* to refer to the current *object*. <br>
+For each row, inside the species variable, check if that is equal to "Gentoo". If so, increase our counter accumulator by 1. Return the counter when the whole array is processed.
+
+But! If we want to do the same for the other two species, we'd have to repeat that code...
+Instead, let's quickly make that a function:
+
+```js
+function speciesCounter(data, species) {
+  return data.reduce((counter, row) => {
+    if (row.species === species) counter += 1
+    return counter;
+  }, 0);
+};
+
+const countGentooFunction = speciesCounter(data, "Gentoo");
+console.log(countGentooFunction); // logs 124 too
+```
+
+Now you can easily do the same for the other 2 species. Have a play with it.
+
+<Accordion summary="Bonus: Count all at once">
+
+Do you want to be extra-efficient? Thanks to [Leigh Halliday's tutorial video](https://www.youtube.com/watch?v=NiLUGy1Mh4U), I give you a more advanced way to count all species at the same time.
+<br>
+
+```js
+let countAll = data.reduce((acc, row) => {
+  	return { ...acc, [row.species]: (acc[row.species] || 0) + 1 };
+	}, {});
+
+console.log(countAll); // logs  { Adelie: 152, Gentoo: 124, Chinstrap: 68 }
+```
+
+<br>
+Please check out the video, where Leigh does an amazing job at explaining this super concise code.
+
+</Accordion> 
+
+<Accordion summary="Why is everybody using 'accumulator'?">
+
+The variable-name `accumulator` or the shorter version `acc` is a very common choice for Javascript's reduce(). When I first encountered reduce(), I saw lts of examples that always used `(acc, cur)` and I honestly found it not very intuitive. 
+
+<hr>
+
+The main take-away is this: the whole idea of the reduce() function is to go from many values to a single value. The way to get there is to work with some sort of *last value* and *current value* that can be used to compute stuff with. It so happens that a majority of persons is calling the *last value* the `accumulator`, because it **persists** and is **updated** while iterating through all values. In contrast, the *current value*, often called `cur` is simply updated to the value at hand.
+
+
+In our example above, `accumulator` is literally *accumulating* all values by adding them, one by one.
+  
+</Accordion>
+
+<Accordion summary="Further resources on reduce()">
+
+- [reduce() in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+- [a great intro video to reduce() by Leigh Halliday](https://www.youtube.com/watch?v=NiLUGy1Mh4U)
+  
+</Accordion>
+
+
 ### Sort the data
 Another common thing you might want to do with your data is sorting it. Say you only want the
 

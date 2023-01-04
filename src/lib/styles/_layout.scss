@@ -165,6 +165,9 @@ aside > ul {
 }
 
 hr {
-  border: calc(var(--space-3xs)/5) solid var(--accent);
-  border-radius: 5px;
+  width: 100%;
+	margin: var(--space-3xs) 0;
+	border: 0;
+	height: 1px;
+	background: var(--accent);
 }
