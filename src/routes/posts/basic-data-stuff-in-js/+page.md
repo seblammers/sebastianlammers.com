@@ -10,6 +10,7 @@ categories:
 
 <script>
   import Table from '$lib/components/posts/TableView.svelte';
+  import TOC from '$lib/components/posts/TOC.svelte';
   import data from './data.json';
 
   let somePenguins = [
@@ -37,7 +38,7 @@ categories:
 
 </script>
 
-<Accordion summary="Table of contents">
+<TOC>
 
 - [A basic dataset](#a-basic-dataset)
 - [Arrays in JavaScript](#arrays-in-javascript)
@@ -61,7 +62,8 @@ categories:
 - [Array methods to cover](#array-methods-to-cover)
 - [Math methods](#math-methods)
 
-</Accordion>
+</TOC>
+
 
 This is a simple overview of how you can work with tabular data in the world of vanilla Javascript.
 If you are familiar with other programming languages such as Python or R, you might have some expectations about what a programming language delivers in terms of data manipulation.
