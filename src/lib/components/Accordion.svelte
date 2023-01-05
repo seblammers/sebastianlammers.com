@@ -9,13 +9,14 @@
 		<b>{summary}</b>
 	</summary>
 
-	<div class="details">
+	<div class="details flow">
 		<slot />
 	</div>
 </details>
 
 <style>
 	details {
+		--flow-space: var(--space-m);
 		border: var(--radius) solid var(--accent);
 		border-radius: var(--radius);
 		padding: var(--space-s);
