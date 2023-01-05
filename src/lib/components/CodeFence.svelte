@@ -33,7 +33,7 @@
 	$: title = title ?? mapDisplayLanguage(lang);
 </script>
 
-<div class="cont">
+<div class="code-fence">
 	<div class="sticky title">
 		<div class="language">{lang}</div>
 
@@ -66,8 +66,8 @@
 		align-items: center;
 		justify-content: space-between;
 		max-width: var(--max-width);
-		background: #282a36;
-		/* same colour as code block */
+		background: #595d77;
+		/* same color as code block */
 		border-radius: 0.3em 0.3em 0% 0%;
 	}
 
