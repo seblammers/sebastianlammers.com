@@ -118,3 +118,14 @@ ol {
     }
   }
 }
+
+.toc > ul > li {
+  
+  & > a {
+  color: var(--ink);
+  }
+
+  & > ul > li > a {
+    color: var(--ink);
+  }
+}
