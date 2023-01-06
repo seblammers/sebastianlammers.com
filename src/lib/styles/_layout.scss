@@ -171,3 +171,36 @@ hr {
 	height: 1px;
 	background: var(--accent);
 }
+
+table {
+  font-family: var(--codeFont);
+  max-width: 100%;
+  border: 0;
+  white-space: nowrap;
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  background-color: var(--surface2-light);
+}
+
+th {
+  height: 56px;
+  text-align: left;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+tr {
+  height: 52px;
+  border-top-color: rgba(0, 0, 0, 0.12);
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+}
+
+td {
+  padding-right: 16px;
+  padding-left: 16px;
+}

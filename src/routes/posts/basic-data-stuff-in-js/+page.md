@@ -57,6 +57,7 @@ categories:
   - [Count Gentoo](#count-gentoo)
   - [A counting function](#a-counting-function)
 - [Sort the data](#sort-the-data)
+  - [Ascending vs. descending order](#ascending-vs-descending-order)
 - [Mutate the data](#mutate-the-data)
 - [About the data](#about-the-data)
 - [Array methods to cover](#array-methods-to-cover)
@@ -555,7 +556,7 @@ While there is a native array method called `sort()`, I'm showing this rather la
 Here is the code you'd probably write first:
 
 ```js
-// use with care: 
+// don't do this: 
 let sorted = data.sort((a, b) => a.body_mass_g - b.body_mass_g);
 ```
 
@@ -577,6 +578,15 @@ If we simply call `data.sort(...)` we're be *sorting in place*.
 That's fine if you know what you're doing and you don't need to preserve the original order in your data.
 But even if you assign your sorted array to a new variable, the original will be sorted *as well*!
 
+<Accordion summary="If you do want to sort in place...">
+
+...you don't need to assign to a new variable and instead can just call sort() on your data like so:
+
+```js
+data.sort((a, b) => a.body_mass_g - b.body_mass_g);
+```
+</Accordion>
+
 Here is the code you need to create *a new array* with the sorted values.
 
 ```js
@@ -586,15 +596,96 @@ let sorted = [...data].sort((a, b) => a.body_mass_g - b.body_mass_g);
 
 We use a neat little trick to **first** copy the array via spread syntax `[...data]` and **then** sort *that new copy* in place and assign it to our new variable `sorted`. 
 
-Now for the part that goes `a.body_mass_g - b.body_mass_g`. 
-Sort expects a *compare function* that specifies what and how it should be sorted.
+<Accordion summary="Alternative to the Spread syntax '...'">
+
+Another way to create a copy and then sort the copied array is to use slice() without arguments:
+
+```js
+// this creates a new sorted copy
+let sorted = [...data].sort((a, b) => a.body_mass_g - b.body_mass_g);
+
+// same:
+let slicedSorted = data.slice().sort((a, b) => a.body_mass_g - b.body_mass_g);
+
+console.log(sorted === slicedSorted) // logs "true"
+```
+  
+Pick your poison.
+In my humble opinion both are ok, but I would find it more intuitive if sort() simply returned a new array (like map() and filter() do.)
+</Accordion>
+
+#### Ascending vs. descending order
+The obvious question right now is: why do we need to write this `a - b` stuff?
+Sort() expects a *compare function* that specifies *what* should be sorted and *how* it should be sorted.
 It boils down to this: 
-1. If the *compare function* returns a *positive number* then `a` is sorted after `b`. 
-2. If the *compare functions* returns a *negative number* then `a` is sorted before `b`.
+1. If the *compare function* returns a *positive number* then `a` is sorted *after* `b`. 
+2. If the *compare functions* returns a *negative number* then `a` is sorted *before* `b`.
 
+Let's walk through a simplified example to try to understand this:
+
+```js
+// simple array
+let bodyMassGrams = [3750, 3800, 3250];
+
+// sorted array
+bodyMassGrams.sort((a,b) => a - b)
+```
+
+What is happening?
+Let's take this array of 3 values and think through what is compared and how that will affect the sorting.
+
+| comparison |    result | effect |
+|------------|-----------|--------|
+| a: 3750 - b: 3800 =| -50 | 3750 is sorted *before* 3800 |
+| a: 3800 - b: 3250 =| 550 | 3800 is sorted *after* 3250 |
+| a: 3750 - b: 3250 =| 500 | 3750 is sorted *after* 3250 |
+
+Now all values have been compared to each other and the order has been established!
 In case that does not make sense to you right now I encourage you to watch the video by The Coding Train that I link to below.
-Daniel makes an incredible job (again) at explaining and showcasing sort.
+Daniel makes an incredible job (again) at explaining and showcasing sort().
 
+<Accordion summary="Hey, what about descending?">
+
+Yep, you got me there. But it's simple:
+
+```js
+// simple array
+let bodyMassGrams = [3750, 3800, 3250];
+
+// sorted array (ascending)
+bodyMassGrams.sort((a,b) => a - b)
+
+// sorted array (descending)
+bodyMassGrams.sort((a,b) => b - a)
+```
+
+Or you use a helper function like this to make it more explicit:
+
+```js
+
+function compareValues(order = 'asc') {
+  return function innerSort(a, b) {
+
+    let comparison = 0;
+    if (a > b) {
+      comparison = 1;
+    } else if (a < b) {
+      comparison = -1;
+    }
+    return (
+      (order === 'desc') ? (comparison * -1) : comparison
+    );
+  };
+}
+
+// default: ascending
+let asc = [...bodyMassGrams].sort(compareValues());
+
+// descending on demand
+let desc = [...bodyMassGrams].sort(compareValues("desc"));
+```
+
+</Accordion>
 
 <Accordion summary="Further resources on sort() and '...'">
 
