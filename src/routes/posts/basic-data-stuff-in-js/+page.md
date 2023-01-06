@@ -4,7 +4,6 @@ date: '2022-12-07'
 categories:
   - 'javascript'
   - 'data'
-  - 'csv'
   - 'basics'
 ---
 
@@ -59,6 +58,7 @@ categories:
   - [A counting function](#a-counting-function)
 - [Sort the data](#sort-the-data)
 - [Mutate the data](#mutate-the-data)
+- [About the data](#about-the-data)
 - [Array methods to cover](#array-methods-to-cover)
 - [Math methods](#math-methods)
 
@@ -548,13 +548,71 @@ In our example above, `accumulator` is literally *accumulating* all values by ad
 
 
 ### Sort the data
-Another common thing you might want to do with your data is sorting it. Say you only want the
+Another common thing you might want to do with your data is sorting it. 
+Say you want to make sure the penguins with the lowest body mass are listed first in your data.
+How would go about that?
+While there is a native array method called `sort()`, I'm showing this rather late in this post, because I find it to be surprisingly complex.
+Here is the code you'd probably write first:
 
-Palmer Penguins Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pallter.marine.rutgers.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/).
+```js
+// use with care: 
+let sorted = data.sort((a, b) => a.body_mass_g - b.body_mass_g);
+```
+
+If you inspect the `sorted` data, you'll find it is indeed sorted as expected.
+
+<div class="huge">
+BUT!
+</div>
+
+There's a big *BUT*.
+Try logging this and be surprised:
+
+```js
+// the original is sorted as well!
+console.log(sorted === data) // logs "true"
+```
+
+If we simply call `data.sort(...)` we're be *sorting in place*.
+That's fine if you know what you're doing and you don't need to preserve the original order in your data.
+But even if you assign your sorted array to a new variable, the original will be sorted *as well*!
+
+Here is the code you need to create *a new array* with the sorted values.
+
+```js
+// this creates a new sorted copy
+let sorted = [...data].sort((a, b) => a.body_mass_g - b.body_mass_g);
+```
+
+We use a neat little trick to **first** copy the array via spread syntax `[...data]` and **then** sort *that new copy* in place and assign it to our new variable `sorted`. 
+
+Now for the part that goes `a.body_mass_g - b.body_mass_g`. 
+Sort expects a *compare function* that specifies what and how it should be sorted.
+It boils down to this: 
+1. If the *compare function* returns a *positive number* then `a` is sorted after `b`. 
+2. If the *compare functions* returns a *negative number* then `a` is sorted before `b`.
+
+In case that does not make sense to you right now I encourage you to watch the video by The Coding Train that I link to below.
+Daniel makes an incredible job (again) at explaining and showcasing sort.
+
+
+<Accordion summary="Further resources on sort() and '...'">
+
+- [a great intro video to sort() by The Coding Train](https://www.youtube.com/watch?v=MWD-iKzR2c8)
+- [sort() in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+  - see their [example on using sort() + spread syntax here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#sort_returns_the_reference_to_the_same_array)
+- [Spread syntax (...) in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+  
+</Accordion>
 
 
 ### Mutate the data
 Adding new columns based on existing ones.
+
+### About the data
+
+Palmer Penguins Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pallter.marine.rutgers.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/).
+
 ### Array methods to cover
 
 1. [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)

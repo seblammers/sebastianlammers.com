@@ -129,3 +129,11 @@ ol {
     color: var(--ink);
   }
 }
+
+.huge {
+  font-size: var(--step-8);
+  font-family: var(--headingFont);
+  font-weight: 900;
+  text-align: center;
+  margin: 0 !important;
+}
