@@ -634,11 +634,15 @@ bodyMassGrams.sort((a,b) => a - b)
 What is happening?
 Let's take this array of 3 values and think through what is compared and how that will affect the sorting.
 
+<div class="table-wrapper" >
+
 | comparison |    result | effect |
 |------------|-----------|--------|
 | a: 3750 - b: 3800 =| -50 | 3750 is sorted *before* 3800 |
 | a: 3800 - b: 3250 =| 550 | 3800 is sorted *after* 3250 |
 | a: 3750 - b: 3250 =| 500 | 3750 is sorted *after* 3250 |
+
+</div>
 
 Now all values have been compared to each other and the order has been established!
 In case that does not make sense to you right now I encourage you to watch the video by The Coding Train that I link to below.
