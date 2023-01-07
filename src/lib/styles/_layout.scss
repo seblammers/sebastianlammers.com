@@ -172,6 +172,12 @@ hr {
 	background: var(--accent);
 }
 
+.table-wrapper {
+		overflow-x: auto;
+		overflow-y: hidden;
+		max-width: 60ch;
+	}
+
 table {
   font-family: var(--codeFont);
   max-width: 100%;
