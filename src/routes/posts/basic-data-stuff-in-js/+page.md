@@ -31,10 +31,23 @@ categories:
   let distinctSpecies = [...new Set(data.map(row => row.species))]; 
 
   let countGentoo = data.reduce((counter, row) => {
-		if (row.species === 'Gentoo') counter += 1
+		if (row.species === "Gentoo") counter += 1
 		return counter;
 		}, 0);
 
+  let dataWithNumerics = data.map(row => {
+    return {
+      ...row, 
+      body_mass_kg: row.body_mass_g / 1000,
+      body_mass_g: +row.body_mass_g,
+      bill_length_mm: +row.bill_length_mm,
+      bill_depth_mm: +row.bill_depth_mm,
+      flipper_length_mm: +row.flipper_length_mm,
+      year: +row.year
+    }
+  });
+
+  console.log(dataWithNumerics);
 </script>
 
 <TOC>
@@ -50,15 +63,16 @@ categories:
   - [Case 2: Filter by condition](#case-2-filter-by-condition)
 - [Check distinct values](#check-distinct-values)
   - [Ingredient 1: Set()](#ingredient-1-set)
-  - [Ingredient 2: map](#ingredient-2-map)
-  - [The whole deal: Set + map](#the-whole-deal-set--map)
+  - [Ingredient 2: map()](#ingredient-2-map)
+  - [The whole deal: Set() + map()](#the-whole-deal-set--map)
 - [Count frequency of distinct values](#count-frequency-of-distinct-values)
   - [Reduce to sum](#reduce-to-sum)
   - [Count Gentoo](#count-gentoo)
   - [A counting function](#a-counting-function)
 - [Sort the data](#sort-the-data)
   - [Ascending vs. descending order](#ascending-vs-descending-order)
-- [Mutate the data](#mutate-the-data)
+- [Mutate, select, rename columns](#mutate-select-rename-columns)
+  - [1: Mutate to add a new column](#1-mutate-to-add-a-new-column)
 - [About the data](#about-the-data)
 - [Array methods to cover](#array-methods-to-cover)
 - [Math methods](#math-methods)
@@ -351,7 +365,7 @@ Now, isn't *that* convenient? All we need now is a way to go through all entries
 Sure, we can write a for-loop, but there is nice array method to do this more succinctly for us.
 This is where `map()` comes in to save your day!
 
-#### Ingredient 2: map
+#### Ingredient 2: map()
 
 Here is a super-duper simple example of what `map()` can do:
 
@@ -366,9 +380,9 @@ console.log(bodyMassKiloGrams); // logs [ 3.75, 3.8, 3.25 ]
 ```
 
 Simple: for each entry in our array, divide it by 1000 and then save the result to a new array.
-Nice, now we put Set and map together to finally retrieve our distinct species values.
+Nice, now we put Set() and map() together to finally retrieve our distinct species values.
 
-#### The whole deal: Set + map
+#### The whole deal: Set() + map()
 
 ```js
 let distinctSpecies = [...new Set(data.map(row => row.species))]; 
@@ -477,7 +491,7 @@ Back to our data (an array of objects, remember?). Let's count all those *Gentoo
 let initialValue = 0;
 
 let countGentoo = data.reduce((counter, row) => {
-  if (row.species === 'Gentoo') counter += 1
+  if (row.species === "Gentoo") counter += 1
   return counter;
   }, initialValue);
 
@@ -552,7 +566,7 @@ In our example above, `accumulator` is literally *accumulating* all values by ad
 Another common thing you might want to do with your data is sorting it. 
 Say you want to make sure the penguins with the lowest body mass are listed first in your data.
 How would go about that?
-While there is a native array method called `sort()`, I'm showing this rather late in this post, because I find it to be surprisingly complex.
+While there is a native array method called `sort()`, I'm showing this rather late in this post, because I find it to be surprisingly complex (there are two things to discuss).
 Here is the code you'd probably write first:
 
 ```js
@@ -574,11 +588,11 @@ Try logging this and be surprised:
 console.log(sorted === data) // logs "true"
 ```
 
-If we simply call `data.sort(...)` we're be *sorting in place*.
+If we simply call `data.sort(...)` we're *sorting in place*.
 That's fine if you know what you're doing and you don't need to preserve the original order in your data.
-But even if you assign your sorted array to a new variable, the original will be sorted *as well*!
+**But even if you assign your sorted array to a new variable, the original will be sorted *as well*!**
 
-<Accordion summary="If you do want to sort in place...">
+<Accordion summary="If you actually do want to sort in place...">
 
 ...you don't need to assign to a new variable and instead can just call sort() on your data like so:
 
@@ -633,6 +647,7 @@ bodyMassGrams.sort((a,b) => a - b)
 
 What is happening?
 Let's take this array of 3 values and think through what is compared and how that will affect the sorting.
+In the table below I list the comparison, the numerical result, and the effect on sorting the elements.
 
 <div class="table-wrapper" >
 
@@ -645,8 +660,20 @@ Let's take this array of 3 values and think through what is compared and how tha
 </div>
 
 Now all values have been compared to each other and the order has been established!
-In case that does not make sense to you right now I encourage you to watch the video by The Coding Train that I link to below.
+The first comparison yields a *negative number*, so `a: 3750` is sorted *before* `b: 3800`.
+The other two comparisons both yield a *positive number*, because `3800` and `3750` are both greater than `3250`...
+
+In case this still does not make sense to you right now I encourage you to watch the video by The Coding Train that I link to below.
 Daniel makes an incredible job (again) at explaining and showcasing sort().
+
+<Accordion summary="Further resources on sort() and '...'">
+
+- [a great intro video to sort() by The Coding Train](https://www.youtube.com/watch?v=MWD-iKzR2c8)
+- [sort() in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+  - see their [example on using sort() + spread syntax here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#sort_returns_the_reference_to_the_same_array)
+- [Spread syntax (...) in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+  
+</Accordion>
 
 <Accordion summary="Hey, what about descending?">
 
@@ -667,7 +694,7 @@ Or you use a helper function like this to make it more explicit:
 
 ```js
 
-function compareValues(order = 'asc') {
+function compareValues(order = "asc") {
   return function innerSort(a, b) {
 
     let comparison = 0;
@@ -677,13 +704,13 @@ function compareValues(order = 'asc') {
       comparison = -1;
     }
     return (
-      (order === 'desc') ? (comparison * -1) : comparison
+      (order === "desc") ? (comparison * -1) : comparison
     );
   };
 }
 
 // default: ascending
-let asc = [...bodyMassGrams].sort(compareValues());
+let asc = [...bodyMassGrams].sort(compareValues("asc"));
 
 // descending on demand
 let desc = [...bodyMassGrams].sort(compareValues("desc"));
@@ -691,18 +718,78 @@ let desc = [...bodyMassGrams].sort(compareValues("desc"));
 
 </Accordion>
 
-<Accordion summary="Further resources on sort() and '...'">
 
-- [a great intro video to sort() by The Coding Train](https://www.youtube.com/watch?v=MWD-iKzR2c8)
-- [sort() in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
-  - see their [example on using sort() + spread syntax here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#sort_returns_the_reference_to_the_same_array)
-- [Spread syntax (...) in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+### Mutate, select, rename columns
+We're gonna finish this off with a roundhouse-kick of data manipulations. 
+Adding a new column based on existing ones? Got ya!
+Renaming existing columns? Easy!
+Selecting columns to boil down the amount of data? Totally!
+
+And ***all these*** can be done with the help of our trusty map() function!
+
+#### 1: Mutate to add a new column
+
+```js
+// convert from grams to kilograms for all entries
+let dataWithKG = data.map(row => {
+    return {
+      body_mass_kg: row.body_mass_g / 1000
+    }
+  });
+```
+
+As with the other use of map() above, this let's us visit each entry in our array `data`.
+Inside each of those entries *or rows of our table*, we define a new pair of a `key:` and a `value`.
+Sticking to the variable-naming of the data, we call our new colum `body_mass_kg` and define the values with the simple computation for each of the `row.body_mass_g`.
+Notice that we `return` an **object** by wrapping our simple line in curly bois `{}`.
+If you console.log() the result of this operation, you'll see that we successfully converted all entries in our rows from grams to kilograms.
+But you'll also notice that all the other columns are gone.
+That's a shame isn't it? Luckily, it's easy to preserve them all with another friend: the spread syntax.
+
+```js
+// convert from grams to kilograms for all entries
+let dataWithKG = data.map(row => {
+    return {
+      ...row, 
+      body_mass_kg: row.body_mass_g / 1000
+    }
+  });
+```
+
+And just like that you have all other variables preserved as well.
+
+<Accordion summary="I noticed something about the new column!">
+
+If you logged this one out too and looked at the output closely, you probably noticed that all the old variables are shown as `'strings'`, while the new column is rendered as a `number`.
+(Depending on your setup/browser etc. the look of it might vary.)
+
+Well, yes! Because I'm lazy, all the data in the original array of objects are strings.
+
+If you want to clean up my mess, you can use this little trick to convert any of the columns to numerical values too that actually should be formatted that way.
+You'll have to specify which columns you want to convert and then use map() like this:
+
+```js
+let dataWithNumerics = data.map(row => {
+    return {
+      ...row, 
+      body_mass_kg: row.body_mass_g / 1000,
+      body_mass_g: +row.body_mass_g,
+      bill_length_mm: +row.bill_length_mm,
+      bill_depth_mm: +row.bill_depth_mm,
+      flipper_length_mm: +row.flipper_length_mm,
+      year: +row.year
+    }
+  });
+```
   
+It looks weird, I know. But this is a very common pattern you'll see in the wild to convert from strings to numbers.
+It uses the unary plus operator, which is *"the fastest and preferred way of converting something into a number, because it does not perform any other operations on the number"*.
+
+- [Unary plus (+) in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus)
+
+
 </Accordion>
-
-
-### Mutate the data
-Adding new columns based on existing ones.
 
 ### About the data
 
