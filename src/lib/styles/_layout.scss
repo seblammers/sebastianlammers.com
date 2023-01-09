@@ -184,29 +184,39 @@ table {
   border: 0;
   white-space: nowrap;
   border-collapse: collapse;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
+  
+  border-radius: calc(var(--radius)*2);
   background-color: var(--surface2-light);
 }
 
 th {
-  height: 56px;
+  height: var(--space-l);
   text-align: left;
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: var(--space-s);
+  padding-left: var(--space-s);
+  
 }
 
 tr {
-  height: 52px;
-  border-top-color: rgba(0, 0, 0, 0.12);
+  height: var(--space-l);
+  border-top-color: var(--paper);
   border-top-width: 1px;
   border-top-style: solid;
+
+  
+}
+thead {
+  & > tr {
+    /* make sure there is no top border for the header row*/
+    border-top: none;
+  }
 }
 tr:hover {
-  background-color: rgba(0, 0, 0, 0.09);
+  background-color: var(--ink);
+  color: var(--surface2-light)
 }
 
 td {
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: var(--space-s);
+  padding-left: var(--space-s);
 }
