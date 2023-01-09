@@ -173,10 +173,10 @@ hr {
 }
 
 .table-wrapper {
-		overflow-x: auto;
-		overflow-y: hidden;
-		max-width: 60ch;
-	}
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 60ch;
+}
 
 table {
   font-family: var(--codeFont);
@@ -184,7 +184,6 @@ table {
   border: 0;
   white-space: nowrap;
   border-collapse: collapse;
-  
   border-radius: calc(var(--radius)*2);
   background-color: var(--surface2-light);
 }
@@ -194,7 +193,6 @@ th {
   text-align: left;
   padding-right: var(--space-s);
   padding-left: var(--space-s);
-  
 }
 
 tr {
@@ -202,15 +200,15 @@ tr {
   border-top-color: var(--paper);
   border-top-width: 1px;
   border-top-style: solid;
-
-  
 }
+
 thead {
   & > tr {
     /* make sure there is no top border for the header row*/
     border-top: none;
   }
 }
+
 tr:hover {
   background-color: var(--ink);
   color: var(--surface2-light)
