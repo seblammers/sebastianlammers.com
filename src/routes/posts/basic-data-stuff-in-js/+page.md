@@ -10,6 +10,8 @@ categories:
 <script>
   import Table from '$lib/components/posts/TableView.svelte';
   import TOC from '$lib/components/posts/TOC.svelte';
+  import { maxByKey } from '$lib/assets/js/utils';
+  import Bar from '$lib/components/posts/Bar.svelte';
   import data from './data.json';
 
   let somePenguins = [
@@ -35,19 +37,20 @@ categories:
 		return counter;
 		}, 0);
 
-  let dataWithNumerics = data.map(row => {
+  let smolData = data.map(row => {
     return {
-      ...row, 
-      body_mass_kg: row.body_mass_g / 1000,
-      body_mass_g: +row.body_mass_g,
-      bill_length_mm: +row.bill_length_mm,
-      bill_depth_mm: +row.bill_depth_mm,
-      flipper_length_mm: +row.flipper_length_mm,
-      year: +row.year
+      species: row.species,
+      body_mass_g: +row.body_mass_g
     }
   });
 
-  console.log(dataWithNumerics);
+
+  let maxValues = maxByKey(smolData, "species", "body_mass_g")
+    .sort((a, b) => a.body_mass_g - b.body_mass_g);
+
+  console.log("maxValues", maxValues);
+
+  // console.log("smolData", smolData);
 </script>
 
 <TOC>
@@ -73,6 +76,7 @@ categories:
   - [Ascending vs. descending order](#ascending-vs-descending-order)
 - [Mutate, select, rename columns](#mutate-select-rename-columns)
   - [1: Mutate to add a new column](#1-mutate-to-add-a-new-column)
+  - [2: Select columns](#2-select-columns)
 - [About the data](#about-the-data)
 - [Array methods to cover](#array-methods-to-cover)
 - [Math methods](#math-methods)
@@ -730,6 +734,8 @@ And ***all these*** can be done with the help of our trusty map() function!
 
 #### 1: Mutate to add a new column
 
+Let's jump right in and re-use the map()-example from above, but this time applying the conversion of grams to kilograms to all 344 observations.
+
 ```js
 // convert from grams to kilograms for all entries
 let dataWithKG = data.map(row => {
@@ -739,9 +745,9 @@ let dataWithKG = data.map(row => {
   });
 ```
 
-As with the other use of map() above, this let's us visit each entry in our array `data`.
-Inside each of those entries *or rows of our table*, we define a new pair of a `key:` and a `value`.
-Sticking to the variable-naming of the data, we call our new colum `body_mass_kg` and define the values with the simple computation for each of the `row.body_mass_g`.
+As with the other use of map() above, this let's us visit each entry in our array called `data`.
+Inside each of those entries (*or rows of our table*), we define a new pair of `key:` and `value`.
+Sticking to the variable-naming convention of this dataset, we call our new colum `body_mass_kg` and define the values with the simple computation for each of the `row.body_mass_g`.
 Notice that we `return` an **object** by wrapping our simple line in curly bois `{}`.
 If you console.log() the result of this operation, you'll see that we successfully converted all entries in our rows from grams to kilograms.
 But you'll also notice that all the other columns are gone.
@@ -749,6 +755,7 @@ That's a shame isn't it? Luckily, it's easy to preserve them all with another fr
 
 ```js
 // convert from grams to kilograms for all entries
+// and preserve existing columns
 let dataWithKG = data.map(row => {
     return {
       ...row, 
@@ -764,16 +771,18 @@ And just like that you have all other variables preserved as well.
 If you logged this one out too and looked at the output closely, you probably noticed that all the old variables are shown as `'strings'`, while the new column is rendered as a `number`.
 (Depending on your setup/browser etc. the look of it might vary.)
 
-Well, yes! Because I'm lazy, all the data in the original array of objects are strings.
+Well, yes! Because I'm lazy, _**all** the data_ in the original array of objects are strings.
 
-If you want to clean up my mess, you can use this little trick to convert any of the columns to numerical values too that actually should be formatted that way.
-You'll have to specify which columns you want to convert and then use map() like this:
+If you want to clean up my mess, you can use this little trick to convert any of the columns to numerical values too, that actually *should be* formatted that way.
+You'll have to specify which columns you want to convert inside map() like this:
 
 ```js
 let dataWithNumerics = data.map(row => {
     return {
+      // previous code:
       ...row, 
       body_mass_kg: row.body_mass_g / 1000,
+      // conversions:
       body_mass_g: +row.body_mass_g,
       bill_length_mm: +row.bill_length_mm,
       bill_depth_mm: +row.bill_depth_mm,
@@ -783,13 +792,33 @@ let dataWithNumerics = data.map(row => {
   });
 ```
   
-It looks weird, I know. But this is a very common pattern you'll see in the wild to convert from strings to numbers.
+It looks weird, I know. But this is a very common pattern you'll see frequently in the wild to convert from strings to numbers.
 It uses the unary plus operator, which is *"the fastest and preferred way of converting something into a number, because it does not perform any other operations on the number"*.
 
 - [Unary plus (+) in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus)
 
 
 </Accordion>
+
+#### 2: Select columns
+
+Going from many columns to a selection of a few needed columns is a piece of cake now.
+Let's say we want to visualize `body_mass_g` by `island`.
+
+```js
+let smolData = data.map(row => {
+    return {
+      species: row.species,
+      body_mass_g: +row.body_mass_g
+    }
+  });
+```
+
+If we then reduce our values to only retain the largest values per species, we can see who is the largest:
+
+
+<Bar data={maxValues} title="Heaviest Penguins by Species"/>
+
 
 ### About the data
 
