@@ -19,7 +19,7 @@ code {
   color: var(--dark);
   padding: var(--space-3xs);
   border-radius: var(--space-2xs);
-  border-color: var(--accent);
+  border-color: transparent;
   
   // high contrast highlight on selection
   & ::selection {
@@ -38,6 +38,10 @@ pre code {
 p > code {
   border-style: solid;
   background: var(--surface2-light);
+  // background: red;
+  /* top and bottom | left and right */
+  padding: 0% var(--space-3xs);
+
   border-width: 0.1rem;
   font-weight: 400;
 }
