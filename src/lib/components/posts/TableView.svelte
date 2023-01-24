@@ -25,10 +25,10 @@
 		</thead>
 
 		<tbody>
-			{#each data as d, index}
+			{#each data as dat}
 				<tr>
-					{#each colNames as col, index}
-						<td>{d[col]}</td>
+					{#each colNames as col}
+						<td>{dat[col]}</td>
 					{/each}
 				</tr>
 			{/each}
