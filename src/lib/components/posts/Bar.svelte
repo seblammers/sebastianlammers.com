@@ -39,22 +39,46 @@
 
 <div class="chart-wrapper" bind:clientWidth={width}>
 	<h4>{title}</h4>
-	<svg class="chart" {width} {height}>
-		<g transform={`translate(${margin.left}, ${margin.top})`}>
+	<svg class="chart" {width} {height} role="figure" tabindex="0">
+		<title>{title}</title>
+		<g
+			transform={`translate(${margin.left}, ${margin.top})`}
+			tabindex="0"
+			role="list"
+			aria-label="bar chart bars"
+		>
 			{#each data as d}
-				<text text-anchor="end" x={-10} y={yAccessorScaled(d) + yScale.bandwidth() / 2} dy=".32em">
-					{yAccessor(d)}
-				</text>
-				<rect x={0} y={yAccessorScaled(d)} width={xAccessorScaled(d)} height={yScale.bandwidth()} />
-				<text
-					text-anchor="start"
-					x={xAccessorScaled(d)}
-					dx="10"
-					y={yAccessorScaled(d) + yScale.bandwidth() / 2}
-					dy=".32em"
+				<g
+					role="listitem"
+					tabindex="0"
+					aria-label="The heaviest penguin of the {yAccessor(d)} species weighed {xAccessor(
+						d
+					)} grams."
 				>
-					{formatLabel(d.body_mass_g)}
-				</text>
+					<text
+						text-anchor="end"
+						x={-10}
+						y={yAccessorScaled(d) + yScale.bandwidth() / 2}
+						dy=".32em"
+					>
+						{yAccessor(d)}
+					</text>
+					<rect
+						x={0}
+						y={yAccessorScaled(d)}
+						width={xAccessorScaled(d)}
+						height={yScale.bandwidth()}
+					/>
+					<text
+						text-anchor="start"
+						x={xAccessorScaled(d)}
+						dx="10"
+						y={yAccessorScaled(d) + yScale.bandwidth() / 2}
+						dy=".32em"
+					>
+						{formatLabel(d.body_mass_g)}
+					</text>
+				</g>
 			{/each}
 		</g>
 	</svg>
