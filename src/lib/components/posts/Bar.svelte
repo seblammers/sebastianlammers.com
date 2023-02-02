@@ -3,6 +3,7 @@
 
 	export let data;
 	export let title = '';
+	export let description = '';
 
 	const formatLabel = d3.format(',.0f');
 
@@ -40,7 +41,7 @@
 <div class="chart-wrapper" bind:clientWidth={width}>
 	<h4>{title}</h4>
 	<svg class="chart" {width} {height} role="figure" tabindex="0">
-		<title>{title}</title>
+		<title>{description}</title>
 		<g
 			transform={`translate(${margin.left}, ${margin.top})`}
 			tabindex="0"

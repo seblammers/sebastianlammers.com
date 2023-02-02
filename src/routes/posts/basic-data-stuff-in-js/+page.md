@@ -47,10 +47,6 @@ categories:
 
   let maxValues = maxByKey(smolData, "species", "body_mass_g")
     .sort((a, b) => a.body_mass_g - b.body_mass_g);
-
-  console.log("maxValues", maxValues);
-
-  // console.log("smolData", smolData);
 </script>
 
 <TOC>
@@ -77,6 +73,7 @@ categories:
 - [Mutate, select, rename columns](#mutate-select-rename-columns)
   - [1: Mutate to add a new column](#1-mutate-to-add-a-new-column)
   - [2: Select columns](#2-select-columns)
+  - [3: Rename columns](#3-rename-columns)
 - [About the data](#about-the-data)
 - [Array methods to cover](#array-methods-to-cover)
 - [Math methods](#math-methods)
@@ -748,7 +745,7 @@ let dataWithKG = data.map(row => {
 As with the other use of map() above, this let's us visit each entry in our array called `data`.
 Inside each of those entries (*or rows of our table*), we define a new pair of `key:` and `value`.
 Sticking to the variable-naming convention of this dataset, we call our new colum `body_mass_kg` and define the values with the simple computation for each of the `row.body_mass_g`.
-Notice that we `return` an **object** by wrapping our simple line in curly bois `{}`.
+Notice that we `return` an **object** by wrapping our simple computation in curly bois `{}`.
 If you console.log() the result of this operation, you'll see that we successfully converted all entries in our rows from grams to kilograms.
 But you'll also notice that all the other columns are gone.
 That's a shame isn't it? Luckily, it's easy to preserve them all with another friend: the spread syntax.
@@ -771,7 +768,7 @@ And just like that you have all other variables preserved as well.
 If you logged this one out too and looked at the output closely, you probably noticed that all the old variables are shown as `'strings'`, while the new column is rendered as a `number`.
 (Depending on your setup/browser etc. the look of it might vary.)
 
-Well, yes! Because I'm lazy, _**all** the data_ in the original array of objects are strings.
+Well, yes! That's because I'm lazy. _**All** the data_ in the original array of objects are strings.
 
 If you want to clean up my mess, you can use this little trick to convert any of the columns to numerical values too, that actually *should be* formatted that way.
 You'll have to specify which columns you want to convert inside map() like this:
@@ -803,7 +800,8 @@ It uses the unary plus operator, which is *"the fastest and preferred way of con
 #### 2: Select columns
 
 Going from many columns to a selection of a few needed columns is a piece of cake now.
-Let's say we want to visualize `body_mass_g` by `island`.
+Let's say we want to visualize `body_mass_g` by `species`. 
+Let's make a new, smaller array of objects that only contains those two columns. 
 
 ```js
 let smolData = data.map(row => {
@@ -814,12 +812,29 @@ let smolData = data.map(row => {
   });
 ```
 
-If we then reduce our values to only retain the largest values per species, we can see who is the largest:
+If we then reduce our values to only retain the highest values per species, we can see who is the largest:
+
+<Bar data={maxValues} title="Heaviest Penguins by Species" description="Bar-Chart showing the heaviest penguin per species in grams."/>
 
 
-<Bar data={maxValues} title="Heaviest Penguins by Species"/>
+#### 3: Rename columns
 
+I think you can guess by now how to rename a column. 
+Nobody is stopping you from just using a different `key:` inside your map() call.
+So we can just replace `species` and `body_mass_g` with whatever floats your boat.
 
+```js
+let smolData = data.map(row => {
+    return {
+      type: row.species,
+      mass: +row.body_mass_g
+    }
+  });
+```
+
+Keep in mind that special characters should be avoided here. 
+If you stick to *just letters*, you're fine.
+Technically, you could also go crazy and use something like `"I need some space":` as your `key:`, but you'll have other problems down the road then, like not being able to use the dot-notation to access your rows (`row.I need some space` will not work).
 ### About the data
 
 Palmer Penguins Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pallter.marine.rutgers.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/).
