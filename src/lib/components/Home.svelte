@@ -1,9 +1,9 @@
 <div class="home-button">
-    <img
-    src="/favicon.png"
-    alt="favicon showing a geometric pattern of blue, red, and orange colours"
-    />
-<!-- <svg 
+	<img
+		src="/favicon.png"
+		alt="favicon showing a geometric pattern of blue, red, and orange colours"
+	/>
+	<!-- <svg 
 version="1.1" 
 viewBox="0 0 130 105" 
 xml:space="preserve" 
@@ -82,18 +82,18 @@ xmlns="http://www.w3.org/2000/svg">
     fill-opacity=".85787"/>
 </g>
 </svg> -->
-
 </div>
 
-
-
 <style>
-    .home-button:hover{
-        /* opacity:0.5; */
-        transform: scale(1.1);
-    }
+	.home-button {
+		max-height: var(--space-3xs);
+	}
+	.home-button:hover {
+		/* opacity:0.5; */
+		transform: scale(1.1);
+	}
 
-    /* .rectOrange {
+	/* .rectOrange {
         fill: var(--accent);
     }
 
