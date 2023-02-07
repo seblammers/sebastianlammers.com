@@ -12,6 +12,9 @@ categories:
   import TOC from '$lib/components/posts/TOC.svelte';
   import { maxByKey } from '$lib/assets/js/utils';
   import Bar from '$lib/components/posts/Bar.svelte';
+  import Embed from '$lib/components/EmbedIFrame.svelte';
+  import Datawrapper from '$lib/components/posts/Datawrapper.svelte';
+
   import data from './data.json';
 
   let somePenguins = [
@@ -44,10 +47,11 @@ categories:
     }
   });
 
-
   let maxValues = maxByKey(smolData, "species", "body_mass_g")
     .sort((a, b) => a.body_mass_g - b.body_mass_g);
 </script>
+
+<Datawrapper />
 
 <TOC>
 
@@ -74,6 +78,10 @@ categories:
   - [1: Mutate to add a new column](#1-mutate-to-add-a-new-column)
   - [2: Select columns](#2-select-columns)
   - [3: Rename columns](#3-rename-columns)
+- [Drumroll](#drumroll)
+  - [Svelte REPL](#svelte-repl)
+  - [Datawrapper Map](#datawrapper-map)
+  - [Datawrapper Chart](#datawrapper-chart)
 - [About the data](#about-the-data)
 - [Array methods to cover](#array-methods-to-cover)
 - [Math methods](#math-methods)
@@ -835,6 +843,30 @@ let smolData = data.map(row => {
 Keep in mind that special characters should be avoided here. 
 If you stick to *just letters*, you're fine.
 Technically, you could also go crazy and use something like `"I need some space":` as your `key:`, but you'll have other problems down the road then, like not being able to use the dot-notation to access your rows (`row.I need some space` will not work).
+
+### Drumroll
+Look, I can embed stuff now!
+
+#### Svelte REPL
+<Embed 
+  src="https://svelte.dev/repl/8f58c81037234683ac1a344da8d859f2?version=3.55.1" 
+  title="An embedded Svelte REPL"
+/>
+
+#### Datawrapper Map
+<Embed 
+  src="https://datawrapper.dwcdn.net/S5MFr/2/" 
+  title="This is where the penguins live"  
+  scrolling="no"
+/>
+
+#### Datawrapper Chart
+<Embed 
+  src="https://datawrapper.dwcdn.net/16Hga/2/" 
+  title="Look at this chart!"
+  height="900"
+/>
+
 ### About the data
 
 Palmer Penguins Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pallter.marine.rutgers.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/).

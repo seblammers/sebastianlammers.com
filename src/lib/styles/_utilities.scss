@@ -15,3 +15,11 @@
     list-style-type: none;
     padding-left: 0;
   }
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    background-color: var(--surface2-light);
+    border-radius: .5rem;
+    border: 2px solid var(--surface-shadow-light);
+  }
