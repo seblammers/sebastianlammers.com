@@ -13,7 +13,6 @@ categories:
   import { maxByKey } from '$lib/assets/js/utils';
   import Bar from '$lib/components/posts/Bar.svelte';
   import Embed from '$lib/components/EmbedIFrame.svelte';
-  import Datawrapper from '$lib/components/posts/Datawrapper.svelte';
 
   import data from './data.json';
 
@@ -51,7 +50,7 @@ categories:
     .sort((a, b) => a.body_mass_g - b.body_mass_g);
 </script>
 
-<Datawrapper />
+
 
 <TOC>
 
