@@ -36,7 +36,12 @@
 			</a>
 
 			<div class="hamburger">
-				<Hamburger --color="var(--text1-light)" type="squeeze" bind:open />
+				<Hamburger
+					--color="var(--text1-light)"
+					--padding="var(--space-xs)"
+					type="squeeze"
+					bind:open
+				/>
 			</div>
 		</div>
 
