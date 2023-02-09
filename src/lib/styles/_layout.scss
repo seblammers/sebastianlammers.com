@@ -149,7 +149,7 @@ aside > ul {
 .pill {
   display: inline-block;
   padding: .3rem .4rem .2rem;
-  border-radius: .5rem;
+  border-radius: var(--radiusSection);
   border: 2px solid var(--accent);
   background: var(--surface3-light);
   color: inherit;
@@ -223,7 +223,7 @@ td {
 iframe {
   width: 100%;
   // left: 0;
-  border-radius: .5rem;
+  border-radius: var(--radiusSection);
   border: 2px solid var(--surface-shadow-light);
   padding: var(--space-xs);
   z-index: 3;

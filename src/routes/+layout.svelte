@@ -1,6 +1,7 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import Nav from '$lib/components/Nav.svelte';
+	import Datawrapper from '$lib/components/Datawrapper.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Subfooter from '../lib/components/Subfooter.svelte';
 
@@ -21,6 +22,8 @@
 
 <div class="layout">
 	<Nav />
+	<!-- A helper to resize Datawrapper Charts if needed -->
+	<Datawrapper />
 
 	{#key data.path}
 		<main

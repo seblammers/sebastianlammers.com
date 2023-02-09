@@ -12,9 +12,9 @@
 
 	const margin = {
 		top: 0,
-		right: 110,
+		right: 120,
 		bottom: 0,
-		left: 180
+		left: 30
 	};
 
 	let width = 400;
@@ -56,14 +56,6 @@
 						d
 					)} grams."
 				>
-					<text
-						text-anchor="end"
-						x={-10}
-						y={yAccessorScaled(d) + yScale.bandwidth() / 2}
-						dy=".32em"
-					>
-						{yAccessor(d)}
-					</text>
 					<rect
 						x={0}
 						y={yAccessorScaled(d)}
@@ -72,12 +64,21 @@
 					/>
 					<text
 						text-anchor="start"
+						x={10}
+						y={yAccessorScaled(d) + yScale.bandwidth() / 2}
+						dy=".32em"
+						fill={'var(--surface2-light)'}
+					>
+						{yAccessor(d)}
+					</text>
+					<text
+						text-anchor="start"
 						x={xAccessorScaled(d)}
 						dx="10"
 						y={yAccessorScaled(d) + yScale.bandwidth() / 2}
 						dy=".32em"
 					>
-						{formatLabel(d.body_mass_g)}
+						{formatLabel(d.body_mass_g)} g
 					</text>
 				</g>
 			{/each}
@@ -90,8 +91,10 @@
 		position: relative;
 		width: 100%;
 		max-width: 60ch;
+		padding: var(--space-xs);
+		border-radius: var(--radiusSection);
 		// border: solid;
-		/* background-color: var(--surface2-light); */
+		background-color: var(--surface2-light);
 	}
 	rect {
 		fill: var(--ink);

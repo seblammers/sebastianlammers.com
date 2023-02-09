@@ -36,6 +36,7 @@
     --paper: var(--background);
 
     --radius: 0.1em;
+    --radiusSection: 0.5rem;
     --max-width: 60rem;
 
     // utopia for the win
@@ -82,7 +83,6 @@
   
     // some additional vars inspired by Andy Bell's Build-Excellent-Websites
     --gutter: var(--space-s-m);
-    --border-radius: var(--step-1);
     --transition-base: 250ms ease;
     --transition-movement: 200ms linear;
     --transition-fade: 200ms ease;
