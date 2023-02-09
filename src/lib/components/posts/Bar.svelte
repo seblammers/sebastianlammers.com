@@ -12,9 +12,9 @@
 
 	const margin = {
 		top: 0,
-		right: 120,
+		right: 160,
 		bottom: 0,
-		left: 30
+		left: 0
 	};
 
 	let width = 400;
