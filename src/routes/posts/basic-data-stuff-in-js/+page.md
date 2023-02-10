@@ -8,13 +8,15 @@ categories:
 ---
 
 <script>
-  import Table from '$lib/components/posts/TableView.svelte';
   import TOC from '$lib/components/posts/TOC.svelte';
+  import Table from '$lib/components/posts/TableView.svelte';
   import { maxByKey } from '$lib/assets/js/utils';
   import Bar from '$lib/components/posts/Bar.svelte';
   import Embed from '$lib/components/EmbedIFrame.svelte';
 
-  import data from './data.json';
+  // data is fetched from internal API in +page.js
+  export let data;
+  const penguins = data.penguins;
 
   let somePenguins = [
     {row: 1, species: "Adelie", island: "Torgersen"},
@@ -24,7 +26,7 @@ categories:
 
   let penguinSpecies = ["Adelie", "Adelie", "Chinstrap"];
 
-  let head = data.slice(0, 3); 
+  let head = penguins.slice(0, 3); 
 
   let speciesSet = new Set(penguinSpecies);
 
@@ -32,14 +34,14 @@ categories:
 
   let bodyMassKiloGrams = bodyMassGrams.map(x => x / 1000);
   
-  let distinctSpecies = [...new Set(data.map(row => row.species))]; 
+  let distinctSpecies = [...new Set(penguins.map(row => row.species))]; 
 
-  let countGentoo = data.reduce((counter, row) => {
+  let countGentoo = penguins.reduce((counter, row) => {
 		if (row.species === "Gentoo") counter += 1
 		return counter;
 		}, 0);
 
-  let smolData = data.map(row => {
+  let smolData = penguins.map(row => {
     return {
       species: row.species,
       body_mass_g: +row.body_mass_g
