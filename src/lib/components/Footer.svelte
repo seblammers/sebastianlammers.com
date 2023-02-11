@@ -10,7 +10,7 @@
 <footer class:mobile>
 	<p>&copy; {new Date().getFullYear()} {siteAuthor}</p>
 
-	<IconStroke stroke="#f2e9dd" />
+	<IconStroke stroke="var(--surface2-light)" />
 
 	<p
 		class="scroll-to-top"
@@ -48,7 +48,7 @@
 		font-family: var(--accentFont);
 		font-weight: 300;
 		background: var(--ink);
-		color: var(--background);
+		color: var(--surface2-light);
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
