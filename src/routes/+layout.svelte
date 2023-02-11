@@ -1,5 +1,7 @@
 <script>
 	import { fly } from 'svelte/transition';
+	import { onMount, tick } from 'svelte';
+	import { page } from '$app/stores';
 	import Nav from '$lib/components/Nav.svelte';
 	import Datawrapper from '$lib/components/Datawrapper.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -18,6 +20,21 @@
 	import '@fontsource/ibm-plex-mono/400.css';
 
 	export let data;
+
+	// When current page path changes, scroll to top (fixes https://github.com/sveltejs/kit/issues/2794)
+	let mounted = false;
+	onMount(() => {
+		mounted = true;
+	});
+	$: path = $page.url.pathname;
+	$: path, scrollTop();
+	async function scrollTop() {
+		if (mounted) {
+			await tick();
+			document.scrollingElement.scrollTop = 0;
+			window.scrollTo(0, 0);
+		}
+	}
 </script>
 
 <div class="layout">
