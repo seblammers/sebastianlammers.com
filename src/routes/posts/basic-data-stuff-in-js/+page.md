@@ -9,6 +9,7 @@ categories:
 
 <script>
   import TOC from '$lib/components/posts/TOC.svelte';
+  import ListFlip from '$lib/components/posts/ListFlip.svelte';
   import Table from '$lib/components/posts/TableView.svelte';
   import { maxByKey } from '$lib/assets/js/utils';
   import Bar from '$lib/components/posts/Bar.svelte';
@@ -94,11 +95,9 @@ This is a simple overview of how you can work with tabular data in the world of 
 If you are familiar with other programming languages such as Python or R, you might have some expectations about what a programming language delivers in terms of data manipulation.
 
 Well, let me tell you a good thing and a bad thing. Which one do you want to hear first?
-(TODO: add a toggle component that lets reader decide in which order. See [this REPL](https://svelte.dev/repl/b87c70cc003647578e71f387be95222c?version=3.20.1)).
 
-Good thing: you can do **a lot** with the help of basic vanilla JavaScript array-methods.
+<ListFlip />
 
-Bad thing: you can not do the same amount of stuff as in Python or R. But then again, these two kind of specialize in data wrangling.
 
 Let's dive into a basic example first and then load a real dataset to dive deeper.
 
