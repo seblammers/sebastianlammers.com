@@ -7,7 +7,7 @@ form {
     font-size: 1rem;
     padding: 0.5rem 1rem;
     background: var(--dark);
-    color: var(--paper);
+    color: var(--surface2-light);
     font-weight: bold;
     border: 2px solid var(--dark);
     border-radius: var(--radiusSection);
@@ -15,11 +15,20 @@ form {
     margin: 2rem 0 0;
     display: block;
     width: max-content;
-    transition: background .2s;
   
+    & > a {
+      color: var(--surface2-light);
+
+      &:hover {
+        color: var(--ink);
+      }
+    }
     &:hover,
     &:focus {
       background: var(--accent);
+      border-color: var(--accent);
+      color: var(--ink);
+      cursor: pointer;
     }
   }
   

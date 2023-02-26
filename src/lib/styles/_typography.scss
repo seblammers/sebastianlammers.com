@@ -103,6 +103,10 @@ ol {
   li {
     margin-bottom: var(--space-m);
 
+    & > code {
+      background: var(--surface2-light);
+    }
+
     &::before {
       border-bottom: calc(var(--space-3xs) / 1.5) solid var(--accent);
       // border-radius: .5rem;

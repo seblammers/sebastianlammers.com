@@ -19,11 +19,13 @@
 		--flow-space: var(--space-m);
 		border: var(--radius) solid var(--accent);
 		border-radius: var(--radius);
+		border-radius: var(--radiusSection);
+
 		padding: var(--space-s);
 		margin: var(--space-xs) 0;
 		max-width: var(--max-width);
 		border-style: none none none solid;
-		background-color: var(--surface4-light);
+		background-color: var(--surface2-light);
 		font-family: var(--accentFont);
 	}
 

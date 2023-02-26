@@ -151,7 +151,7 @@ aside > ul {
   padding: .3rem .4rem .2rem;
   border-radius: var(--radiusSection);
   border: 2px solid var(--accent);
-  background: var(--surface3-light);
+  background: var(--surface2-light);
   color: inherit;
   font-size: var(--step-0);
   line-height: 1;
@@ -219,6 +219,14 @@ td {
   padding-left: var(--space-s);
 }
 
+table tr:nth-child(even) {
+  background-color: var(--surface1-lighter);
+
+  &:hover {
+    background-color: var(--ink);
+    color: var(--surface2-light)
+  }
+}
 
 iframe {
   width: 100%;

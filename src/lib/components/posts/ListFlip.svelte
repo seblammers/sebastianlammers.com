@@ -17,7 +17,7 @@
 	}
 </script>
 
-<div>
+<div class="this-switch">
 	<Switch
 		bind:value={sliderValue}
 		label="Which do you want first?"
@@ -44,11 +44,10 @@
 		list-style: none;
 		height: 100%;
 	}
-	:root {
-		margin: 0;
+	.this-switch {
 		height: 100%;
 		width: 100%;
-		user-select: none;
+		user-select: none; /*  went global??? */
 	}
 
 	* {

@@ -1,24 +1,43 @@
 ---
-title: 'Data in Javascript: Array Methods'
+title: 'Data Wrangling in JS: 02 Array Methods'
 date: '2023-02-11'
+draft: false
 categories:
-  - 'javascript'
+  - 'JavaScript'
   - 'data'
   - 'basics'
 ---
 
 <script>
   import TOC from '$lib/components/posts/TOC.svelte';
+  import Card from '$lib/components/Card.svelte';
   import Table from '$lib/components/posts/TableView.svelte';
   import Embed from '$lib/components/EmbedIFrame.svelte';
 
   // data is fetched from internal API in +page.js
   export let data;
   const penguins = data.penguins;
+  let posts = data.posts;
   
   let head = penguins.slice(0, 3); 
 
 </script>
+
+
+### Loading the data
+Since this series only uses vanilla JavaScript you will be able to follow along in the console of your browser.
+
+To load the data into your console, do the following:
+
+```js
+// this is the url that you need to fetch the data
+let url = "https://preview-seblam.netlify.app/api/data.json?name=penguins" 
+
+// this will load the data into your session under the name "data"
+let data = await (await fetch(url)).json();
+```
+
+With that out of the way, let's dive into our dataset and see what we can learn about it!
 
 ### Get column names
 Firstly, after loading our data, let's check out which facts about the penguins are actually captured in the dataframe by looking at the names of the columns. 
@@ -42,7 +61,7 @@ We also have some measurement of their bodily features, such as how long their `
 Oh, and we know something about how much they weigh (`body_mass_g`). 
 I'm not a penguin expert, but I suspect that we'll see differences in some of the bodily features if we compare the different species. 
 
-Maybe we'll see that below?
+Maybe we'll see that later?
 
 ### Get the number of observations
 
@@ -105,7 +124,7 @@ Starting out with a subset, where you more or less know the datapoints let's you
 </Accordion>
 
 But sometimes you might be interested in a *particular subset* of your data.
-For that scenario, slice is not useful.
+For that scenario, slice() is not useful.
 
 #### Case 2: Filter by condition
 Let's say you are interested in what penguins Rita hangs out with on their home island called *Dream Island*.
@@ -216,3 +235,5 @@ Doing the same for the islands is trivial now...
   
 </Accordion>
 
+## Next up
+<Card post={posts[2]} />

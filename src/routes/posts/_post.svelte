@@ -10,6 +10,9 @@
 	export let categories = undefined;
 	export let updated = undefined;
 	export let description = 'Whoops, no description!';
+	export let draft = true;
+	export let data;
+	export let form;
 	let url = $page.url.toString;
 	let authorName = siteAuthor;
 	let website = siteURL;

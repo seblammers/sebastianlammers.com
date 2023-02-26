@@ -2,7 +2,7 @@
 title: 'Basic Data Manipulation in Javascript'
 date: '2022-12-07'
 categories:
-  - 'javascript'
+  - 'JavaScript'
   - 'data'
   - 'basics'
 ---

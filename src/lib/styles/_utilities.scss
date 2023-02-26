@@ -23,3 +23,8 @@
     border-radius: var(--radiusSection);
     border: 2px solid var(--surface-shadow-light);
   }
+
+  .series-nav {
+    display: flex;
+    justify-content: space-between;
+  }

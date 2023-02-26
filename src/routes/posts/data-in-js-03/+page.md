@@ -1,8 +1,9 @@
 ---
-title: 'Data in Javascript: Adv.'
+title: 'Data Wrangling in JS: 03 Advanced'
 date: '2023-02-11'
+draft: false
 categories:
-  - 'javascript'
+  - 'JavaScript'
   - 'data'
   - 'basics'
 ---

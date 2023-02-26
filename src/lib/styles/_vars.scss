@@ -9,10 +9,12 @@
     
     // orange for accents and surfaces
     --brand: hsl(var(--orange-hue) var(--saturation) 70%);
-    --surface1-light: hsl(var(--orange-hue) 45% 90%);
+    --surface1-light: hsl(var(--orange-hue) 45% 95%);
+    // made for tables so that every other row is slightly darker
+    --surface1-lighter: hsl(var(--orange-hue) 55% 96%); 
     --surface2-light: hsl(var(--orange-hue) 40% 99%);
     --surface3-light: hsl(var(--orange-hue) 40% 92%);
-    --surface4-light: hsl(var(--orange-hue) 40% 85%);
+    --surface4-light: hsl(var(--orange-hue) 40% 90%);
 
     // blue based colours for texts and shadows
     --hue: var(--blue-hue);

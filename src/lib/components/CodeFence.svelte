@@ -66,9 +66,10 @@
 		align-items: center;
 		justify-content: space-between;
 		max-width: var(--max-width);
-		background: #595d77;
-		/* same color as code block */
+		background: var(--ink);
+		color: var(--surface2-light);
 		border-radius: 0.3em 0.3em 0% 0%;
+		border-radius: var(--radiusSection) var(--radiusSection) 0% 0%;
 	}
 
 	.language {
