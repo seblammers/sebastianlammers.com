@@ -2,11 +2,15 @@
 	import { navItems, siteAuthor } from '$lib/config';
 	import { navigating, page } from '$app/stores';
 	import IconStroke from './svg/IconStroke.svelte';
+	import Waves from './svg/HalftoneWave.svelte';
+	export let path;
 	let width;
 	$: mobile = width < 900;
 </script>
 
 <svelte:window bind:innerWidth={width} />
+<Waves fill="var(--ink)" />
+
 <footer class:mobile>
 	<p>&copy; {new Date().getFullYear()} {siteAuthor}</p>
 

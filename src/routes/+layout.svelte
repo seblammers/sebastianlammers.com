@@ -52,7 +52,7 @@
 		</main>
 	{/key}
 
-	<Footer />
+	<Footer {path} />
 
 	{#if data.path === '/about'}
 		<Subfooter />
