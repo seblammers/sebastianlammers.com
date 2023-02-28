@@ -1,4 +1,5 @@
 <script>
+	import PatternShuffle from '$lib/components/PatternShuffle.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
 	let steps = [
@@ -11,7 +12,7 @@
 		{ color: '#b28d8b', fontColor: 'black', text: 'Well, I better show you something nice then.' },
 		{ color: '#c7aba1', fontColor: 'black', text: 'If you can make it to the bottom...' },
 		{ color: '#dcc9bc', fontColor: 'black', text: 'Ok, ok, you made it!' },
-		{ color: '#f1e7da', fontColor: 'black', text: '' }
+		{ color: '#f1e7da', fontColor: 'black', text: 'There you go...' }
 	];
 </script>
 
@@ -22,6 +23,8 @@
 		</div>
 	{/each}
 </section>
+
+<PatternShuffle />
 
 <Footer />
 
