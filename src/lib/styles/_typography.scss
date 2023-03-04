@@ -70,9 +70,9 @@ p > a {
   text-underline-offset: 1px;
 
   &:hover {
-    color: var(--surface2-light);
+    // color: var(--surface2-light);
     background-color: var(--accent);
-    text-decoration-color: var(--surface2-light);
+    // text-decoration-color: var(--surface2-light);
   }
 }
 

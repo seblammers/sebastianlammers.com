@@ -39,6 +39,7 @@ body {
 ::selection {
   color: var(--surface2-light);
   background: var(--dark);
+  text-decoration-color: var(--surface2-light);
 }
 
 .flow > * + * {
