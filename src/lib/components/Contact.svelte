@@ -1,7 +1,7 @@
 <form
 	class="flow"
 	name="contact-form"
-	action="/contactform/success"
+	action="/contact/success"
 	method="POST"
 	netlify-honeypot="bot-field"
 	data-netlify="true"
