@@ -1,4 +1,7 @@
 <script>
-	/** @type {import('./$types').PageData} */
-	export let data;
+	import Heading from '$lib/components/Heading.svelte';
 </script>
+
+<Heading>Thank you!</Heading>
+
+<p>Your submission has been received.</p>
