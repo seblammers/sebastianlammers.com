@@ -2,7 +2,6 @@
 	export let data;
 	import Heading from '$lib/components/Heading.svelte';
 	import Card from '$lib/components/Card.svelte';
-
 	import { siteURL, siteAuthor } from '$lib/config';
 	import { page } from '$app/stores';
 	import { Head } from 'svead';
@@ -17,7 +16,7 @@
 
 <Head {title} {description} {image} {url} {authorName} {website} />
 
-<Heading>Posts</Heading>
+<Heading>{title}</Heading>
 
 <article class="flow">
 	{#each data.posts as post}
