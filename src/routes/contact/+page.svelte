@@ -3,12 +3,11 @@
 	import Contact from '$lib/components/Contact.svelte';
 	import InlineLink from '$lib/components/InlineLink.svelte';
 	import { siteURL, siteAuthor } from '$lib/config';
-	import { page } from '$app/stores';
 	import { Head } from 'svead';
 	let title = 'Contact';
 	let description =
 		'The contact page of sebastianlammers.com, my personal homepage, where I play with code and share some notes and projects.';
-	let url = $page.url.toString;
+	let url = 'https://sebastianlammers.com/contact';
 	let authorName = siteAuthor;
 	let website = siteURL;
 	let image = `https://ik.imagekit.io/seblammers/tr:otf-Inter-SemiBold_zoEu2Lj-l.otf,ot-${title},ots-72,otc-FFF,ox-10,oy-20,otw-700/twittercard_-1cx8-LQN.png`;
