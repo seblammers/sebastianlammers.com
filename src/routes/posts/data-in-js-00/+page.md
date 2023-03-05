@@ -23,6 +23,7 @@ Welcome to this series.
 
 Instead of giving you one giant blog post, I give you multiple smaller ones. 
 You can decide if you read all of it or jump to the more advanced stuff in the later sections of the series. 
+
 *This post* serves as the introduction and gives you an overview of what to expect in each of the parts.
 It will also tell you about some of the conventions I use throughout the series and how to run the code examples.
 
@@ -42,21 +43,25 @@ Well, let me tell you a good thing and a bad thing.
 
 <ListFlip />
 
+With that said, let's go through a quick breakdown of the separate parts of this series.
 ## Brief contents
 
 <Card post={posts[0]} />
+
 The first part will introduce basic terminology to talk about tabular data and how that is typically represented in JavaScript.
 Arrays and Objects are introduced.
 
 <hr>
 
 <Card post={posts[1]} />
+
 The second part demonstrates useful methods that let you characterize a dataset.
 Slice(), filter(), Set(), and map() are introduced with practical examples.
 
 <hr>
 
 <Card post={posts[2]} />
+
 The third part goes deeper into basic methods that let you characterize a dataset.
 Reduce() and sort() are introduced.
 Map() has a reprise with some fundamental data wrangling applications.
