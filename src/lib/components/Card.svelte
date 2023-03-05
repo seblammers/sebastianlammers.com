@@ -26,6 +26,8 @@
 		padding: var(--space-m);
 		background-color: var(--surface2-light);
 		max-width: 42rem;
+		transition-property: all;
+		transition-duration: 0.5s;
 
 		& > a {
 			text-decoration: none;
@@ -37,11 +39,6 @@
 
 		&:hover {
 			box-shadow: 0px 0px 20px var(--accent);
-
-			.pill {
-				background-color: var(--accent);
-				color: var(--surface2-light);
-			}
 		}
 		&:hover h3 {
 			transform: scale(1.01) translateY(-10%);
@@ -54,9 +51,20 @@
 		}
 
 		.pill {
-			color: var(--ink);
-			// transition-property: color;
-			// transition-duration: 0.5s;
+			font-size: var(--step-0);
+			font-weight: bold;
+			color: var(--surface2-light);
+			background-color: var(--ink);
+			border-color: var(--ink);
+			padding: var(--space-2xs) var(--space-s);
+			transition-property: all;
+			transition-duration: 0.5s;
+			&:hover {
+				background-color: var(--accent);
+				color: var(--ink);
+				border-color: var(--accent);
+				box-shadow: 0px 0px 20px var(--accent);
+			}
 		}
 		.more {
 			display: flex;
