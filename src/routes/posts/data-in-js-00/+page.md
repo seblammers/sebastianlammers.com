@@ -95,6 +95,21 @@ So, there are two ways I recommend to run the code examples: the console or REPL
 ### 1: In your console
 If you never opened the console of your browser before, I encourage you to try this *right now* (tested on Firefox and Chrome): press `Shift + Ctrl + I` and then copy & paste the following code and press `Enter`.
 
+<Accordion summary='Stop, I use Mac OS!'>
+
+If you're trying to do this on a Mac *for the first time*, it is slightly harder.
+Here are the steps you need to take:
+
+1. Click on the Safari menu in the top-left corner of the screen.
+2. Select "Preferences" from the dropdown menu.
+3. In the Preferences window, click on the "Advanced" tab.
+4. At the bottom of the Advanced tab, check the box next to "Show Develop menu in menu bar".
+5. Close the Preferences window.
+6. Now you should see a new menu item "Develop" in the top menu bar. Click on it.
+7. From the Develop menu, select "Show Web Inspector" or press the shortcut key combination `Option + Command + I`.
+
+</Accordion>
+
 ```js
 alert("Hello world!")
 ```
