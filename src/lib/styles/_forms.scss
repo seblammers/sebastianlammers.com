@@ -15,6 +15,8 @@ form {
     margin: var(--space-s) 0 0;
     display: block;
     width: max-content;
+    transition-property: all;
+    transition-duration: 0.5s;
   
     & > a {
       color: var(--surface2-light);
@@ -28,6 +30,7 @@ form {
       background: var(--accent);
       border-color: var(--accent);
       color: var(--ink);
+      box-shadow: 0px 0px 20px var(--accent);
       cursor: pointer;
     }
   }
@@ -47,8 +50,8 @@ form {
     display: block;
     font-size: inherit;
     padding: var(--space-2xs);
-    border: 1px solid var(--dark);
-    border-radius: var(--radiusSection);    
+    border-radius: var(--radiusSection);
+		border: var(--radius) solid var(--accent);
     width: 100%;
     accent-color: var(--accent);
     background-color: var(--surface2-light);
@@ -67,8 +70,8 @@ form {
   textarea {
     padding: var(--space-2xs);
 		border-radius: var(--radiusSection);
+		border: var(--radius) solid var(--accent);
 		resize: none;
-		border: 1px solid var(--dark);
 	}
 
   .form-section,
