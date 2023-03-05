@@ -219,14 +219,6 @@ td {
   padding-left: var(--space-s);
 }
 
-table tr:nth-child(even) {
-  background-color: var(--surface1-lighter);
-
-  &:hover {
-    background-color: var(--ink);
-    color: var(--surface2-light)
-  }
-}
 
 iframe {
   width: 100%;
