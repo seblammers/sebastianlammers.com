@@ -19,8 +19,8 @@
 
 <article class="post flow">
 	<p>
-		I'd love to hear from you! Let me know what you think about what you found on my website or
-		whatever questions you have.
+		I'd love to hear from you! Let me know what you think about what you found on my website. Or hit
+		me with whatever questions you might have.
 	</p>
 	<p>
 		If you want to talk, find me <InlineLink url="https://vis.social/@seblammers"

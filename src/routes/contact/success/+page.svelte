@@ -4,4 +4,4 @@
 
 <Heading>Thank you!</Heading>
 
-<p>Your submission has been received.</p>
+<p>Your message was sent to my inbox.</p>
