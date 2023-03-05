@@ -37,7 +37,7 @@
 	<div class="sticky title">
 		<div class="language">{lang}</div>
 
-		<button on:click={copyCode} class="button"
+		<button on:click={copyCode}
 			><span class={copiedSuccessfully ? 'hidden' : 'visible'}>copy code </span>
 
 			<span class="copied {copiedSuccessfully ? 'visible' : 'hidden'}" aria-hidden="true">
@@ -84,7 +84,7 @@
 		}
 	}
 
-	.button {
+	button {
 		font-size: var(--step-0);
 		font-weight: 400;
 		transition-duration: 0.2s;
@@ -101,6 +101,7 @@
 		background-color: transparent;
 		border: 0 solid;
 		color: var(--surface2-light);
+		box-shadow: none;
 	}
 
 	.visible {
