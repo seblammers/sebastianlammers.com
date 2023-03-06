@@ -21,5 +21,5 @@
 		<textarea name="message" id="message" required placeholder="Your Message" rows="8" cols="60" />
 	</div>
 
-	<input type="submit" value="Submit" />
+	<input type="submit" value="Submit" class="align-right" />
 </form>
