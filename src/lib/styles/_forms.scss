@@ -55,6 +55,10 @@ form {
     width: 100%;
     accent-color: var(--accent);
     background-color: var(--surface2-light);
+
+    &:focus {
+			box-shadow: 0px 0px 20px var(--accent);
+		}
   
     &[type=radio],
     &[type=checkbox] {
@@ -72,6 +76,10 @@ form {
 		border-radius: var(--radiusSection);
 		border: var(--radius) solid var(--accent);
 		resize: none;
+
+    &:focus {
+			box-shadow: 0px 0px 20px var(--accent);
+		}
 	}
 
   .form-section,
