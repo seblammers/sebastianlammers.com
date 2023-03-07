@@ -123,7 +123,6 @@ li {
   --s: 0.1em;   /* the thickness of the line */
   --c: var(--accent); /* the color */
 
-  //color: '#000';
   padding-bottom: var(--s);
   background: 
     linear-gradient(90deg,var(--c) 50%,var(--c) 0) calc(100% - var(--_p,0%))/200% 100%,
@@ -133,7 +132,7 @@ li {
   transition: 0.5s;
   
   &:hover {
-    --_p: 100%;
+    --_p: 33%;
     cursor: pointer;
   }
 }
