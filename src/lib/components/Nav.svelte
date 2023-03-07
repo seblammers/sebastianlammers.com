@@ -1,6 +1,5 @@
 <script>
 	import { navItems } from '$lib/config';
-	import { slide, fade, fly } from 'svelte/transition';
 	import { beforeNavigate } from '$app/navigation';
 	import { navigating, page } from '$app/stores';
 	import { Hamburger } from 'svelte-hamburgers';
@@ -27,10 +26,10 @@
 <svelte:window bind:innerWidth={width} bind:scrollY />
 
 <div class="wrapper" class:open class:scroll>
-	<nav in:fade>
+	<nav>
 		<div class="nav-fh">
 			<a href="/">
-				<div class="logo" in:fly={{ y: -20, duration: 750, delay: 100 }}>
+				<div class="logo">
 					<Home />
 				</div>
 			</a>
@@ -46,7 +45,7 @@
 		</div>
 
 		{#if $mounted && (open || !mobile)}
-			<div class="nav-sh" transition:slide class:open={!$navigating && (open || !mobile)}>
+			<div class="nav-sh" class:open={!$navigating && (open || !mobile)}>
 				<div class="links">
 					<a href="/" class:active={$page.url.pathname === '/'}> Home </a>
 					{#each navItems as page, i (i)}
