@@ -41,7 +41,7 @@
 			box-shadow: 0px 0px 20px var(--accent);
 		}
 		&:hover h3 {
-			transform: scale(1.01) translateY(-10%);
+			transform: scale(1.01) translateY(-0.5%);
 		}
 		h3:hover {
 			--_p: 0%;
