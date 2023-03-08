@@ -135,6 +135,10 @@ li {
     --_p: 33%;
     cursor: pointer;
   }
+
+  & > a:hover {
+    background-color: transparent !important;
+  }
 }
 
 aside {
