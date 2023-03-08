@@ -27,6 +27,19 @@ You can decide if you read all of it or jump to the more advanced stuff in the l
 *This post* serves as the introduction and gives you an overview of what to expect in each of the parts.
 It will also tell you about some of the conventions I use throughout the series and how to run the code examples.
 
+
+<TOC>
+
+- [What is it all about?](#what-is-it-all-about)
+- [Brief contents of each post](#brief-contents-of-each-post)
+- [Conventions](#conventions)
+- [How to run the code](#how-to-run-the-code)
+  - [1: In your console](#1-in-your-console)
+  - [2: In REPLs](#2-in-repls)
+- [Go!](#go)
+
+</TOC>
+
 ## What is it all about?
 This series will give you an overview of how you can work with **tabular data** in the world of **vanilla JavaScript**.
 
@@ -44,7 +57,7 @@ Well, let me tell you a good thing and a bad thing.
 <ListFlip />
 
 With that said, let's go through a quick breakdown of the separate parts of this series.
-## Brief contents
+## Brief contents of each post
 
 <Card post={posts[0]} />
 
@@ -93,7 +106,9 @@ If you're reading this on mobile that's fine too, but I assume you won't plan on
 So, there are two ways I recommend to run the code examples: the console or REPLs.
 
 ### 1: In your console
-If you never opened the console of your browser before, I encourage you to try this *right now* (tested on Firefox and Chrome): press `Shift + Ctrl + I` and then copy & paste the following code and press `Enter`.
+If you never opened the console of your browser before, I encourage you to try this *right now* (tested on Firefox and Chrome): press `Shift + Ctrl + I`.
+This brings up your *developer tools*, of which there are many. 
+In the top row select the `Console` tab and then copy & paste the following code and press `Enter`.
 
 <Accordion summary='Stop, I use Mac OS!'>
 
@@ -108,6 +123,7 @@ Here are the steps you need to take:
 6. Now you should see a new menu item "Develop" in the top menu bar. Click on it.
 7. From the Develop menu, select "Show Web Inspector" or press the shortcut key combination `Option + Command + I`.
 
+In the top row select the `Console` tab and then copy & paste the following code and press `Enter`.
 </Accordion>
 
 ```js
@@ -117,6 +133,14 @@ alert("Hello world!")
 Congrats, you're now a hacker! If you'd rather be an accountant, feel free to use the console as a fancy calculator on any website :)
 
 No, but seriously: you can run all the code snippets in your browser's console like this. Just make sure you follow along and have fun.
+
+<Accordion summary='Further resources on developer tools'>
+
+- [What are browser developer tools? in the MDN web docs](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools)
+
+
+</Accordion>
+
 
 ### 2: In REPLs
 If you'd rather have a more persistent scratchpad to run the code examples and maybe take some notes, then I recommend you try [a Svelte REPL](https://svelte.dev/repl/1d2f74c5ef564aa9be09d50e5f59eccb?version=3.55.1).
