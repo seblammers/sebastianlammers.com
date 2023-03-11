@@ -2,17 +2,18 @@
   
     --blue-hue: 236;
     --orange-hue: 34;
-    --red-hue: 22;
-    --teal-hue: 172;
     --saturation: 100%;
     --lightness: 50%;
-    
+
+    // additional for home svg (currently unused)
+    --red-hue: 22;
+    --teal-hue: 172;
+ 
     // orange for accents and surfaces
     --brand: hsl(var(--orange-hue) var(--saturation) 70%);
-    --surface1-light: hsl(var(--orange-hue) 45% 95%);
+    --surface0-light: hsl(var(--orange-hue) 40% 90%);
+    --surface1-light: hsl(var(--orange-hue) 40% 94%);
     --surface2-light: hsl(var(--orange-hue) 40% 99%);
-    --surface3-light: hsl(var(--orange-hue) 40% 92%);
-    --surface4-light: hsl(var(--orange-hue) 40% 90%);
 
     // blue based colours for texts and shadows
     --hue: var(--blue-hue);
@@ -31,7 +32,7 @@
 
     --accent: var(--brand);
     --background: var(--surface1-light);
-    --background-nav: var(--surface4-light);
+    --background-nav: var(--surface0-light);
     --ink: var(--primary);
     --paper: var(--background);
 

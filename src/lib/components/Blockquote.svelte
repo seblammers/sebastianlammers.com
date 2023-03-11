@@ -30,7 +30,7 @@
 		margin-bottom: var(--space-3xs);
 		max-width: var(--max-width);
 		border-style: none none none solid;
-		background-color: var(--surface4-light);
+		background-color: var(--surface0-light);
 		font-family: var(--accentFont);
 	}
 
