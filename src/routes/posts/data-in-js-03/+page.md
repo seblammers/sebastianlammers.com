@@ -31,7 +31,24 @@ categories:
 
 </script>
 
-### Count frequency of distinct values
+<TOC>
+
+- [Count frequency of distinct values](#count-frequency-of-distinct-values)
+  - [Reduce to sum](#reduce-to-sum)
+  - [Count Gentoo](#count-gentoo)
+  - [A counting function](#a-counting-function)
+- [Sort the data](#sort-the-data)
+  - [Ascending vs. descending order](#ascending-vs-descending-order)
+- [Mutate, select, rename columns](#mutate-select-rename-columns)
+  - [1: Mutate to add a new column](#1-mutate-to-add-a-new-column)
+  - [2: Select columns](#2-select-columns)
+  - [3: Rename columns](#3-rename-columns)
+- [Closing](#closing)
+
+
+</TOC>
+
+## Count frequency of distinct values
 
 Now that we know there are only 3 species in our dataset, an obvious next question is: how many of the 344 observations does each of the 3 species account for?
 
@@ -40,7 +57,7 @@ Let's first do it for just one species to understand what kind of operation is n
 Out of the 3 species at hand, *Gentoo* sounds like the most fun to me, so we'll count these first.
 Basically, we want to take the array and summarize the number of appearances of *Gentoo*. Another way of saying the same is: we want to *reduce* the array (many observations) to a single value (number of *Gentoo* penguins).
 
-Drumroll..
+Drumroll...
 
 <Blockquote 
 text = "The <code>reduce()</code> method executes a user-supplied 'reducer' callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value."
@@ -50,7 +67,7 @@ url="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Ob
 To introduce reduce, I'll reach to a standard example: computing the sum of *something*.
 Let's make it really simple.
 
-#### Reduce to sum
+### Reduce to sum
 
 ```js
 let bodyMassGrams = [3750, 3800, 3250];
@@ -106,7 +123,7 @@ Notice how reduce starts at index 1! Try changing the last line to `bodyMassGram
 
 Back to our data (an array of objects, remember?). Let's count all those *Gentoo* penguins with the help of reduce:
 
-#### Count Gentoo
+### Count Gentoo
 
 
 ```js
@@ -129,7 +146,7 @@ For each row, inside the species variable, check if that is equal to "Gentoo".
 But! If we want to do the same for the other two species, we'd have to repeat that code...
 Instead, let's quickly make that a function that we can re-use.
 
-#### A counting function
+### A counting function
 
 ```js
 function speciesCounter(data, species) {
@@ -184,7 +201,7 @@ In our example above, `accumulator` is literally *accumulating* all values by ad
 </Accordion>
 
 
-### Sort the data
+## Sort the data
 Another common thing you might want to do with your data is sorting it. 
 Say you want to make sure the penguins with the lowest body mass are listed first in your data.
 How would go about that?
@@ -250,7 +267,7 @@ Pick your poison.
 In my humble opinion both are ok, but I would find it more intuitive if sort() simply returned a new array (like map() and filter() do.)
 </Accordion>
 
-#### Ascending vs. descending order
+### Ascending vs. descending order
 The obvious question right now is: why do we need to write this `a - b` stuff?
 Sort() expects a *compare function* that specifies *what* should be sorted and *how* it should be sorted.
 It boils down to this: 
@@ -342,7 +359,7 @@ let desc = [...bodyMassGrams].sort(compareValues("desc"));
 
 
 
-### Mutate, select, rename columns
+## Mutate, select, rename columns
 We're gonna finish this off with a roundhouse-kick of data manipulations. 
 Adding a new column based on existing ones? Got ya!
 Renaming existing columns? Easy!
@@ -350,7 +367,7 @@ Selecting columns to boil down the amount of data? Totally!
 
 And ***all these*** can be done with the help of our trusty map() function!
 
-#### 1: Mutate to add a new column
+### 1: Mutate to add a new column
 
 Let's jump right in and re-use the map()-example from above, but this time applying the conversion of grams to kilograms to all 344 observations.
 
@@ -418,7 +435,7 @@ It uses the unary plus operator, which is *"the fastest and preferred way of con
 
 </Accordion>
 
-#### 2: Select columns
+### 2: Select columns
 
 Going from many columns to a selection of a few needed columns is a piece of cake now.
 Let's say we want to visualize `body_mass_g` by `species`. 
@@ -438,7 +455,7 @@ If we then reduce our values to only retain the highest values per species, we c
 <Bar data={maxValues} title="Heaviest Penguins by Species" description="Bar-Chart showing the heaviest penguin per species in grams."/>
 
 
-#### 3: Rename columns
+### 3: Rename columns
 
 I think you can guess by now how to rename a column. 
 Nobody is stopping you from just using a different `key:` inside your map() call.
@@ -457,3 +474,5 @@ Keep in mind that special characters should be avoided here.
 If you stick to *just letters*, you're fine.
 Technically, you could also go crazy and use something like `"I need some space":` as your `key:`, but you'll have other problems down the road then, like not being able to use the dot-notation to access your rows (`row.I need some space` will not work).
 
+## Closing
+You made it. What's going to be next? We  could learn about pulling in data from different sources (like from static files or APIs). Or we could look at more advanced data wrangling with the help of d3.array or tidy.js...

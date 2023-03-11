@@ -28,13 +28,24 @@ categories:
 
 </script>
 
+<TOC>
+
+- [A basic dataset](#a-basic-dataset)
+- [Arrays in JavaScript](#arrays-in-javascript)
+- [Objects in JavaScript](#objects-in-javascript)
+- [Summary](#summary)
+- [Next up](#next-up)
+
+</TOC>
+
 <Embed 
   src="https://datawrapper.dwcdn.net/S5MFr/2/" 
   title="This is where the penguins live"  
   scrolling="no"
 />
 
-### A basic dataset
+
+## A basic dataset
 Let's get some terminology out of the way before we start to work with the real data.
 
 Look at this simple table, call it a spreadsheet if you like:
@@ -85,7 +96,7 @@ This is important, because it tells us what kind of functions/methods we can use
 If you're new to JavaScript and you're not sure what an **array** and an **object** is... 
 Well you've come to the right place! I'll point out the most important basics and link to further resources for you to go through.
 
-### Arrays in JavaScript
+## Arrays in JavaScript
 An array is just a convenient way to store of similar things under the a single variable name. Like this:
 
 ```js
@@ -101,7 +112,7 @@ The most simple example is getting the length of the array. You simply do:
 console.log(penguinSpecies.length) // prints 3
 ```
 
-<Accordion summary="What 'console'?">
+<Accordion summary="What is 'console.log'?">
 
 If this is your first time working with JavaScript: what `print` is in other languages, here it is `console.log`. It prints something into the *console*.
   
@@ -118,7 +129,7 @@ That is to say, it is not a function that you can call, but rather a property th
   
 </Accordion>
 
-### Objects in JavaScript
+## Objects in JavaScript
 To showcase an object, let's create one.
 Let's say we want to document some facts about one of our penguins. Let's put down where Rita lives and what type of penguin she is:
 
@@ -156,8 +167,8 @@ I'll continue to use the dot notation in the examples below, because it's easier
 You can see a comparison of both notations on [MDN here](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics#dot_notation).
 </Accordion>
 
-### Summary
-Great, now let's circle back to our initial array of objects to recap:
+## Summary
+Great, now let's circle back to our initial **array of objects** to recap:
 
 ```js
 let somePenguins = [
@@ -174,7 +185,7 @@ All of our objects can be thought of as the rows of our table.
 Inside these rows, we have the key and value pairs. 
 
 This data representation is more verbose than the spreadsheet-style that you might be used to, but it actually makes reading the data easier by eye and is more precise for coding.
-What's more, an array of objects is the standard data representation that you will get if you read in external data with d3 via the [d3-fetch](https://github.com/d3/d3-fetch) or [d3-dsv](https://github.com/d3/d3-dsv) modules.
+What's more, an **array of objects** is the standard data representation that you will get if you read in external data with d3 via the [d3-fetch](https://github.com/d3/d3-fetch) or [d3-dsv](https://github.com/d3/d3-dsv) modules.
 So it is a pretty standard way of representing data, especially in the context data visualizations for the web.
 In addition, an array is also the kind of structure that svelte `{#each}` blocks need, so it's very useful if you want make great data visualizations with Svelte & D3.
 

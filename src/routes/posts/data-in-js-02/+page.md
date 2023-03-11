@@ -24,7 +24,24 @@ categories:
 </script>
 
 
-### Loading the data
+<TOC>
+
+- [Loading the data](#loading-the-data)
+- [Get column names](#get-column-names)
+- [Get the number of observations](#get-the-number-of-observations)
+- [Get a subset of rows](#get-a-subset-of-rows)
+  - [Case 1: Slice the head of your data](#case-1-slice-the-head-of-your-data)
+  - [Case 2: Filter by condition](#case-2-filter-by-condition)
+- [Check distinct values](#check-distinct-values)
+  - [Ingredient 1: Set()](#ingredient-1-set)
+  - [Ingredient 2: map()](#ingredient-2-map)
+  - [The whole deal: Set() + map()](#the-whole-deal-set--map)
+- [Next up](#next-up)
+
+
+</TOC>
+
+## Loading the data
 Since this series only uses vanilla JavaScript you will be able to follow along in the console of your browser.
 
 To load the data into your console, do the following:
@@ -39,7 +56,7 @@ let data = await (await fetch(url)).json();
 
 With that out of the way, let's dive into our dataset and see what we can learn about it!
 
-### Get column names
+## Get column names
 Firstly, after loading our data, let's check out which facts about the penguins are actually captured in the dataframe by looking at the names of the columns. 
 Remember that there is a way to access all keys in a given object?
 That's exactly what we need to get our column names!
@@ -63,7 +80,7 @@ I'm not a penguin expert, but I suspect that we'll see differences in some of th
 
 Maybe we'll see that later?
 
-### Get the number of observations
+## Get the number of observations
 
 Next, let's see how many datapoints are actually included in our data.
 This is a simple sanity check that is useful for at least two things: 
@@ -81,14 +98,14 @@ console.log(observations); // logs 344
 There are 344 observations in total. 
 This is a nice sample size that easily fits into memory and can be used to mess around with, say, data wrangling in vanilla JavaScript?
 
-### Get a subset of rows
+## Get a subset of rows
 There are many reasons why you might want to get a subset of rows from your table.
 The two most frequent reasons might be these:
 1. You want to get *some kind subset* to peek inside your data without being overwhelmed by rendering *all of it*.
 2. You want to get a *specific subset* to e.g. visualize/work on separately from the rest.
 
 
-#### Case 1: Slice the head of your data
+### Case 1: Slice the head of your data
 In the previous steps you learned about the column names and how many observations are included in total.
 Now, let's actually render some of the data to the screen. 
 But not all of it, because we don't want take up the whole screen or trap everything in a giant scrollable container. 
@@ -126,7 +143,7 @@ Starting out with a subset, where you more or less know the datapoints let's you
 But sometimes you might be interested in a *particular subset* of your data.
 For that scenario, slice() is not useful.
 
-#### Case 2: Filter by condition
+### Case 2: Filter by condition
 Let's say you are interested in what penguins Rita hangs out with on their home island called *Dream Island*.
 To find out more about *Dream Island*, let's get all observations where `island === "Dream"`.
 
@@ -165,12 +182,12 @@ Further information on [the logical AND (&&) in the MDN web docs](https://develo
 </Accordion>
 
 
-### Check distinct values
+## Check distinct values
 Especially for categorical data it is useful to know how many distinct values there are for a given variable.
 In our case, let's take a look at the distinct penguin species that the researchers observed.
 We'll use a combination of `Set()` and `map()` to achieve that.
 
-#### Ingredient 1: Set()
+### Ingredient 1: Set()
 <Blockquote 
 text = "The <code>Set</code> object lets you store unique values of any type, whether primitive values or object references."
 author="MDN Web Docs"
@@ -193,7 +210,7 @@ Now, isn't *that* convenient? All we need now is a way to go through all entries
 Sure, we can write a for-loop, but there is nice array method to do this more succinctly for us.
 This is where `map()` comes in to save your day!
 
-#### Ingredient 2: map()
+### Ingredient 2: map()
 
 Here is a super-duper simple example of what `map()` can do:
 
@@ -210,7 +227,7 @@ console.log(bodyMassKiloGrams); // logs [ 3.75, 3.8, 3.25 ]
 Simple: for each entry in our array, divide it by 1000 and then save the result to a new array.
 Nice, now we put Set() and map() together to finally retrieve our distinct species values.
 
-#### The whole deal: Set() + map()
+### The whole deal: Set() + map()
 
 ```js
 let distinctSpecies = [...new Set(data.map(row => row.species))]; 
