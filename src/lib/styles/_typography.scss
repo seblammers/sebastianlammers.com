@@ -126,10 +126,17 @@ ol {
   
   & > a {
   color: var(--ink);
+
+  &:hover {
+    color: var(--surface2-light)
+  }
   }
 
   & > ul > li > a {
     color: var(--ink);
+    &:hover {
+      color: var(--surface2-light)
+    }
   }
 }
 
