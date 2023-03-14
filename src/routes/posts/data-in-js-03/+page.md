@@ -45,8 +45,24 @@ categories:
   - [3: Rename columns](#3-rename-columns)
 - [Closing](#closing)
 
-
 </TOC>
+
+
+<Accordion summary="Load the data">
+
+Since this series only uses vanilla JavaScript you will be able to follow along in the console of your browser.
+
+To load the data into your console, do the following:
+
+```js
+// this is the url that you need to fetch the data
+let url = "https://preview-seblam.netlify.app/api/data.json?name=penguins" 
+
+// this will load the data into your session under the name "data"
+let data = await (await fetch(url)).json();
+```
+
+</Accordion>
 
 ## Count frequency of distinct values
 
