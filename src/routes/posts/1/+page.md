@@ -1,6 +1,7 @@
 ---
 title: This is some long Text
 date: '2021-12-14'
+draft: true
 categories:
   - 'numbers'
   - 'odd'

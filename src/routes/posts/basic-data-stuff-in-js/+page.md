@@ -1,6 +1,7 @@
 ---
 title: 'Basic Data Manipulation in Javascript'
 date: '2022-12-07'
+draft: true
 categories:
   - 'JavaScript'
   - 'data'

@@ -1,6 +1,7 @@
 ---
 title: 'Dataviz with Svelte from scratch: Scatter plots'
 date: '2022-09-08'
+draft: true
 categories:
   - 'svelte'
   - 'dataviz'

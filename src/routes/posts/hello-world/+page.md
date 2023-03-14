@@ -1,6 +1,7 @@
 ---
 title: 'Hello world!'
 date: '2022-08-30'
+draft: true
 categories:
   - 'sveltekit'
   - 'web'

@@ -1,6 +1,7 @@
 ---
 title: 'Basic Layout Tests'
 date: '2022-05-31'
+draft: true
 description: 'Brief overview of different layout aspects to check.'
 categories:
   - 'sveltekit'
