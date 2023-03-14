@@ -157,7 +157,7 @@
 			&:hover,
 			&:focus {
 				color: var(--text2-light);
-				background-color: inherit;
+				background-color: transparent;
 				border-color: var(--text2-light);
 			}
 		}
@@ -168,5 +168,9 @@
 		display: grid;
 		place-items: start;
 		font-weight: 600;
+
+		&:hover {
+			background-color: var(--surface0-light);
+		}
 	}
 </style>
