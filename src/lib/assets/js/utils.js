@@ -8,6 +8,7 @@ export function dateFormat(date) {
     return `${month} ${year}`;
 };
 
+// helper to produce seo titles (and display in tab-titles)
 export function titleFormat(title) {
     return `${title} | Sebastian Lammers`;
 };

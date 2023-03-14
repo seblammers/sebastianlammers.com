@@ -2,9 +2,11 @@
 	import Heading from '$lib/components/Heading.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import InlineLink from '$lib/components/InlineLink.svelte';
+	import { titleFormat } from '$lib/assets/js/utils';
 	import { siteURL, siteAuthor } from '$lib/config';
 	import { Head } from 'svead';
-	let title = 'Contact';
+	let heading = 'Contact';
+	let title = titleFormat(heading);
 	let description =
 		'The contact page of sebastianlammers.com, my personal homepage, where I play with code and share some notes and projects.';
 	let url = 'https://sebastianlammers.com/contact';
@@ -15,7 +17,7 @@
 
 <Head {title} {description} {image} {url} {authorName} {website} />
 
-<Heading>{title}</Heading>
+<Heading>{heading}</Heading>
 
 <article class="post flow">
 	<p>

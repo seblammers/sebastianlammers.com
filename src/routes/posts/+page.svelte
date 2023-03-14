@@ -2,10 +2,12 @@
 	export let data;
 	import Heading from '$lib/components/Heading.svelte';
 	import Card from '$lib/components/Card.svelte';
+	import { titleFormat } from '$lib/assets/js/utils';
 	import { siteURL, siteAuthor } from '$lib/config';
 	import { page } from '$app/stores';
 	import { Head } from 'svead';
-	let title = 'Posts';
+	let heading = 'Posts';
+	let title = titleFormat(heading);
 	let description =
 		'The post listing page of sebastianlammers.com, my personal homepage, where I play with code and share some notes and projects.';
 	let url = $page.url.toString;
@@ -16,7 +18,7 @@
 
 <Head {title} {description} {image} {url} {authorName} {website} />
 
-<Heading>{title}</Heading>
+<Heading>{heading}</Heading>
 
 <article class="flow">
 	{#each data.posts as post}

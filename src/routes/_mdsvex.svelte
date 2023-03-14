@@ -2,9 +2,14 @@
 	import { siteURL, siteAuthor } from '$lib/config';
 	import { page } from '$app/stores';
 	import Heading from '$lib/components/Heading.svelte';
+	import { titleFormat } from '$lib/assets/js/utils';
 	import { Head } from 'svead';
 	export let title;
 	export let description;
+	// preserve heading title
+	let heading = title;
+	// append " | Sebastian Lammers" for SEO and the tab-title
+	title = titleFormat(title);
 	let url = $page.url.toString;
 	let authorName = siteAuthor;
 	let website = siteURL;
@@ -14,7 +19,7 @@
 <Head {title} {description} {image} {url} {authorName} {website} />
 
 <Heading>
-	{title}
+	{heading}
 </Heading>
 
 <article class="post flow">
