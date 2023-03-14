@@ -8,6 +8,10 @@ export function dateFormat(date) {
     return `${month} ${year}`;
 };
 
+export function titleFormat(title) {
+    return `${title} | Sebastian Lammers`;
+};
+
 export function maxByKey(data, key, variable) {
     var result;
     return (result = Object.values(
