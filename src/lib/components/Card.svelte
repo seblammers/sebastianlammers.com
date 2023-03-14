@@ -25,7 +25,7 @@
 		border: var(--radius) solid var(--accent);
 		padding: var(--space-m);
 		background-color: var(--surface2-light);
-		max-width: 42rem;
+		max-width: calc(var(--space-3xl) * 2.5);
 		transition-property: all;
 		transition-duration: 0.5s;
 
