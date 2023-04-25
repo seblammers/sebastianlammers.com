@@ -13,6 +13,9 @@ export const navItems = [
     title: 'Posts',
     route: '/posts'
   },{
+    title: 'Projects',
+    route: '/projects'
+  },{
     title: 'About',
     route: '/about'
   }, {
