@@ -3,5 +3,5 @@
 </script>
 
 <a href={url} target="blank" rel="noopener noreferrer">
-	<slot />
+	<slot /> &nearr;
 </a>
