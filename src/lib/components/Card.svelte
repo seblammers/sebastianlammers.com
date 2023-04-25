@@ -1,11 +1,14 @@
 <script>
 	export let post;
-
+	export let image = undefined;
 	import { dateFormat } from '$lib/assets/js/utils';
 </script>
 
 <article class="card">
 	<a sveltekit:prefetch href={post.path}>
+		{#if image}
+			<img src={image} alt="Preview of Project: {post.meta.title}" />
+		{/if}
 		<div>
 			<h3 class="title">
 				{post.meta.title}
