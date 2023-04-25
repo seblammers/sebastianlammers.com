@@ -70,12 +70,12 @@ If you prefer a REPL, use <Link url="https://svelte.dev/repl/1178b686372a457f999
 
 ## Count frequency of distinct values
 
-In the previous post, we found out there are only 3 species in our dataset, an obvious next question is: how many of the 344 observations does each of the 3 species account for?
+In the [previous post](/posts/data-in-js-02), we found out there are only 3 species in our dataset. An obvious next question is: how many of the 344 observations does each of the 3 species account for?
 
-Let's first do it for just one species to understand what kind of operation is needed for this task and afterwards look at all species.
+Let's first find out for just one species to understand what kind of operation is needed for this task and afterwards look at all species.
 
 Out of the 3 species at hand, *Gentoo* sounds like the most fun to me, so we'll count these first.
-Basically, we want to take the array and summarize the number of appearances of *Gentoo*. Another way of saying the same is: we want to *reduce* the array (many observations) to a single value (number of *Gentoo* penguins).
+Basically, we want to take the **array** and summarize the number of appearances of *Gentoo*. Another way of saying the same is: we want to *reduce* the **array** (many observations) to a single value (number of *Gentoo* penguins).
 
 Drumroll...
 
@@ -84,14 +84,16 @@ text = "The <code>reduce()</code> method executes a user-supplied 'reducer' call
 author="MDN Web Docs"
 url="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce"/>
 
-To introduce reduce, I'll reach to a standard example: computing the sum of *something*.
+To introduce `reduce()`, I'll reach to a standard example: computing the sum of *something*.
 Let's make it really simple.
 
 ### Reduce to sum
 
 ```js
+// example array
 let bodyMassGrams = [3750, 3800, 3250];
 
+// declare initial value
 let initialValue = 0;
 
 let bodyMassSum = bodyMassGrams.reduce(
@@ -101,11 +103,11 @@ let bodyMassSum = bodyMassGrams.reduce(
 console.log(bodyMassSum) // logs 10800
 ```
 
-This code takes the array of 3 numbers and adds them up together.
-It goes through the array, takes the *last value* (accumulator) and adds the *current value* to it.
-Because we specify an *initial value*, this will be the first value that accumulator takes.
-*Current value* will be 3750 and the sum of both is also 3750.
-Moving on to the next step, *now* accumulator is 3750 and *current value* is 3800 and so on and so on.
+This code takes the **array** of 3 numbers and adds them up together.
+It goes through the **array**, takes the *last value* (`accumulator`) and adds the *current value* to it.
+Because we specify an *initial value*, this will be the first value that `accumulator` takes (i.e. `initialValue = 0`).
+*Current value* will be 3750, because it is the first entry in our **array**, and the sum of both is also 3750 (`0 + 3750`).
+Moving on to the next step, *now* `accumulator` is 3750 and *current value* is 3800 and so on and so on.
 
 <Accordion summary="Under the hood of reduce()">
 
@@ -141,7 +143,7 @@ Notice how reduce starts at index 1! Try changing the last line to `bodyMassGram
 </Accordion>
 
 
-Back to our data (an array of objects, remember?). Let's count all those *Gentoo* penguins with the help of reduce:
+Back to our data (an **array of objects**, remember?). Let's count all those *Gentoo* penguins with the help of reduce:
 
 ### Count Gentoo
 
@@ -159,9 +161,10 @@ console.log(countGentoo); // logs 124
 
 Voilá! We have 124 *Gentoo* penguins in our dataset.
 
-I deviated from the traditional variable names here, because basically what we do is **counting**. And since we're iterating through the rows of our table (aka the objects inside our array), I use *row* to refer to the current *object*. 
-For each row, inside the species variable, check if that is equal to "Gentoo". 
-**If** so, increase our counter accumulator by 1. Return the counter when the whole array is processed.
+I deviated from the traditional variable names here, because basically what we do is **counting**. And since we're iterating through the rows of our table (aka the **objects** inside our **array**), I use *row* to refer to the current **object**. 
+For each row, inside the `species` variable, check if that is equal to `"Gentoo"`. 
+**If so**, increase our counter accumulator by 1. 
+Return the counter when the whole **array** is processed.
 
 <Accordion summary='Find another way'>
 
@@ -211,11 +214,11 @@ Please check out the video, where Leigh does an amazing job at explaining this s
 
 <Accordion summary="Why is everybody using 'accumulator'?">
 
-The variable-name `accumulator` or the shorter version `acc` is a very common choice for JavaScript's reduce(). When I first encountered reduce(), I saw lts of examples that always used `(acc, cur)` and I honestly found it not very intuitive. 
+The variable-name `accumulator` or the shorter version `acc` is a very common choice for JavaScript's reduce(). When I first encountered reduce(), I saw lots of examples that always used `(acc, cur)` and I honestly found it not very intuitive. 
 
 <hr>
 
-The main take-away is this: the whole idea of the reduce() function is to go from many values to a single value. The way to get there is to work with some sort of *last value* and *current value* that can be used to compute stuff with. It so happens that a majority of persons is calling the *last value* the `accumulator`, because it **persists** and is **updated** while iterating through all values. In contrast, the *current value*, often called `cur` is simply updated to the value at hand.
+The main take-away is this: the whole idea of the reduce() function is to go from many values to a single value. The way to get there is to work with some sort of *last value* and *current value* that can be used to compute stuff with. It so happens that a majority of persons is calling the *last value* the `accumulator`, because it **persists** and is **updated** while iterating through all values. In contrast, the *current value*, often called `cur`, is simply updated to the value at hand.
 
 
 In our example above, `accumulator` is literally *accumulating* all values by adding them, one by one.
@@ -233,12 +236,12 @@ In our example above, `accumulator` is literally *accumulating* all values by ad
 ## Sort the data
 Another common thing you might want to do with your data is sorting it. 
 Say you want to make sure the penguins with the lowest body mass are listed first in your data.
-How would go about that?
-While there is a native array method called `sort()`, I'm showing this rather late in this post, because I find it to be surprisingly complex (there are two things to discuss).
+How would you go about that?
+While there is a native **array** method called `sort()`, I'm showing this rather late in this post, because I find it to be surprisingly complex.
 Here is the code you'd probably write first:
 
 ```js
-// don't do this: 
+// get ready for a surprise: 
 let sorted = data.sort((a, b) => a.body_mass_g - b.body_mass_g);
 ```
 
@@ -263,25 +266,25 @@ That's fine if you know what you're doing and you don't need to preserve the ori
 
 <Accordion summary="If you actually do want to sort in place...">
 
-...you don't need to assign to a new variable and instead can just call sort() on your data like so:
+... you don't need to assign to a new variable and instead can just call `sort()` on your data like so:
 
 ```js
 data.sort((a, b) => a.body_mass_g - b.body_mass_g);
 ```
 </Accordion>
 
-Here is the code you need to create *a new array* with the sorted values.
+Here is the code you need to create *a new* **array** with the sorted values.
 
 ```js
 // this creates a new sorted copy
 let sorted = [...data].sort((a, b) => a.body_mass_g - b.body_mass_g);
 ```
 
-We use a neat little trick to **first copy** the array via spread syntax `[...data]` and **then sort** *that new copy* in place and assign it to our new variable `sorted`. 
+We use a neat little trick to **first copy** the **array** via the spread syntax `[...data]` and **then sort** *that new copy* in place and assign it to our variable `sorted`. 
 
 <Accordion summary="Alternative to the Spread syntax '...'">
 
-Another way to create a copy and then sort the copied array is to use slice() without arguments:
+Another way to create a copy and then sort the copied array is to use `slice()` without arguments:
 
 ```js
 // this creates a new sorted copy
@@ -294,12 +297,13 @@ console.log(sorted === slicedSorted) // logs "true"
 ```
   
 Pick your poison.
-In my humble opinion both are ok, but I would find it more intuitive if sort() simply returned a new array (like map() and filter() do.)
+In my humble opinion both are ok, but I would find it more intuitive if `sort()` simply returned a new array (like `map()` and `filter()` do.)
+
 </Accordion>
 
 ### Ascending vs. descending order
 The obvious question right now is: why do we need to write this `a - b` stuff?
-Sort() expects a *compare function* that specifies *what* should be sorted and *how* it should be sorted.
+`Sort()` expects a *compare function* that specifies *what* should be sorted and *how* it should be sorted.
 It boils down to this: 
 1. If the *compare function* returns a *positive number* then `a` is sorted *after* `b`. 
 2. If the *compare functions* returns a *negative number* then `a` is sorted *before* `b`.
@@ -315,8 +319,8 @@ bodyMassGrams.sort((a,b) => a - b)
 ```
 
 What is happening?
-Let's take this array of 3 values and think through what is compared and how that will affect the sorting.
-In the table below I list the comparison, the numerical result, and the effect on sorting the elements.
+Let's take this **array** of 3 values and think through what is compared and how that will affect the sorting.
+In the table below I list the comparison, the numerical result, and the effect on sorting the elements, step by step.
 
 <div class="table-wrapper" >
 
@@ -333,7 +337,7 @@ The first comparison yields a *negative number*, so `a: 3750` is sorted *before*
 The other two comparisons both yield a *positive number*, because `3800` and `3750` are both greater than `3250`...
 
 In case this still does not make sense to you right now I encourage you to watch the video by The Coding Train that I link to below.
-Daniel makes an incredible job (again) at explaining and showcasing sort().
+Daniel makes an incredible job at explaining and showcasing `sort()`.
 
 <Accordion summary="Further resources on sort() and '...'">
 
@@ -395,11 +399,11 @@ Adding a new column based on existing ones? Got ya!
 Renaming existing columns? Easy!
 Selecting columns to boil down the amount of data? Totally!
 
-And ***all these*** can be done with the help of our trusty map() function!
+And ***all these*** can be done with the help of our trusty `map()` function!
 
 ### 1: Mutate to add a new column
 
-Let's jump right in and re-use the map()-example from above, but this time applying the conversion of grams to kilograms to all 344 observations.
+Let's jump right in and re-use the `map()`-example from above, but this time applying the conversion of grams to kilograms to all 344 observations.
 
 ```js
 // convert from grams to kilograms for all entries
@@ -410,13 +414,14 @@ let dataWithKG = data.map(row => {
   });
 ```
 
-As with the other use of map() above, this let's us visit each entry in our array called `data`.
+As with the other use of `map()` above, this let's us visit each entry in our **array** called `data`.
 Inside each of those entries (*or rows of our table*), we define a new pair of `key:` and `value`.
 Sticking to the variable-naming convention of this dataset, we call our new colum `body_mass_kg` and define the values with the simple computation for each of the `row.body_mass_g`.
 Notice that we `return` an **object** by wrapping our simple computation in curly bois `{}`.
-If you console.log() the result of this operation, you'll see that we successfully converted all entries in our rows from grams to kilograms.
+If you `console.log()` the result of this operation, you'll see that we successfully converted all entries in our rows from grams to kilograms.
 But you'll also notice that all the other columns are gone.
-That's a shame isn't it? Luckily, it's easy to preserve them all with another friend: the spread syntax.
+That's a shame isn't it? 
+Luckily, it's easy to preserve them all with another friend: the **spread syntax**.
 
 ```js
 // convert from grams to kilograms for all entries
@@ -438,13 +443,12 @@ If you logged this one out too and looked at the output closely, you probably no
 
 Well, yes! That's because I'm lazy. _**All** the data_ in the original array of objects are strings.
 
-If you want to clean up my mess, you can use this little trick to convert any of the columns to numerical values too, that actually *should be* formatted that way.
-You'll have to specify which columns you want to convert inside map() like this:
+If you want to clean up my mess, you can use this little trick to convert any of the columns to numerical values too.
+You'll have to specify which columns you want to convert inside `map()` like this:
 
 ```js
 let dataWithNumerics = data.map(row => {
     return {
-      // previous code:
       ...row, 
       body_mass_kg: row.body_mass_g / 1000,
       // conversions:
@@ -469,7 +473,7 @@ It uses the unary plus operator, which is *"the fastest and preferred way of con
 
 Going from many columns to a selection of a few needed columns is a piece of cake now.
 Let's say we want to visualize `body_mass_g` by `species`. 
-Let's make a new, smaller array of objects that only contains those two columns. 
+Let's make a new, smaller **array of objects** that only contains those two columns. 
 
 ```js
 let smolData = data.map(row => {
@@ -491,7 +495,7 @@ Let me know if you create a better graph...!
 ### 3: Rename columns
 
 I think you can guess by now how to rename a column. 
-Nobody is stopping you from just using a different `key:` inside your map() call.
+Nobody is stopping you from just using a different `key:` inside your `map()` call.
 So we can just replace `species` and `body_mass_g` with whatever floats your boat.
 
 ```js
@@ -505,12 +509,12 @@ let smolData = data.map(row => {
 
 Keep in mind that special characters should be avoided here. 
 If you stick to *just letters*, you're fine.
-Technically, you could also go crazy and use something like `"I need some space":` as your `key:`, but you'll have other problems down the road then, like not being able to use the dot-notation to access your rows (`row.I need some space` will not work).
+Technically, you could also go crazy and use something like `"I need some space":` as your `key:`, but you'll have other problems down the road then, like not being able to use the **dot-notation** to access your rows (`row.I need some space` will not work).
 
 ## Closing
 You made it. 
 Thanks for reading!
+I hope you learned something new and maybe even had some fun.
 
-This series is over. I hope you learned something and maybe even had some fun.
 Let me know :)
 If you want to talk, find me [on Mastodon](https://vis.social/@seblammers) or use [my form over here](/contact).
