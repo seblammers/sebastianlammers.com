@@ -56,7 +56,7 @@ The data were collected and made available by [Dr. Kristen Gorman](https://www.
 />
 
 ## Loading the data
-Since this series only uses vanilla JavaScript you will be able to follow along in the console of your browser.
+Since this series only uses vanilla **JavaScript** you will be able to follow along in the console of your browser.
 
 To load the data into your console, do the following:
 
@@ -68,14 +68,26 @@ let url = "https://preview-seblam.netlify.app/api/data.json?name=penguins"
 let data = await (await fetch(url)).json();
 ```
 
+<Accordion summary="Will only work if...">
+
+... the console you paste the code into is in a browser tab on *this website*.
+
+So if you copy the code, open a new tab, then open the console and paste in the code it will give you an error like this:
+
+
+`Content Security Policy: The page’s settings blocked the loading of a resource at [...] (“default-src”).`
+
+
+</Accordion>
+
 If you'd rather work in a REPL, I have a starter-template for you that already contains the data and it's waiting for you <Link url="https://svelte.dev/repl/1178b686372a457f9994fedff3923ce7?version=3.53.1">over here</Link>.
 
 
 With that out of the way, let's dive into our dataset and see what we can learn about it!
 
 ## Get column names
-Firstly, after loading our data, let's check out which facts about the penguins are actually captured in the dataframe by looking at the names of the columns. 
-Remember that there is a way to access all keys in a given object?
+Firstly, after loading our data, let's check out which facts about the penguins are actually captured in the dataset by looking at the **names of the columns**. 
+Remember that there is a way to access all keys in a given **object**?
 That's exactly what we need to get our column names!
 
 ```js
@@ -86,8 +98,8 @@ console.log(columnNames); // logs ["species", "island", "bill_length_mm","bill_d
 
 Our column names are `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_g`, `sex`, `year`
 How did we get these? 
-We combined an object and an array operation: `data[0]` will access the first row of our data aka the first object in our array. 
-This single object is passed into the `keys()` function that gets us the keys in that object.
+We combined an **object** and an **array** operation: `data[0]` will access the first row of our data aka the first **object** in our **array**. 
+This single **object** is passed into the `keys()` function that gets us the keys in that **object**.
 
 The column names give us a rough impression of what the data might be able to tell us. 
 We know sth. about the type of penguin (`species`) and where they live (`island`). 
@@ -104,7 +116,7 @@ This is a simple sanity check that is useful for at least two things:
 1. if you already know how big your dataset is, this let's you check if reading in the data actually worked as expected. 
 2. If you don't have any clue about the data, this gets you a feel for how large the dataset is that you're about to work with.
 
-You already know how to do this one: get the length of the array! 
+You already know how to do this one: get the length of the **array**! 
 
 ```js
 let observations = data.length; 
@@ -113,7 +125,7 @@ console.log(observations); // logs 344
 ```
 
 There are 344 observations in total. 
-This is a nice sample size that easily fits into memory and can be used to mess around with, say, data wrangling in vanilla JavaScript?
+This is a nice sample size that easily fits into memory and can be used to mess around with, say, data wrangling in vanilla **JavaScript**?
 
 ## Get a subset of rows
 There are many reasons why you might want to get a subset of rows from your table.
@@ -129,7 +141,7 @@ But not all of it, because we don't want take up the whole screen or trap everyt
 Instead, let's take a glimpse on the first 3 rows of the data to get a feel for it.
 
 We take a look at the *head* of the body of data...
-To do that we use a standard array method called `slice()`:
+To do that we use a standard **array** method called `slice()`:
 
 ```js
 let head = data.slice(0, 3); 
@@ -138,7 +150,7 @@ let head = data.slice(0, 3);
 Pretty straightforward: we take our data and literally slice it. 
 How much do we cut out? 
 From the first row up until and including the third row. 
-Two things to note here: Firstly, JavaScript is 0-indexed, so the first row has the index of 0. 
+Two things to note here: Firstly, **JavaScript** is 0-indexed, so the first row has the index of 0. 
 Secondly, the number specifying the end of our slice is *not* included!
 
 The result looks like this: 
@@ -148,7 +160,7 @@ The result looks like this:
  
 Now you can view some sample data from a subset of our 344 observations for all of the 8 columns (if you scroll a little). 
 You could even log this to your console, if you just wanted to take a quick peek.
-Or you can use slice to create a nice and small subset to start sketching out a data visualization (for that it might be a good idea to increase the number of rows to more than 3 when calling slice).
+Or you can use `slice()` to create a nice and small subset to start sketching out a data visualization (for that, it might be a good idea to increase the number of rows to more than 3 when calling `slice()`).
 Starting out with a subset, where you more or less know the datapoints let's you create a draft viz and then iterate from there.
 
 <Accordion summary="Further resources on slice()">
@@ -158,7 +170,8 @@ Starting out with a subset, where you more or less know the datapoints let's you
 </Accordion>
 
 But sometimes you might be interested in a *particular subset* of your data.
-For that scenario, slice() is not useful.
+For that scenario, `slice()` is not useful, since it returns whatever is currently listed on top.
+If you want more control, you need to **filter** your data by a criterion or condition.
 
 ### Case 2: Filter by condition
 Let's say you are interested in what penguins Rita hangs out with on their home island called *Dream Island*.
@@ -171,7 +184,7 @@ console.log(dreamIsland.length); // logs 124
 ```
 You can read this as: take the data and filter it. For each row, check if the variable called `island` is equal to `"Dream"`. If so, include in the output. 
 Nice and simple, right? 
-Now you can work with the data that is specificly about the data from *Dream Island*.
+Now you can work with the data that is specifically about the observations from *Dream Island*.
 
 I'm not rendering these to the screen, but you can see that 124 out of the 344 observations are about penguins from *Dream Island*.
 
@@ -194,7 +207,7 @@ Further information on [the logical AND (&&) in the MDN web docs](https://develo
 
 <Accordion summary="Further resources on filter()">
 
-- [slice() in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+- [filter() in the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
   
 </Accordion>
 
@@ -210,8 +223,8 @@ text = "The <code>Set</code> object lets you store unique values of any type, wh
 author="MDN Web Docs"
 url="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set"/>
 
-So, we'll take advantage of the fact that a **Set** only retains **unique values**.
-Let's pull back our simple example array and then use it create a Set from it before we advance to an example that uses our big dataset. 
+So, we'll take advantage of the fact that a `Set` only retains **unique values**.
+Let's pull back our simple example **array** and then use it create a `Set` from it, before we advance to an example that uses our big dataset. 
 
 ```js
 // our original array has 3 entries, but only 2 of them are unique
@@ -223,9 +236,9 @@ let speciesSet = new Set(penguinSpecies);
 console.log(speciesSet); // logs ["Adelie", "Chinstrap"]
 ```
 
-Now, isn't *that* convenient? All we need now is a way to go through all entries in our array and inside each entry, visit our variable of interest. 
-Sure, we can write a for-loop, but there is nice array method to do this more succinctly for us.
-This is where `map()` comes in to save your day!
+Now, isn't *that* convenient? All we need now is a way to go through all entries in our **array** and inside each entry, visit our variable of interest. 
+Sure, we can write a for-loop, but there is nice **array** method to do this more succinctly for us.
+This is where `map()` comes in to save our day!
 
 ### Ingredient 2: map()
 
@@ -241,8 +254,8 @@ let bodyMassKiloGrams = bodyMassGrams.map(x => x / 1000);
 console.log(bodyMassKiloGrams); // logs [ 3.75, 3.8, 3.25 ]
 ```
 
-Simple: for each entry in our array, divide it by 1000 and then save the result to a new array.
-Nice, now we put Set() and map() together to finally retrieve our distinct species values.
+Simple: for each entry in our **array** of body mass values, divide it by 1000 and then save the result to a new **array**.
+Nice, now we put `Set()` and `map()` together to finally retrieve our distinct species values.
 
 ### The whole deal: Set() + map()
 
@@ -253,14 +266,14 @@ console.log(distinctSpecies); // logs ["Adelie", "Gentoo", "Chinstrap"]
 ```
 
 Yay! There is a little more going on here than we encountered before, so let's unpack it a bit.
-We take our array called *data* and use `map()` to visit each entry in it.
-Each entry is an object that we can nickname *row* to refer to its relation in the spreadsheet-style image.
+We take our **array** called *data* and use `map()` to visit each entry in it.
+Each entry is an **object** that we can nickname *row* to refer to its relation in the spreadsheet-style image.
 Inside each of the rows, we visit the *species*-variable via dot notation.
-Lastly, we put whatever value we find inside the species-variable into a *Set* object.
-As we learned above, Set actually takes care of only storing unique values, so duplicate entries are simply not added to the resulting Set.
+Lastly, we put whatever value we find inside the species-variable into a `Set` object.
+As we learned above, `Set` actually takes care of only storing unique values, so duplicate entries are simply not added to the resulting `Set`.
 
 That's it! We found the distinct values in our species-variable!
-Doing the same for the islands is trivial now...
+Doing the same for the islands is trivial now... I'll leave that to you, if you want to flex your new muscles.
 
 <Accordion summary="Further resources on map()">
 

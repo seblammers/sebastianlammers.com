@@ -14,6 +14,8 @@ categories:
   import { maxByKey } from '$lib/assets/js/utils';
   import Bar from '$lib/components/posts/Bar.svelte';
   import Embed from '$lib/components/EmbedIFrame.svelte';
+  import Link from '$lib/components/InlineLink.svelte';
+
 
   // data is fetched from internal API in +page.js
   export let data;
@@ -50,7 +52,7 @@ categories:
 
 <Accordion summary="Load the data">
 
-Since this series only uses vanilla JavaScript you will be able to follow along in the console of your browser.
+Like in the previous post, we'll use only vanilla JavaScript, so you will be able to follow along in the console of your browser.
 
 To load the data into your console, do the following:
 
@@ -62,11 +64,13 @@ let url = "https://preview-seblam.netlify.app/api/data.json?name=penguins"
 let data = await (await fetch(url)).json();
 ```
 
+If you prefer a REPL, use <Link url="https://svelte.dev/repl/1178b686372a457f9994fedff3923ce7?version=3.53.1">the starter</Link> with pre-loaded data (or continue where you left off?).
+
 </Accordion>
 
 ## Count frequency of distinct values
 
-Now that we know there are only 3 species in our dataset, an obvious next question is: how many of the 344 observations does each of the 3 species account for?
+In the previous post, we found out there are only 3 species in our dataset, an obvious next question is: how many of the 344 observations does each of the 3 species account for?
 
 Let's first do it for just one species to understand what kind of operation is needed for this task and afterwards look at all species.
 

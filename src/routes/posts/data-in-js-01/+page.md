@@ -84,10 +84,11 @@ Same for the other two variables: if you focus on the data entries highlighted i
 
 But let's dig a little deeper into this simple code block. 
 Technically speaking `somePenguins` is an **array of objects**. 
-This is important, because it tells us what kind of **functions/methods** we can use to work with this data. If you know this already, feel free to skim these sections or jump directly to the [next post](/posts/data-in-js-01).
+This is important, because it tells us what kind of **functions/methods** we can use to work with this data. 
 
 If you're new to **JavaScript** and you're not sure what an **array** and an **object** is... 
-Well you've come to the right place! I'll point out the most important basics and link to further resources for you to go through.
+Well you've come to the right place! I'll point out the most important basics and link to further resources for you to go through. 
+If you know this already, feel free to skim these sections or jump directly to the [next post](/posts/data-in-js-02).
 
 ## Arrays in JavaScript
 An **array** is just a convenient way to store of similar things under the a single variable name. Like this:
@@ -178,9 +179,9 @@ All of our **objects** can be thought of as the rows of our table.
 Inside these rows, we have the key and value pairs. 
 
 This data representation is more verbose than the spreadsheet-style that you might be used to, but it actually makes reading the data easier by eye and is more precise for coding.
-What's more, an **array of objects** is the standard data representation that you will get if you read in external data with d3 via the [d3-fetch](https://github.com/d3/d3-fetch) or [d3-dsv](https://github.com/d3/d3-dsv) modules.
-So it is a pretty standard way of representing data, especially in the context data visualizations for the web.
-In addition, an **array** is also the kind of structure that svelte `{#each}` blocks need, so it's very useful if you want make great data visualizations with Svelte & D3.
+What's more, an **array of objects** is the standard data representation that you will get if you read in external data with **d3** via the [d3-fetch](https://github.com/d3/d3-fetch) or [d3-dsv](https://github.com/d3/d3-dsv) modules.
+So it is a pretty standard way of representing data, especially in the context **data visualizations for the web**.
+In addition, an **array** is also the kind of structure that **Svelte** `{#each}` blocks need, so it's very useful if you want make great data visualizations with Svelte & D3.
 
 Next, we're gonna pull in the real dataset and then take a look at the vanilla **JavaScript** functions that we can leverage to work with the data and answer some basic questions about the data.
 
