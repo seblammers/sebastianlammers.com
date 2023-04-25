@@ -5,7 +5,6 @@ export async function load({ fetch }) {
     // only show posts that are finished
     allProjects = allProjects.filter(x => x.meta.draft === false);
   
-    console.log(allProjects)
     return {
       projects: allProjects
     }
