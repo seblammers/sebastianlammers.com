@@ -72,8 +72,8 @@
 <section class="intro">
 	<h3>Tap the pattern to create new configurations</h3>
 	<aside>
-		After returning to it's initial configuration, each click will generate a new random pattern.
-		How many distinct ones do you count?
+		After returning to it's initial configuration, each tap will generate a new random pattern. How
+		many distinct ones do you count?
 	</aside>
 
 	<!--We use a wrapper around our SVG to detect clicking to simplify things -->
