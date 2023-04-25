@@ -13,6 +13,7 @@ categories:
   import Card from '$lib/components/Card.svelte';
   import Table from '$lib/components/posts/TableView.svelte';
   import Embed from '$lib/components/EmbedIFrame.svelte';
+  import Link from '$lib/components/InlineLink.svelte';
 
   // data is fetched from internal API in +page.js
   export let data;
@@ -26,6 +27,7 @@ categories:
 
 <TOC>
 
+- [Hello penguins!](#hello-penguins)
 - [Loading the data](#loading-the-data)
 - [Get column names](#get-column-names)
 - [Get the number of observations](#get-the-number-of-observations)
@@ -41,6 +43,18 @@ categories:
 
 </TOC>
 
+## Hello penguins!
+
+We'll be using data from the South Pole. 
+Who doesn't like penguins?
+The data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pallter.marine.rutgers.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/).
+
+<Embed 
+  src="https://datawrapper.dwcdn.net/S5MFr/2/" 
+  title="This is where the penguins live"  
+  scrolling="no"
+/>
+
 ## Loading the data
 Since this series only uses vanilla JavaScript you will be able to follow along in the console of your browser.
 
@@ -53,6 +67,9 @@ let url = "https://preview-seblam.netlify.app/api/data.json?name=penguins"
 // this will load the data into your session under the name "data"
 let data = await (await fetch(url)).json();
 ```
+
+If you'd rather work in a REPL, I have a starter-template for you that already contains the data and it's waiting for you <Link url="https://svelte.dev/repl/1178b686372a457f9994fedff3923ce7?version=3.53.1">over here</Link>.
+
 
 With that out of the way, let's dive into our dataset and see what we can learn about it!
 

@@ -56,28 +56,32 @@ Well, let me tell you a good thing and a bad thing.
 
 <ListFlip />
 
-With that said, let's go through a quick breakdown of the separate parts of this series.
+In the past, I have spent a lot of time on working with data in **R**. 
+When I started learning **JavaScript**, I often found myself wondering how to do certain tasks that I knew how to do in **R**. 
+So I took some notes that formed the basis for what you are reading now.
+
+Let's go through a quick breakdown of the separate parts of this series.
 ## Brief contents of each post
 
 <Card post={posts[0]} />
 
-The first part will introduce basic terminology to talk about tabular data and how that is typically represented in JavaScript.
+The first part will introduce **basic terminology** to talk about tabular data and how that is typically represented in **JavaScript**.
 Arrays and Objects are introduced.
 
 <hr>
 
 <Card post={posts[1]} />
 
-The second part demonstrates useful methods that let you characterize a dataset.
+The second part demonstrates useful methods that let you **characterize a dataset**.
 Slice(), filter(), Set(), and map() are introduced with practical examples.
 
 <hr>
 
 <Card post={posts[2]} />
 
-The third part goes deeper into basic methods that let you characterize a dataset.
+The third part extends the basic methods that let you characterize a dataset.
 Reduce() and sort() are introduced.
-Map() has a reprise with some fundamental data wrangling applications.
+Map() has a reprise with some **fundamental data wrangling** applications.
 
 <hr>
 
@@ -103,12 +107,12 @@ Since every line of code in this series is plain **vanilla JavaScript**, you can
 If you're reading this on mobile that's fine too, but I assume you won't plan on running any code then.
  
 
-So, there are two ways I recommend to run the code examples: the console or REPLs.
+So, there are two ways I recommend to run the code examples: the **console** or **REPLs**.
 
 ### 1: In your console
 If you never opened the console of your browser before, I encourage you to try this *right now* (tested on Firefox and Chrome): press `Shift + Ctrl + I`.
 This brings up your *developer tools*, of which there are many. 
-In the top row select the `Console` tab and then copy & paste the following code and press `Enter`.
+In the top row select the `Console` tab and then copy & paste the following `alert` code and press `Enter`.
 
 <Accordion summary='Stop, I use Mac OS!'>
 

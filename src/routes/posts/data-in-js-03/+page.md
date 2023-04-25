@@ -159,8 +159,17 @@ I deviated from the traditional variable names here, because basically what we d
 For each row, inside the species variable, check if that is equal to "Gentoo". 
 **If** so, increase our counter accumulator by 1. Return the counter when the whole array is processed.
 
+<Accordion summary='Find another way'>
+
+If you still remember what you learned about `filter()`, then you will be able to use that too to find out how many Gentoo are in the data.
+
+I'll leave that as an exercise to you.
+
+</Accordion>
+
+
 But! If we want to do the same for the other two species, we'd have to repeat that code...
-Instead, let's quickly make that a function that we can re-use.
+Instead, let's quickly turn our snippet from above into a function that we can re-use.
 
 ### A counting function
 
@@ -230,6 +239,7 @@ let sorted = data.sort((a, b) => a.body_mass_g - b.body_mass_g);
 ```
 
 If you inspect the `sorted` data, you'll find it is indeed sorted as expected.
+Job done.
 
 <div class="huge">
 BUT!
@@ -263,7 +273,7 @@ Here is the code you need to create *a new array* with the sorted values.
 let sorted = [...data].sort((a, b) => a.body_mass_g - b.body_mass_g);
 ```
 
-We use a neat little trick to **first** copy the array via spread syntax `[...data]` and **then** sort *that new copy* in place and assign it to our new variable `sorted`. 
+We use a neat little trick to **first copy** the array via spread syntax `[...data]` and **then sort** *that new copy* in place and assign it to our new variable `sorted`. 
 
 <Accordion summary="Alternative to the Spread syntax '...'">
 
@@ -376,7 +386,7 @@ let desc = [...bodyMassGrams].sort(compareValues("desc"));
 
 
 ## Mutate, select, rename columns
-We're gonna finish this off with a roundhouse-kick of data manipulations. 
+We're gonna finish this post off with a roundhouse-kick of data manipulations. 
 Adding a new column based on existing ones? Got ya!
 Renaming existing columns? Easy!
 Selecting columns to boil down the amount of data? Totally!
@@ -470,6 +480,9 @@ If we then reduce our values to only retain the highest values per species, we c
 
 <Bar data={maxValues} title="Heaviest Penguins by Species" description="Bar-Chart showing the heaviest penguin per species in grams."/>
 
+A proper visualization should maybe also show the variation within in the species, instead of reducing everything to the heaviest observation... 
+Let me know if you create a better graph...!
+
 
 ### 3: Rename columns
 
@@ -491,4 +504,9 @@ If you stick to *just letters*, you're fine.
 Technically, you could also go crazy and use something like `"I need some space":` as your `key:`, but you'll have other problems down the road then, like not being able to use the dot-notation to access your rows (`row.I need some space` will not work).
 
 ## Closing
-You made it. What's going to be next? We  could learn about pulling in data from different sources (like from static files or APIs). Or we could look at more advanced data wrangling with the help of d3.array or tidy.js...
+You made it. 
+Thanks for reading!
+
+This series is over. I hope you learned something and maybe even had some fun.
+Let me know :)
+If you want to talk, find me [on Mastodon](https://vis.social/@seblammers) or use [my form over here](/contact).
