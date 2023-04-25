@@ -4,6 +4,7 @@
 	import { dateFormat } from '$lib/assets/js/utils';
 	import { onMount } from 'svelte';
 	import Heading from '$lib/components/Heading.svelte';
+	import { titleFormat } from '$lib/assets/js/utils';
 	import { Head } from 'svead';
 	export let title = 'I forgot the title!';
 	export let date = '1999-12-31';
@@ -13,10 +14,12 @@
 	export let draft = true;
 	export let data;
 	export let form;
+	let heading = title;
+	title = titleFormat(title);
 	let url = $page.url.toString;
 	let authorName = siteAuthor;
 	let website = siteURL;
-	let image = `https://ik.imagekit.io/seblammers/tr:otf-Inter-SemiBold_zoEu2Lj-l.otf,ot-${title},ots-72,otc-FFF,ox-10,oy-20,otw-700/twittercard_-1cx8-LQN.png`;
+	let image = `https://ik.imagekit.io/seblammers/tr:otf-Inter-SemiBold_zoEu2Lj-l.otf,ot-${heading},ots-72,otc-FFF,ox-10,oy-20,otw-700/twittercard_-1cx8-LQN.png`;
 
 	// setting up reading-time variables
 	let article;
@@ -39,7 +42,7 @@
 <Head {title} {description} {image} {url} {authorName} {website} />
 
 <Heading>
-	{title}
+	{heading}
 </Heading>
 
 <div class="meta">
