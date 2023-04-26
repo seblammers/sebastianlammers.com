@@ -27,7 +27,7 @@
 			This website is <strong>my playground</strong> to learn about HTML, CSS & JavaScript.
 			Sometimes I write
 			<a sveltekit:prefetch href="/posts">blog posts</a>
-			on things I learned (to help others learn it too) and share
+			about things I learned (to help others learn it too) and share
 			<a sveltekit:prefetch href="/projects">projects</a> that I have built.
 		</p>
 	</div>
@@ -101,7 +101,6 @@
 	}
 
 	#hi {
-		font-weight: 400 !important;
 		font-size: var(--step-2);
 	}
 </style>
