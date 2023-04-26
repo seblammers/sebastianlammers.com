@@ -1,5 +1,5 @@
 <script>
-	import self from '$lib/assets/images/cv/profile_removebg_BW.png';
+	import self from '$lib/assets/images/cv/profile_removebg_sepia.png';
 	import Image from '$lib/components/Image.svelte';
 	import Meta from '$lib/components/Meta.svelte';
 	import { fly } from 'svelte/transition';
@@ -11,7 +11,6 @@
 <Meta />
 <svelte:window bind:innerWidth={width} />
 <div class="flex-container flow" class:mobile>
-	<!-- <img src={self} alt="Portrait of Sebastian Lammers" height="500" width="500" /> -->
 	<div class="flex-items">
 		<Image src={self} alt="Portrait of Sebastian Lammers" loading="eager" />
 	</div>
