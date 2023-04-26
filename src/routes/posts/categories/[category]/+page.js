@@ -5,7 +5,6 @@
 
     const matchingPosts = posts
       .filter(post => post.meta.categories.includes(currentCategory))
-      .filter(post => post.meta.draft === false);
 
     return {
       posts: matchingPosts,
