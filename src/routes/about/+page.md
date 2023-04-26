@@ -10,7 +10,8 @@ description: 'The about page of sebastianlammers.com, my personal homepage, wher
 
 ### About me
 I'm a curious person. I love the web. I love dataviz. I love learning about it.
-This site is my **playground**, where I try things. So if you see something that looks off to you or you spot something that you consider inappropriate (like broken layouts or dead links): [reach out to me](/contact).
+This site is my **playground**, where I try new things. 
+So if you see something that jumps out at you: [reach out to me](/contact).
 
 ### About this site
 - I made this site with [SvelteKit](https://kit.svelte.dev) and lots of &hearts;.
