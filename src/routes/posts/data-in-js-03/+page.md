@@ -58,7 +58,7 @@ To load the data into your console, do the following:
 
 ```js
 // this is the url that you need to fetch the data
-let url = "https://preview-seblam.netlify.app/api/data.json?name=penguins" 
+let url = "https://www.sebastianlammers.com/api/data.json?name=penguins" 
 
 // this will load the data into your session under the name "data"
 let data = await (await fetch(url)).json();
