@@ -10,11 +10,26 @@ description: 'The about page of sebastianlammers.com, my personal homepage, wher
 
 ### About me
 I'm a curious person. I love the web. I love dataviz. I love learning about it.
-This site is my playground, where I try things. So if you see something that looks off to you or you spot something that you consider inappropriate (like broken layouts or dead links): reach out to me. You can directly reach me via the form below, look at the code on Github or find me on Mastodon.
+This site is my **playground**, where I try things. So if you see something that looks off to you or you spot something that you consider inappropriate (like broken layouts or dead links): [reach out to me](/contact).
 
 ### About this site
 - I made this site with [SvelteKit](https://kit.svelte.dev) and lots of &hearts;.
-- I can write my blog posts in Markdown, thanks to mdsvex.
-- It's deployed via Netlify.
-- The fonts are IBM Plex Sans, *IBM Plex Sans Italic* and `IBM Plex Mono`.
-- I was inspired my many many great people, read more in my appreciation post over here.
+- I can write my blog posts in **Markdown**, thanks to [mdsvex](https://mdsvex.com/).
+- It's deployed via [Netlify](https://www.netlify.com/).
+- The fonts are from the [IBM Plex Family](https://www.ibm.com/plex/) 
+  - Sans and *Sans Italic* for the main texts 
+  - <span class="condensed">Condensed</span> for headings 
+  - `Mono` for Code
+
+This website grew over a long period of time and I was inspired my many many great people.
+I will write a more detailed post on who influenced me in my design decisions soon<sup>TM</sup>.
+
+<style>
+    .condensed {
+        font-family: var(--headingFont);
+    }
+
+    sup {
+        font-size: var(--step--1)
+    }
+</style>
