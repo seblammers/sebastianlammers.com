@@ -49,7 +49,7 @@
 				<div class="links">
 					<a href="/" class:active={$page.url.pathname === '/'}> Home </a>
 					{#each navItems as page, i (i)}
-						<a href={page.route} class:active={isActive(`${page.route}`)}>
+						<a sveltekit:prefetch href={page.route} class:active={isActive(`${page.route}`)}>
 							{page.title}
 						</a>
 					{/each}

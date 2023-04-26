@@ -43,11 +43,7 @@
 	<Datawrapper />
 
 	{#key data.path}
-		<main
-			in:fly={{ y: -50, duration: 250, delay: 100 }}
-			out:fly={{ y: 50, duration: 100 }}
-			class="flow"
-		>
+		<main in:fly={{ y: -50, duration: 250 }} class="flow">
 			<slot />
 		</main>
 	{/key}
