@@ -1,16 +1,12 @@
 <script>
-	import self from '$lib/assets/images/cv/profile_removebg_sepia.png';
+	import self from '$lib/assets/images/cv/profile_removebg_BW.png';
 	import Image from '$lib/components/Image.svelte';
 	import Meta from '$lib/components/Meta.svelte';
 	import { fly } from 'svelte/transition';
-
-	let width;
-	$: mobile = width < 900;
 </script>
 
 <Meta />
-<svelte:window bind:innerWidth={width} />
-<div class="flex-container flow" class:mobile>
+<div class="flex-container flow">
 	<div class="flex-items">
 		<Image src={self} alt="Portrait of Sebastian Lammers" loading="eager" />
 	</div>
@@ -78,20 +74,22 @@
 		margin-bottom: 1rem;
 		margin-top: 0%;
 	}
-	.mobile {
-		display: flex;
-		flex-direction: column;
-		flex-wrap: nowrap;
-		justify-content: center;
-		align-items: center;
-		align-content: center;
-		--flow-space: var(--space-xs);
+	@media screen and (max-width: 700px) {
+		.flex-container {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+			--flow-space: var(--space-xs);
 
-		& > .flex-items {
-			max-width: 80vw;
-			flex-shrink: 0;
-			align-self: flex-start;
-			padding-left: var(--space-s);
+			& > .flex-items {
+				max-width: 80vw;
+				flex-shrink: 0;
+				align-self: flex-start;
+				padding-left: var(--space-s);
+			}
 		}
 	}
 
