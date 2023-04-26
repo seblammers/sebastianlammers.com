@@ -17,7 +17,7 @@ categories:
   let alt = "A multi-screenshot image (desktop, tablet, mobile) of the Awesome Svelte & D3 Website powered by https://ui.dev/amiresponsive"
 </script>
 
-<Image {src} {alt}/>
+<Image {src} {alt} loading="eager"/>
 
 ## Description
 [The Awesome Svelte & D3 website](https://awesome-svelte-and-d3.netlify.app/) aims to collect great resources to help people learn about the **combination of Svelte and D3** for **data visualization**.

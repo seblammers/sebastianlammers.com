@@ -6,11 +6,13 @@
 	import Heading from '$lib/components/Heading.svelte';
 	import { titleFormat } from '$lib/assets/js/utils';
 	import { Head } from 'svead';
+	import image from '$lib/assets/images/og-image.png';
+
 	export let title = 'I forgot the title!';
 	export let date = '1999-12-31';
 	export let categories = undefined;
 	export let updated = undefined;
-	export let description = 'Whoops, no description!';
+	export let description = 'A post by Sebastian Lammers';
 	export let draft = true;
 	export let data;
 	export let form;
@@ -19,7 +21,6 @@
 	let url = $page.url.toString;
 	let authorName = siteAuthor;
 	let website = siteURL;
-	let image = `https://ik.imagekit.io/seblammers/tr:otf-Inter-SemiBold_zoEu2Lj-l.otf,ot-${heading},ots-72,otc-FFF,ox-10,oy-20,otw-700/twittercard_-1cx8-LQN.png`;
 
 	// setting up reading-time variables
 	let article;

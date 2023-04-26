@@ -1,6 +1,6 @@
 ---
 title: 'About'
-description: 'The about page of sebastianlammers.com, my personal homepage, where I play with code and share some notes and projects.' 
+description: 'Learn more about Sebastian Lammers.' 
 ---
 
 <script>

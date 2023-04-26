@@ -1,12 +1,14 @@
 <script>
 	import self from '$lib/assets/images/cv/profile_removebg_BW.png';
 	import Image from '$lib/components/Image.svelte';
+	import Meta from '$lib/components/Meta.svelte';
 	import { fly } from 'svelte/transition';
 
 	let width;
 	$: mobile = width < 900;
 </script>
 
+<Meta />
 <svelte:window bind:innerWidth={width} />
 <div class="flex-container flow" class:mobile>
 	<!-- <img src={self} alt="Portrait of Sebastian Lammers" height="500" width="500" /> -->

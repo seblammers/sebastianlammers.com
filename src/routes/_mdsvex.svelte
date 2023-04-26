@@ -4,6 +4,7 @@
 	import Heading from '$lib/components/Heading.svelte';
 	import { titleFormat } from '$lib/assets/js/utils';
 	import { Head } from 'svead';
+	import image from '$lib/assets/images/og-image.png';
 	export let title;
 	export let description;
 	// preserve heading title
@@ -13,7 +14,6 @@
 	let url = $page.url.toString;
 	let authorName = siteAuthor;
 	let website = siteURL;
-	let image = `https://ik.imagekit.io/seblammers/tr:otf-Inter-SemiBold_zoEu2Lj-l.otf,ot-${title},ots-72,otc-FFF,ox-10,oy-20,otw-700/twittercard_-1cx8-LQN.png`;
 </script>
 
 <Head {title} {description} {image} {url} {authorName} {website} />
