@@ -1,6 +1,6 @@
 ---
 title: 'Data Wrangling in JS: 03 Advanced'
-date: '2023-02-11'
+date: '2023-04-25'
 draft: false
 categories:
   - 'JavaScript'

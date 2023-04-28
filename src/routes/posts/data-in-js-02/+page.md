@@ -1,6 +1,6 @@
 ---
 title: 'Data Wrangling in JS: 02 Array Methods'
-date: '2023-02-11'
+date: '2023-04-25'
 draft: false
 categories:
   - 'JavaScript'
@@ -62,23 +62,12 @@ To load the data into your console, do the following:
 
 ```js
 // this is the url that you need to fetch the data
-let url = "https://www.sebastianlammers.com/api/data.json?name=penguins" 
+let url = "https://raw.githubusercontent.com/seblammers/sebastianlammers.com/master/src/routes/api/data.json/penguins.json" 
 
 // this will load the data into your session under the name "data"
 let data = await (await fetch(url)).json();
 ```
 
-<Accordion summary="Will only work if...">
-
-... the console you paste the code into is in a browser tab on *this website*.
-
-So if you copy the code, open a new tab, then open the console and paste in the code it will give you an error like this:
-
-
-`Content Security Policy: The page’s settings blocked the loading of a resource at [...] (“default-src”).`
-
-
-</Accordion>
 
 If you'd rather work in a REPL, I have a starter-template for you that already contains the data and it's waiting for you <Link url="https://svelte.dev/repl/1178b686372a457f9994fedff3923ce7?version=3.53.1">over here</Link>.
 
