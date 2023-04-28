@@ -54,7 +54,11 @@
 	{/if}
 
 	<div class="readingTime">
-		{`Reading Time: ${time} ${time > 1 ? 'minutes' : 'minute'}`}
+		{#if typeof time !== 'undefined'}
+			{`Reading Time: ${time} ${time > 1 ? 'minutes' : 'minute'}`}
+		{:else}
+			Reading Time: is being estimated...
+		{/if}
 	</div>
 	{#if categories.length}
 		<div class="flow tags">
