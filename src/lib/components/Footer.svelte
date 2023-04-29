@@ -3,6 +3,7 @@
 	import { navigating, page } from '$app/stores';
 	import IconStroke from './svg/IconStroke.svelte';
 	import Wave from './svg/WaveDivider.svelte';
+	import Mastodon from './svg/Mastodon.svelte';
 	export let path;
 	let width;
 	$: mobile = width < 900;
@@ -12,7 +13,10 @@
 <Wave />
 
 <footer class:mobile>
-	<p>&copy; {new Date().getFullYear()} {siteAuthor}</p>
+	<p>
+		&copy; {new Date().getFullYear()}
+		{siteAuthor} <a rel="me" href="https://vis.social/@seblammers"><Mastodon /></a>
+	</p>
 
 	<IconStroke stroke="var(--surface2-light)" />
 
