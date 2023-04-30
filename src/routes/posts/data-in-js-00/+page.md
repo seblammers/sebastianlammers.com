@@ -73,15 +73,15 @@ Arrays and Objects are introduced.
 <Card post={posts[1]} />
 
 The second part demonstrates useful methods that let you **characterize a dataset**.
-Slice(), filter(), Set(), and map() are introduced with practical examples.
+`Slice()`, `filter()`, `Set()`, and `map()` are introduced with practical examples.
 
 <hr>
 
 <Card post={posts[2]} />
 
 The third part extends the basic methods that let you characterize a dataset.
-Reduce() and sort() are introduced.
-Map() has a reprise with some **fundamental data wrangling** applications.
+`Reduce()` and `sort()` are introduced.
+`Map()` has a reprise with some **fundamental data wrangling** applications.
 
 <hr>
 
@@ -102,7 +102,7 @@ If you ignore all of them you will still get the main message of what each post 
 So feel free to just skim through the main texts, or go through the Bonus-Parts as well.
 
 ## How to run the code
-Since every line of code in this series is plain **vanilla JavaScript**, you can actually just run it the browser that you are using right now to read this --- and I think that's beautiful! Your browser is well equipped by default.
+Since every line of code in this series is plain **vanilla JavaScript**, you can actually just run it the browser that you are using right now to read this --- and I think **that's beautiful**! Your browser is well equipped by default.
 
 If you're reading this on mobile that's fine too, but I assume you won't plan on running any code then.
  
@@ -157,9 +157,9 @@ Here is what the one linked to above looks like:
 
 In the most basic way you can think of it this way: the `App.svelte` allows you to combine three things in one place:
 
-1. you write **JavaScript code** in a script tag
-2. you write **HTML markup** next to it and reference your JavaScript variables like `{this}`
-3. you write **CSS declarations** in a style tag
+1. you write **JavaScript code** in a script tag `<script>...</script>`
+2. you write **HTML markup** next to it and reference your **JavaScript** variables like `{this}`
+3. you write **CSS declarations** in a style tag `<style>...</style>`
 
 <Accordion summary='How to save your progress'>
 
@@ -168,9 +168,7 @@ But you can also use it *without logging in at all*.
 
 If you don't want to log in, you can still **download** the current status of your REPL as a **zip file**.
 
-<hr>
-
-If you want to run that zipped app locally and have no clue where to begin: This article [Svelte for new developers](https://svelte.dev/blog/svelte-for-new-developers) is up to date and very concise.
+If you want to run that zipped app locally and have no clue where to begin: This article called [Svelte for new developers](https://svelte.dev/blog/svelte-for-new-developers) is still up to date and very concise.
 
 If you want a longer version (albeit a bit older): The Mozilla Web Docs got you covered.
 Check out their guide [Getting started with Svelte](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_getting_started), which links to everything you need to get up to speed and adds commentary on most of the moving parts.

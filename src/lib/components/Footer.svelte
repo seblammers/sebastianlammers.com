@@ -70,6 +70,10 @@
 		p {
 			margin: 0;
 			font-size: var(--step-0);
+
+			& > a:hover {
+				background-color: transparent;
+			}
 		}
 	}
 

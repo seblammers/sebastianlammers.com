@@ -68,11 +68,8 @@
 		left: 50%;
 		transform: translateX(-50%);
 		width: 100%;
-
-		background-color: var(--paper);
 		border-bottom: 4px solid rgba(0, 0, 0, 0);
 		transition: border-color 0.2s ease-in-out;
-
 		background-color: var(--background-nav);
 
 		&.scroll {
