@@ -8,7 +8,7 @@ export async function GET() {
       iterablePostFiles.map(async ([path, resolver]) => {
         const { metadata } = await resolver()
         const postPath = path.slice(5, -9)
-        const imagePath = postPath + "/preview.png"
+        const imagePath = "src/routes" + postPath + "/preview.png"
         
         return {
           meta: metadata,
@@ -17,7 +17,7 @@ export async function GET() {
         }
       })
     )
-  
+    
     const sortedPosts = allPosts.sort((a, b) => {
       return new Date(b.meta.date) - new Date(a.meta.date)
     })
