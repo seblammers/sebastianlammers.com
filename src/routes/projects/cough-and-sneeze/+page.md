@@ -2,7 +2,7 @@
 title: 'Not a week without a sneeze'
 date: '2023-06-25'
 draft: false
-image: "./preview.png"
+image: "preview-post_data-in-js-00.png"
 categories:
   - 'Datawrapper'
   - 'Personal Data'

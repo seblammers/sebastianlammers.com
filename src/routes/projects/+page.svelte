@@ -9,14 +9,13 @@
 	import { Head } from 'svead';
 	import image from '$lib/assets/images/og-image.png';
 
+	console.log(image);
 	let heading = 'Projects';
 	let title = titleFormat(heading);
 	let description = 'The project listing page of sebastianlammers.com.';
 	let url = $page.url.toString;
 	let authorName = siteAuthor;
 	let website = siteURL;
-
-	import preview from '$lib/assets/images/projects/awesome-svelte-and-d3/screenshot-am-I-responsive.png';
 </script>
 
 <Head {title} {description} {image} {url} {authorName} {website} />
@@ -25,6 +24,6 @@
 
 <article class="flow">
 	{#each projects as project}
-		<Card post={project} image={project.image} />
+		<Card post={project} image={project.meta.image} />
 	{/each}
 </article>
