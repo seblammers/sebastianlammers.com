@@ -24,6 +24,6 @@
 
 <article class="flow">
 	{#each projects as project}
-		<Card post={project} image={project.meta.image} />
+		<Card post={project} />
 	{/each}
 </article>

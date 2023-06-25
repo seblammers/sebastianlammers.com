@@ -2,6 +2,7 @@
 title: 'Data Wrangling in JS: 01 Basics'
 date: '2023-04-25'
 draft: false
+image: 'preview-post_data-in-js-01.png'
 categories:
   - 'JavaScript'
   - 'data'

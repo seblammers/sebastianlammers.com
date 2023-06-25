@@ -2,7 +2,7 @@
 title: 'Awesome Svelte & D3 Website'
 date: '2023-04-24'
 draft: false
-image: "./preview.png"
+image: 'awesome-svelte-and-d3.png'
 categories:
   - 'JavaScript'
   - 'Design'

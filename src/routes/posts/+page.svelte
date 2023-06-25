@@ -22,6 +22,6 @@
 
 <article class="flow">
 	{#each data.posts as post}
-		<Card {post} image={post.image} />
+		<Card {post} />
 	{/each}
 </article>

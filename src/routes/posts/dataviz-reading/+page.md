@@ -2,6 +2,7 @@
 title: 'Dataviz Reading List'
 date: '2023-05-07'
 draft: false
+image: 'preview_books.png'
 categories:
   - 'Data Visualization'
   - 'resources'
