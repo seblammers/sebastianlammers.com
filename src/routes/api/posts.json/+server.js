@@ -8,10 +8,12 @@ export async function GET() {
       iterablePostFiles.map(async ([path, resolver]) => {
         const { metadata } = await resolver()
         const postPath = path.slice(5, -9)
+        const imagePath = "src/routes" + postPath + "/preview.png"
         
         return {
           meta: metadata,
           path: postPath,
+          image: imagePath
         }
       })
     )
