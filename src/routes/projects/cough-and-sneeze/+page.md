@@ -57,7 +57,7 @@ This period ranges from 2022-12-01 until 2023-01-15 and is depicted in the chart
   scrolling="no"
 />
 
-To bad. *That one person (yes, you Person 4!)* ruined the chance of our one-week-streak. 
+Too bad. *That one person (yes, you Person 4!)* ruined the chance of our one-week-streak. 
 But I'm not telling you who that was... *I'm innocent, believe me!*
 
 So I won the bet! 
