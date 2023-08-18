@@ -12,7 +12,7 @@ categories:
 
 <script>
   import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/projects/awesome-svelte-and-d3/screenshot-am-I-responsive.png';
+  import src from '$lib/assets/images/projects/awesome-svelte-and-d3/awesome-svelte-and-d3.png';
 
   let alt = "A multi-screenshot image (desktop, tablet, mobile) of the Awesome Svelte & D3 Website powered by https://ui.dev/amiresponsive"
 </script>
