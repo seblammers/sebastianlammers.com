@@ -24,10 +24,10 @@ categories:
 
 Both **real world projects** as well as **tutorials** are linked.
 
-## Stack
+## Technologies used
 
-- developed with [SvelteKit](https://kit.svelte.dev/)
-- uses [Utopia](https://utopia.fyi/) for fluid responsive design
-- content is pulled in from a [Hygraph CMS](https://hygraph.com/) project
-- font used is [Clear Sans](https://github.com/intel/clear-sans)
-- code is [public here](https://github.com/seblammers/awesome-svelte-and-d3-website)
+- The site is developed with [SvelteKit](https://kit.svelte.dev/)
+- It uses [Utopia](https://utopia.fyi/) for fluid responsive design
+- The content is pulled in from a [Hygraph CMS](https://hygraph.com/) project
+- The font used is [Clear Sans](https://github.com/intel/clear-sans)
+- The code is [public here](https://github.com/seblammers/awesome-svelte-and-d3-website)

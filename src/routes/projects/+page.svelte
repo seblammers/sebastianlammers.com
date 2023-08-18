@@ -9,7 +9,6 @@
 	import { Head } from 'svead';
 	import image from '$lib/assets/images/og-image.png';
 
-	console.log(image);
 	let heading = 'Projects';
 	let title = titleFormat(heading);
 	let description = 'The project listing page of sebastianlammers.com.';
