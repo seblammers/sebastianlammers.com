@@ -1,6 +1,7 @@
 ---
 title: 'Stories from the night sky'
 date: '2023-08-18'
+href: 'https://storiesfromthenightsky.netlify.app/'
 draft: false
 image: 'detail-almach.png'
 categories:
@@ -12,6 +13,7 @@ categories:
 ---
 
 <script>
+  import Button from '$lib/components/ButtonSimple.svelte';
   import Image from '$lib/components/Image.svelte';
   import src from '$lib/assets/images/projects/night-sky/title.png';
   import a from '$lib/assets/images/projects/night-sky/overview.png';
@@ -27,7 +29,7 @@ categories:
 <Image {src} {alt} loading="eager"/>
 
 ## Description
-[Stories from the night sky](https://storiesfromthenightsky.netlify.app/) is a data-driven visual experiment:
+[Stories from the night sky]({href}) is a data-driven visual experiment:
 The light from the stars travels for years (and years) until it reaches your eyes. This **interactive map of the night sky** shows you for each star what happened on Earth when the light started traveling from the star to you. That way, any star has a story to tell you. You can zoom in, move around and hover all the stars to reveal the historical events they are connected to.
 
 ## Technologies used
@@ -43,5 +45,4 @@ The light from the stars travels for years (and years) until it reaches your eye
 <Image src={b} alt={alt_a} loading="lazy"/>
 <Image src={c} alt={alt_c} loading="lazy"/>
 
-
-<a class="button-simple" href="https://storiesfromthenightsky.netlify.app/" target="_blank" rel="noopener noreferrer" >Visit the project</a>
+<Button {href} />

@@ -1,6 +1,7 @@
 ---
 title: 'Awesome Svelte & D3 Website'
 date: '2023-04-24'
+href: 'https://awesome-svelte-and-d3.netlify.app/'
 draft: false
 image: 'awesome-svelte-and-d3.png'
 categories:
@@ -11,6 +12,7 @@ categories:
 ---
 
 <script>
+  import Button from '$lib/components/ButtonSimple.svelte';
   import Image from '$lib/components/Image.svelte';
   import src from '$lib/assets/images/projects/awesome-svelte-and-d3/awesome-svelte-and-d3.png';
 
@@ -32,5 +34,4 @@ Both **real world projects** as well as **tutorials** are linked.
 - The font used is [Clear Sans](https://github.com/intel/clear-sans)
 - The code is [public here](https://github.com/seblammers/awesome-svelte-and-d3-website)
 
-
-<a class="button-simple" href="https://awesome-svelte-and-d3.netlify.app/" target="_blank" rel="noopener noreferrer" >Visit the project</a>
+<Button {href} />
