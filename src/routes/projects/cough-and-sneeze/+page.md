@@ -12,6 +12,7 @@ categories:
 
 <script>
   import Embed from '$lib/components/EmbedIFrame.svelte';
+  import Back from '$lib/components/ButtonBack.svelte';
 </script>
 
 ## Background
@@ -69,3 +70,5 @@ It looks like we don't even achieve the 7 days during summer.
 But we'll see that in a couple of months, when summer is over and the data cycles a whole year. 
 Maybe then this data will find another life in a new chart-type (something circular?). 
 Let me know if you have ideas how to chart the full-year-data - I'm always happy to chat about dataviz!
+
+<Back />

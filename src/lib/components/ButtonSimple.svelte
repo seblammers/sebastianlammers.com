@@ -3,7 +3,13 @@
 	export let href = '';
 </script>
 
-<a class="button-simple" {href} target="_blank" rel="noopener noreferrer">
+<a class="button-simple right" {href} target="_blank" rel="noopener noreferrer">
 	<!-- Button label is provided in the slot / prefilled with this: -->
-	<slot>Explore the project</slot>
+	<slot>Explore this project ↗</slot>
 </a>
+
+<style>
+	.right {
+		float: right;
+	}
+</style>

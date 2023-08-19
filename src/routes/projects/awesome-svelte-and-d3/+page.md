@@ -13,6 +13,7 @@ categories:
 
 <script>
   import Button from '$lib/components/ButtonSimple.svelte';
+  import Back from '$lib/components/ButtonBack.svelte';
   import Image from '$lib/components/Image.svelte';
   import src from '$lib/assets/images/projects/awesome-svelte-and-d3/awesome-svelte-and-d3.png';
 
@@ -22,7 +23,7 @@ categories:
 <Image {src} {alt} loading="eager"/>
 
 ## Description
-[The Awesome Svelte & D3 website](https://awesome-svelte-and-d3.netlify.app/) aims to collect great resources to help people learn about the **combination of Svelte and D3** for **data visualization**.
+[The Awesome Svelte & D3 website]({href}) aims to collect great resources to help people learn about the **combination of Svelte and D3** for **data visualization**.
 
 Both **real world projects** as well as **tutorials** are linked.
 
@@ -34,4 +35,6 @@ Both **real world projects** as well as **tutorials** are linked.
 - The font used is [Clear Sans](https://github.com/intel/clear-sans)
 - The code is [public here](https://github.com/seblammers/awesome-svelte-and-d3-website)
 
-<Button {href} />
+<Button {href}/>
+
+<Back />

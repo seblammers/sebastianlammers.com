@@ -14,6 +14,7 @@ categories:
 
 <script>
   import Button from '$lib/components/ButtonSimple.svelte';
+  import Back from '$lib/components/ButtonBack.svelte';
   import Image from '$lib/components/Image.svelte';
   import src from '$lib/assets/images/projects/night-sky/title.png';
   import a from '$lib/assets/images/projects/night-sky/overview.png';
@@ -45,4 +46,6 @@ The light from the stars travels for years (and years) until it reaches your eye
 <Image src={b} alt={alt_a} loading="lazy"/>
 <Image src={c} alt={alt_c} loading="lazy"/>
 
-<Button {href} />
+<Button {href}/>
+
+<Back />
