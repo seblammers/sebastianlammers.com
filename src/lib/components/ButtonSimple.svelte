@@ -5,7 +5,7 @@
 
 <a class="button-simple right" {href} target="_blank" rel="noopener noreferrer">
 	<!-- Button label is provided in the slot / prefilled with this: -->
-	<slot>Explore this project ↗</slot>
+	<slot>Explore this project</slot>
 </a>
 
 <style>
