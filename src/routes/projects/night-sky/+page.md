@@ -42,3 +42,6 @@ The light from the stars travels for years (and years) until it reaches your eye
 <Image src={a} alt={alt_a} loading="lazy"/>
 <Image src={b} alt={alt_a} loading="lazy"/>
 <Image src={c} alt={alt_c} loading="lazy"/>
+
+
+<a class="button-simple" href="https://storiesfromthenightsky.netlify.app/" target="_blank" rel="noopener noreferrer" >Visit the project</a>

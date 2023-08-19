@@ -32,3 +32,41 @@
   .align-right {
     float: right;
   }
+
+  .chart-wrapper {
+		position: relative;
+		width: 100%;
+		max-width: 60ch;
+		padding: var(--space-xs);
+		border-radius: var(--radiusSection);
+		// border: solid;
+		background-color: var(--surface2-light);
+	}
+  
+  .no-hover {
+    &:hover {
+      cursor: auto;
+		  --_p: 0%;
+    }
+  }
+
+  .button-simple {
+		font-size: var(--step-1);
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--surface2-light);
+    background-color: var(--ink);
+    border-color: var(--ink);
+		border-radius: var(--radiusSection);
+		padding: var(--space-s);
+		transition-property: all;
+		transition-duration: 0.5s;
+    float: right;
+
+		&:hover {
+			background-color: var(--accent);
+      color: var(--ink);
+      border-color: var(--accent);
+      box-shadow: 0px 0px 20px var(--accent);
+		}
+	}

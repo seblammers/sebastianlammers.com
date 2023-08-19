@@ -31,3 +31,6 @@ Both **real world projects** as well as **tutorials** are linked.
 - The content is pulled in from a [Hygraph CMS](https://hygraph.com/) project
 - The font used is [Clear Sans](https://github.com/intel/clear-sans)
 - The code is [public here](https://github.com/seblammers/awesome-svelte-and-d3-website)
+
+
+<a class="button-simple" href="https://awesome-svelte-and-d3.netlify.app/" target="_blank" rel="noopener noreferrer" >Visit the project</a>
