@@ -9,10 +9,14 @@ import "prismjs/components/prism-markdown.min.js";
 import "prismjs/components/prism-sql.min.js";
 import "prismjs/components/prism-toml.min.js";
 import "prismjs/components/prism-promql.min.js";
+import "prismjs/components/prism-r.min.js";
+import "prismjs/components/prism-python.min.js";
 import { escapeSvelte } from "mdsvex";
 
 const langMap = {
   sh: "bash",
+  r: "r",
+  Python: "python",
   Dockerfile: "dockerfile",
   YAML: "yaml",
   svelte: "html", // throws error if svelte is used for highlighting
