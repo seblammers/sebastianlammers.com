@@ -21,7 +21,6 @@ categories:
   import src from '$lib/assets/images/projects/night-sky/detail-almach.png';
   import Embed from '$lib/components/EmbedIFrame.svelte';
   import Colours from '$lib/components/posts/ColoursNightSky.svelte';
-  import ColoursShape from '$lib/components/posts/ColoursNightSkyShapeApp.svelte';
   import firstMap from '$lib/assets/images/projects/night-sky/process/01-first-map.png';
   import thirdMap from '$lib/assets/images/projects/night-sky/process/03-no-voronoi.gif';
   import voronoiGif from '$lib/assets/images/projects/night-sky/process/04-voronoi.gif';
@@ -220,7 +219,7 @@ These are the 4 main colours:
 <Colours />
 
 The colours in action:
-<Image src={accent} alt=""/>
+<Image src={accent} alt="A screenshot that shows how the accent colour is used, e.g. for the scroll bar, the selected star, and the hover-styles of the buttons."/>
 
 ### Units
 I implemented a little unit switching component to toggle between kilometers and miles.
@@ -267,15 +266,16 @@ Here you go:
 </Accordion>
 
 
+
 ### Control buttons
 I decided to make a control panel to make the actions users can take on the map very explicit.
-<Image src={gridDesktop} alt=""/>
+<Image src={gridDesktop} alt="Another screenshot of the project. This time the control panel is highlighted in yellow."/>
 
 The biggest challenge here was to find a design that works on wide *and* narrow screens.
 In addition to my beloved [utopian fluid spacing values](https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12), I found that I needed two slightly adapted versions.
 One for wide screens with more breathing room between the buttons, that is right-aligned (see picture above).
 And another for smaller screens that is more compact and aligned in the center of the screen:
-<Image src={gridMobile} alt=""/>
+<Image src={gridMobile} alt="Another screenshot of the project in mobile view. The control panel is highlighted in yellow."/>
 
 
 ### Fonts
