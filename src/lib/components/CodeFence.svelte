@@ -9,6 +9,7 @@
 
 	const displayLanguageMap = {
 		yaml: 'yml',
+		r: 'r',
 		shell: 'bash',
 		svelte: 'js' // gives an error when parsing svelte?
 	};
