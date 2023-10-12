@@ -53,6 +53,8 @@ The light from the stars travels for years (and years) until it reaches your eye
 - Historic events were collected from [Wikipedia timelines](https://en.wikipedia.org/wiki/Timelines_of_world_history) and then matched to star distances
 - The code is [public here](https://github.com/seblammers/starmap)
 
+More details can be found in my [making-of blog post over here](https://sebastianlammers.com/posts/making-of-night-sky).
+
 ## Screen-recording of the whole project
 <Image src={tour} alt={alt_tour} loading="lazy"/>
 
