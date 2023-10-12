@@ -305,3 +305,4 @@ I learned a lot while building this project and loved tinkering with the little 
 There will probably be a future iteration that will have a full-screen mode, and I'm considering adding filtering controls to show stars that match date criteria (like show only stars that between 30 and 35 light years away).
 
 Thank you for reading!
+If you have any comments or questions, please [let me know](https://sebastianlammers.com/contact)!
