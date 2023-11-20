@@ -14,7 +14,8 @@ export const mdsvex = md.mdsvex({
     highlighter: highlightCode,
     },
   layout: {
-    posts: 'src/routes/posts/_post.svelte',
+    posts: 'src/routes/posts/_post-layout.svelte',
+    sketches: 'src/routes/sketches/_sketch-layout.svelte',
     _: "src/routes/_mdsvex.svelte" 
   },
   rehypePlugins: [

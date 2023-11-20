@@ -39,7 +39,7 @@
 </script>
 
 <div class="chart-wrapper" bind:clientWidth={width}>
-	<h4>{title}</h4>
+	<h4 class="no-hover">{title}</h4>
 	<svg class="chart" {width} {height} role="figure" tabindex="0">
 		<title>{description}</title>
 		<g
@@ -87,25 +87,11 @@
 </div>
 
 <style lang="scss">
-	.chart-wrapper {
-		position: relative;
-		width: 100%;
-		max-width: 60ch;
-		padding: var(--space-xs);
-		border-radius: var(--radiusSection);
-		// border: solid;
-		background-color: var(--surface2-light);
-	}
 	rect {
 		fill: var(--ink);
 	}
 
 	text {
 		font-family: var(--codeFont);
-	}
-
-	h4:hover {
-		cursor: auto;
-		--_p: 0%;
 	}
 </style>

@@ -28,7 +28,8 @@
 			Sometimes I write
 			<a sveltekit:prefetch href="/posts">blog posts</a>
 			about things I learned (to help others learn it too) and share
-			<a sveltekit:prefetch href="/projects">projects</a> that I have built.
+			<a sveltekit:prefetch href="/projects">projects</a> and
+			<a sveltekit:prefetch href="/sketches">sketches</a> that I have built.
 		</p>
 	</div>
 </div>

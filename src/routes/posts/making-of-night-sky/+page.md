@@ -3,7 +3,7 @@ title: 'Making of Stories from the night sky'
 date: '2023-10-10'
 draft: false
 href: 'https://storiesfromthenightsky.netlify.app/'
-image: 'detail-almach.png'
+image: '/detail-almach.png'
 categories:
   - 'projects'
   - 'map'
