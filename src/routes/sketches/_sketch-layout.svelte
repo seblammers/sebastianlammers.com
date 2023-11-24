@@ -6,6 +6,7 @@
 	import { titleFormat } from '$lib/assets/js/utils';
 	import { Head } from 'svead';
 	import Button from '$lib/components/ButtonSimple.svelte';
+	import ButtonBack from '$lib/components/ButtonBack.svelte';
 	import Embed from '$lib/components/EmbedIFrame.svelte';
 	import Accordion from '$lib/components/Accordion.svelte';
 	import image from '$lib/assets/images/og-image.png';
@@ -63,6 +64,8 @@
 </Accordion>
 
 <Button {href}>Open REPL in new tab</Button>
+
+<ButtonBack href="/sketches">← Back to all Sketches</ButtonBack>
 
 <style lang="scss">
 	.meta {

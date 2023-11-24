@@ -22,6 +22,6 @@
 {:else}
 	<h1>Whoops!</h1>
 	<p>Sorry, couldn't find any sketches filed under "{data.category}".</p>
-
-	<Button href="/sketches">← Back to all Sketches</Button>
 {/if}
+
+<Button href="/sketches">← Back to all Sketches</Button>
