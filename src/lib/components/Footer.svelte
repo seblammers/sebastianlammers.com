@@ -53,7 +53,7 @@
 		}
 	}
 	footer {
-		font-family: var(--accentFont);
+		font-family: var(--sansFont);
 		font-weight: 300;
 		background: var(--ink);
 		color: var(--surface2-light);

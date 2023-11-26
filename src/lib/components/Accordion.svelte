@@ -26,7 +26,7 @@
 		max-width: var(--max-width);
 		border-style: none none none solid;
 		background-color: var(--surface2-light);
-		font-family: var(--accentFont);
+		font-family: var(--sansFont);
 	}
 
 	/* # The Rotating Marker # */

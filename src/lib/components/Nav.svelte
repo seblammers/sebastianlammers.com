@@ -61,7 +61,7 @@
 
 <style lang="scss">
 	.wrapper {
-		font-family: var(--accentFont);
+		font-family: var(--sansFont);
 		position: fixed;
 		z-index: 300;
 		top: 0;

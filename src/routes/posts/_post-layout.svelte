@@ -81,7 +81,7 @@
 
 <style lang="scss">
 	.meta {
-		font-family: var(--accentFont);
+		font-family: var(--sansFont);
 		color: var(--text2-light);
 		font-style: italic;
 		display: flex;

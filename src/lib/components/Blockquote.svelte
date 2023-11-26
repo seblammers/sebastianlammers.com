@@ -31,7 +31,7 @@
 		max-width: var(--max-width);
 		border-style: none none none solid;
 		background-color: var(--surface0-light);
-		font-family: var(--accentFont);
+		font-family: var(--sansFont);
 	}
 
 	blockquote p {

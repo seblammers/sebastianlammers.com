@@ -22,7 +22,7 @@
 
 <style lang="scss">
 	.card {
-		font-family: var(--accentFont);
+		font-family: var(--sansFont);
 		border-radius: var(--radiusSection);
 		border: var(--radius) solid var(--accent);
 		padding: var(--space-m);
