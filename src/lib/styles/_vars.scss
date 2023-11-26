@@ -3,6 +3,7 @@
     --blue-hue: 236;
     --orange-hue: 34;
     --saturation: 100%;
+    --saturation-light: 4%;
     --lightness: 50%;
 
     // additional for home svg (currently unused)
@@ -11,9 +12,9 @@
  
     // orange for accents and surfaces
     --brand: hsl(var(--orange-hue) var(--saturation) 70%);
-    --surface0-light: hsl(var(--orange-hue) 40% 90%);
-    --surface1-light: hsl(var(--orange-hue) 40% 94%);
-    --surface2-light: hsl(var(--orange-hue) 40% 99%);
+    --surface0-light: hsl(var(--orange-hue) var(--saturation-light) 90%);
+    --surface1-light: hsl(var(--orange-hue) var(--saturation-light) 94%);
+    --surface2-light: hsl(var(--orange-hue) var(--saturation-light) 99%);
 
     // blue based colours for texts and shadows
     --hue: var(--blue-hue);
@@ -93,8 +94,7 @@
     --tracking-s: -0.075ch;
     
     // Fonts
-    --primaryFont: "PiazzollaVariable", "Iowan Old Style", "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif;
-    --accentFont: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "avenir next", "avenir", "segoe ui", "helvetica neue", helvetica, "Cantarell", "Ubuntu", "roboto", "noto", "arial", sans-serif; 
+    --sansFont: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "avenir next", "avenir", "segoe ui", "helvetica neue", helvetica, "Cantarell", "Ubuntu", "roboto", "noto", "arial", sans-serif; 
     --headingFont: "IBM Plex Sans Condensed", -apple-system, BlinkMacSystemFont, "avenir next", "avenir", "segoe ui", "helvetica neue", helvetica, "Cantarell", "Ubuntu", "roboto", "noto", "arial", sans-serif; 
     --codeFont: "IBM Plex Mono", "Menlo", "Consolas", "Monaco", "Liberation Mono", "Lucida Console", monospace; 
   
