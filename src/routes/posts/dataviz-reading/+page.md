@@ -1,6 +1,7 @@
 ---
 title: 'Dataviz Reading List'
 date: '2023-05-07'
+updated: '2023-11-26'
 draft: false
 image: '/preview_books.png'
 categories:
@@ -21,6 +22,7 @@ Feel free to [suggest](/contact) other interesting books that I might enjoy!
 <TOC>
 
 - [Recently Read](#recently-read)
+  - [The Functional Art: an Introduction to Information Graphics and Visualization (Alberto Cairo)](#the-functional-art-an-introduction-to-information-graphics-and-visualization-alberto-cairo)
   - [Factfulness (Hans Rosling)](#factfulness-hans-rosling)
   - [Design for Developers (Stephanie Stimac)](#design-for-developers-stephanie-stimac)
   - [Hands-on Data Visualization (Jack Dougherty \& Ilya Ilyankou)](#hands-on-data-visualization-jack-dougherty--ilya-ilyankou)
@@ -33,6 +35,13 @@ Feel free to [suggest](/contact) other interesting books that I might enjoy!
 </TOC>
 
 ## Recently Read
+### The Functional Art: an Introduction to Information Graphics and Visualization (Alberto Cairo)
+- gives an introduction to the fundamentals of info graphics and data viz
+- interesting model to better think about data viz pieces: the data visualization wheel 
+- ends with multiple interviews that briefly portray notable individuals (such as Stefanie Posavec, Moritz Stefaner, Gregor Aisch, and many more)
+- I thought the interviews were super-interesting to read, not only because it's always fascinating to me to hear about other peoples process and motivations, but also because it has been more than 10 years since the interviews... some things have changed drastically (looking at you Adobe Flash) while other things remain important :)
+- see the book on [the author's website](http://www.thefunctionalart.com/p/about-book.html)
+
 ### Factfulness (Hans Rosling)
 - teaches how to ask better questions about any data you encounter
 - see also the [Gapminder Foundation](https://www.gapminder.org/)
