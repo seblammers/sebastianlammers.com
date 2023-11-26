@@ -9,7 +9,7 @@
 	import { siteURL, siteAuthor } from '$lib/config';
 	import { page } from '$app/stores';
 	import { Head } from 'svead';
-	import image from '$lib/assets/images/og-image.png';
+	import image from '$lib/assets/images/sketches/og-image_sketches.png';
 
 	let heading = 'Sketches';
 	let title = titleFormat(heading);
