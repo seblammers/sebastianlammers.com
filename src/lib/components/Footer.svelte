@@ -14,7 +14,7 @@
 
 <footer class:mobile>
 	<p>
-		&copy; {new Date().getFullYear()}
+		&copy; 2023-{new Date().getFullYear()}
 		{siteAuthor} <a rel="me" href="https://vis.social/@seblammers"><Mastodon /></a>
 	</p>
 
