@@ -17,7 +17,7 @@ categories:
 <script>
   import Image from '$lib/components/Image.svelte';
   import src from '$lib/assets/images/sketches/sketch-snake-tween.gif';
-  let alt = "A gif of a world map with varying projections based on user input via a dropdown menu."
+  let alt = "A gif of a snake shape that morphs into a circle shape after the user clicks a circle-button. While changing shape the color is also morphed from blue (snake) to orange (circle). The user then clicks the snake-button to reverse the effect."
 </script>
 
 <Image {src} {alt} loading="eager"/>
