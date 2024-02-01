@@ -45,7 +45,6 @@
 	</div>
 </Accordion>
 
-<p><i>This section is currently work in progress. Things might not look perfect :)</i></p>
 <article class="flow">
 	{#each sketches as sketch}
 		<Card post={sketch} />
