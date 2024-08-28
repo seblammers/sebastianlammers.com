@@ -13,7 +13,7 @@
 
 	<div class="flex-items intro" in:fly={{ x: 50, duration: 850, delay: 300 }}>
 		<h3 id="hi">Hi, I'm Sebastian</h3>
-		<p>and I'm a researcher with a passion for <strong>data visualization</strong>.</p>
+		<p>and I'm a creative technologist with a passion for <strong>data visualization</strong>.</p>
 	</div>
 
 	<div class="flex-items more" in:fly={{ x: 50, duration: 850, delay: 1500 }}>
