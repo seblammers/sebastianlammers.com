@@ -38,7 +38,9 @@
 </script>
 
 <div class="layout">
-	<Nav />
+	{#if data.path !== '/links'}
+		<Nav />
+	{/if}
 	<!-- A helper to resize Datawrapper Charts if needed -->
 	<Datawrapper />
 
