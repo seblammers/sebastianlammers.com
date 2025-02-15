@@ -4,6 +4,7 @@
 	import IconStroke from './svg/IconStroke.svelte';
 	import Wave from './svg/WaveDivider.svelte';
 	import Mastodon from './svg/Mastodon.svelte';
+	import Bluesky from './svg/Bluesky.svelte';
 	export let path;
 	let width;
 	$: mobile = width < 900;
@@ -13,10 +14,25 @@
 <Wave />
 
 <footer class:mobile>
-	<p>
-		&copy; 2023-{new Date().getFullYear()}
-		{siteAuthor} <a rel="me" href="https://vis.social/@seblammers"><Mastodon /></a>
-	</p>
+	<div class="footer-content">
+		<p>&copy; 2023-{new Date().getFullYear()}</p>
+		<p>{siteAuthor}</p>
+		<div class="">
+			<a
+				class="icon-link"
+				target="_blank"
+				style="color: var(--surface2-light)"
+				href="https://bsky.app/profile/seblammers.bsky.social"><Bluesky /></a
+			>
+			<a
+				class="icon-link"
+				target="_blank"
+				style="color: var(--surface2-light); "
+				rel="me"
+				href="https://vis.social/@seblammers"><Mastodon /></a
+			>
+		</div>
+	</div>
 
 	<IconStroke stroke="var(--surface2-light)" />
 
@@ -42,6 +58,21 @@
 </footer>
 
 <style lang="scss">
+	.icon-link {
+		&:hover {
+			background-color: transparent;
+			// color: var(--accent) !important;
+		}
+	}
+	.footer-content {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		@media (max-width: 600px) {
+			flex-direction: column;
+			gap: var(--space-2xs);
+		}
+	}
 	.mobile {
 		display: flex;
 		flex-direction: column;
