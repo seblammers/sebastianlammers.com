@@ -5,7 +5,7 @@
 	import Accordion from '$lib/components/Accordion.svelte';
 
 	let list = data;
-	let sliderValue;
+	let sliderValue = 'bad';
 
 	$: {
 		if (sliderValue === 'bad') {

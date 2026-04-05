@@ -56,7 +56,7 @@
 		easing: linear
 	});
 	// track toggle state
-	let show;
+	let show = 'hide';
 
 	$: {
 		if (show === 'show') {
