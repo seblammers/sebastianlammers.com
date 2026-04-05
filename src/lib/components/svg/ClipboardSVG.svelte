@@ -1,5 +1,5 @@
 <script>
-	export let copied = false;
+	let { copied = false } = $props();
 </script>
 
 <svg

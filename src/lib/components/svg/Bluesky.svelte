@@ -1,7 +1,5 @@
 <script>
-	export let width = '1em';
-	export let height = '1em';
-	export let fill = 'currentColor';
+	let { width = '1em', height = '1em', fill = 'currentColor' } = $props();
 </script>
 
 <svg

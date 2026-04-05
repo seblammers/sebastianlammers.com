@@ -1,16 +1,16 @@
 <script>
 	// if custom summary is not provided, fall back on "Show me the code"
 	// which is probably the most frequent use-case
-	export let summary = 'Show me the code';
+	let { summary: summaryText = 'Show me the code', children } = $props();
 </script>
 
 <details class="accordion">
 	<summary>
-		<b>{summary}</b>
+		<b>{summaryText}</b>
 	</summary>
 
 	<div class="details flow">
-		<slot />
+		{@render children()}
 	</div>
 </details>
 

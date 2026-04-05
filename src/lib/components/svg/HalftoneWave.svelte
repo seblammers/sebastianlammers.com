@@ -1,5 +1,5 @@
 <script>
-	export let fill = 'black';
+	let { fill = 'black' } = $props();
 </script>
 
 <svg width="3000" height="339" xmlns="http://www.w3.org/2000/svg">

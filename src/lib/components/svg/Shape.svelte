@@ -1,12 +1,14 @@
 <script>
-	export let inner_left = -15;
-	export let inner_right = 15;
-	export let outer_left = -45;
-	export let outer_right = 45;
-	export let inner_bottom = 26.25;
-	export let inner_top = -26.25;
-	export let outer_bottom = 8.75;
-	export let outer_top = -8.75;
+	let {
+		inner_left = -15,
+		inner_right = 15,
+		outer_left = -45,
+		outer_right = 45,
+		inner_bottom = 26.25,
+		inner_top = -26.25,
+		outer_bottom = 8.75,
+		outer_top = -8.75
+	} = $props();
 </script>
 
 <svg

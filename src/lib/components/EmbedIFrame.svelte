@@ -1,13 +1,9 @@
 <script>
 	import GeneralObserver from './GeneralObserver.svelte';
-	export let src = '';
-	export let title = '';
-	export let height = '600';
-	export let width = '100%';
-	export let scrolling = 'yes';
+	let { src = '', title = '', height = '600', width = '100%', scrolling = 'yes', children, ...rest } = $props();
 </script>
 
 <GeneralObserver {height} {width}>
-	<iframe {src} {width} {height} {title} {scrolling} {...$$restProps} />
-	<slot />
+	<iframe {src} {width} {height} {title} {scrolling} {...rest}></iframe>
+	{@render children?.()}
 </GeneralObserver>

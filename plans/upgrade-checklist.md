@@ -79,20 +79,20 @@
 
 ### Batch A — Simple prop / slot components
 
-- [ ] `src/lib/components/svg/Bluesky.svelte`
-- [ ] `src/lib/components/svg/Mastodon.svelte`
-- [ ] `src/lib/components/svg/HalftoneWave.svelte`
-- [ ] `src/lib/components/svg/Shape.svelte`
-- [ ] `src/lib/components/svg/ClipboardSVG.svelte`
-- [ ] `src/lib/components/svg/IconStroke.svelte`
-- [ ] `src/lib/components/Heading.svelte`
-- [ ] `src/lib/components/ButtonSimple.svelte`
-- [ ] `src/lib/components/ButtonBack.svelte`
-- [ ] `src/lib/components/InlineLink.svelte`
-- [ ] `src/lib/components/EmbedIFrame.svelte`
-- [ ] `src/lib/components/Accordion.svelte`
-- [ ] Build + smoke test
-- [ ] **Commit:** `refactor: migrate simple components to Svelte 5 runes`
+- [x] `src/lib/components/svg/Bluesky.svelte`
+- [x] `src/lib/components/svg/Mastodon.svelte`
+- [x] `src/lib/components/svg/HalftoneWave.svelte`
+- [x] `src/lib/components/svg/Shape.svelte`
+- [x] `src/lib/components/svg/ClipboardSVG.svelte`
+- [x] `src/lib/components/svg/IconStroke.svelte`
+- [x] `src/lib/components/Heading.svelte`
+- [x] `src/lib/components/ButtonSimple.svelte`
+- [x] `src/lib/components/ButtonBack.svelte`
+- [x] `src/lib/components/InlineLink.svelte`
+- [x] `src/lib/components/EmbedIFrame.svelte`
+- [x] `src/lib/components/Accordion.svelte`
+- [x] Build + smoke test — `/`, `/posts`, `/contact`, `/about`, `/posts/data-in-js-00` all 200
+- [x] **Commit:** `refactor: migrate simple components to Svelte 5 runes`
 
 ### Batch B — Event handler components
 

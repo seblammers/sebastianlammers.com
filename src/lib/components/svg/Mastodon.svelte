@@ -1,7 +1,5 @@
 <script>
-	export let width = '0.8em';
-	export let height = '0.8em';
-	export let fill = 'currentColor';
+	let { width = '0.8em', height = '0.8em', fill = 'currentColor' } = $props();
 </script>
 
 <svg class="icon" xmlns="http://www.w3.org/2000/svg" {width} {height} viewBox="0 0 24 26"

@@ -1,7 +1,7 @@
 <script>
-	export let url;
+	let { url, children } = $props();
 </script>
 
 <a href={url} target="blank" rel="noopener noreferrer">
-	<slot /> &nearr;
+	{@render children()} &nearr;
 </a>

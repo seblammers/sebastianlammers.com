@@ -1,9 +1,9 @@
 <script>
-	import { fly } from 'svelte/transition';
+	let { children } = $props();
 </script>
 
 <h1>
-	<slot />
+	{@render children()}
 </h1>
 
 <style>

@@ -1,9 +1,13 @@
 <script>
 	// href needs to be provided as prop
-	export let href = '/projects';
+	let { href = '/projects', children } = $props();
 </script>
 
 <a class="button-simple" {href}>
 	<!-- Button label is provided in the slot / prefilled with this: -->
-	<slot>← Back to all projects</slot>
+	{#if children}
+		{@render children()}
+	{:else}
+		← Back to all projects
+	{/if}
 </a>
