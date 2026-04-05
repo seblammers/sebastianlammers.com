@@ -1,13 +1,13 @@
 <script>
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 </script>
 
 <svelte:head>
-	<title>{$page.status}</title>
+	<title>{page.status}</title>
 </svelte:head>
 
-<h1>{$page.status}</h1>
-<h2>{$page.error.message}</h2>
+<h1>{page.status}</h1>
+<h2>{page.error.message}</h2>
 
 <p><strong>Sorry!</strong> Something went wrong. Do you want to go to:</p>
 <ul>

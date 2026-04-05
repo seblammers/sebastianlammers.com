@@ -50,11 +50,11 @@
 
 	// extract distance from data to pipe into tween-duration.
 	let duration = $derived(d3.max(data, (d) => d.distance) * 1000);
-	let tweenedNumber = tweened(0, {
+	let tweenedNumber = $derived(tweened(0, {
 		delay: 0,
 		duration: duration,
 		easing: linear
-	});
+	}));
 	// track toggle state
 	let show = $state('hide');
 

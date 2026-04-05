@@ -2,12 +2,13 @@
 	import Card from '$lib/components/Card.svelte';
 	import Meta from '$lib/components/Meta.svelte';
 	import Button from '$lib/components/ButtonBack.svelte';
-	export let data;
+	let { data } = $props();
 
-	let heading =
+	let heading = $derived(
 		data.sketches.length > 1
 			? `${data.sketches.length} Sketches filed under "${data.category}"`
-			: `1 Sketch filed under "${data.category}"`;
+			: `1 Sketch filed under "${data.category}"`
+	);
 </script>
 
 <Meta />

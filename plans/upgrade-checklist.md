@@ -123,18 +123,20 @@
 
 ### Batch D — Layout & route components
 
-- [ ] `src/routes/+layout.svelte`
-- [ ] `src/routes/+error.svelte`
-- [ ] `src/routes/posts/_post-layout.svelte`
-- [ ] `src/routes/sketches/_sketch-layout.svelte`
-- [ ] `src/routes/_mdsvex.svelte`
-- [ ] `src/routes/+page.svelte`
-- [ ] `src/routes/posts/+page.svelte`
-- [ ] `src/routes/sketches/+page.svelte`
-- [ ] `src/routes/projects/+page.svelte`
-- [ ] Any remaining `+page.svelte` files in sub-routes
-- [ ] Build + smoke test
-- [ ] **Commit:** `refactor: migrate layout and route components to Svelte 5 runes`
+- [x] `src/routes/+layout.svelte`
+- [x] `src/routes/+error.svelte`
+- [x] `src/routes/posts/_post-layout.svelte`
+- [x] `src/routes/sketches/_sketch-layout.svelte`
+- [x] `src/routes/_mdsvex.svelte`
+- [x] `src/routes/+page.svelte` _(no changes needed)_
+- [x] `src/routes/posts/+page.svelte`
+- [x] `src/routes/sketches/+page.svelte`
+- [x] `src/routes/projects/+page.svelte`
+- [x] `src/routes/posts/categories/[category]/+page.svelte`
+- [x] `src/routes/sketches/categories/[category]/+page.svelte`
+- [x] `src/routes/contact/+page.svelte`, `contact/success`, `links` _(no changes needed)_
+- [x] Build + smoke test — all 13 routes 200
+- [x] **Commit:** `refactor: migrate layout and route components to Svelte 5 runes`
 
 ### Batch E — Store file (optional)
 

@@ -1,17 +1,17 @@
 <script>
 	import { siteURL, siteAuthor } from '$lib/config';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import Heading from '$lib/components/Heading.svelte';
 	import { titleFormat } from '$lib/assets/js/utils';
 	import { Head } from 'svead';
 	import image from '$lib/assets/images/og-image.png';
-	export let title;
-	export let description;
+
+	let { title: rawTitle, description, children } = $props();
 	// preserve heading title
-	let heading = title;
+	let heading = $derived(rawTitle);
 	// append " | Sebastian Lammers" for SEO and the tab-title
-	title = titleFormat(title);
-	let url = $page.url.toString;
+	let title = $derived(titleFormat(rawTitle));
+	let url = page.url.href;
 	let authorName = siteAuthor;
 	let website = siteURL;
 </script>
@@ -23,13 +23,7 @@
 </Heading>
 
 <article class="post flow">
-	<slot />
+	{@render children()}
 </article>
 
-<style lang="scss">
-	ul {
-		list-style-type: none;
-		list-style: none;
-		padding-left: 0%;
-	}
-</style>
+

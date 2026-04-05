@@ -1,6 +1,6 @@
 <script>
 	import { siteURL, siteAuthor } from '$lib/config';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { dateFormat } from '$lib/assets/js/utils';
 	import { onMount } from 'svelte';
 	import Heading from '$lib/components/Heading.svelte';
@@ -8,23 +8,16 @@
 	import { Head } from 'svead';
 	import image from '$lib/assets/images/og-image.png';
 
-	export let title = 'I forgot the title!';
-	export let date = '1999-12-31';
-	export let categories = undefined;
-	export let updated = undefined;
-	export let description = 'A post by Sebastian Lammers';
-	export let draft = true;
-	export let data;
-	export let form;
-	let heading = title;
-	title = titleFormat(title);
-	let url = $page.url.toString;
+	let { title: rawTitle = 'I forgot the title!', date = '1999-12-31', categories = undefined, updated = undefined, description = 'A post by Sebastian Lammers', draft = true, data, form, children } = $props();
+	let heading = $derived(rawTitle);
+	let title = $derived(titleFormat(rawTitle));
+	let url = page.url.href;
 	let authorName = siteAuthor;
 	let website = siteURL;
 
 	// setting up reading-time variables
-	let article;
-	let time;
+	let article = $state();
+	let time = $state();
 	// function to estimate reading time
 	// https://dev.to/michaelburrows/calculate-the-estimated-reading-time-of-an-article-using-javascript-2k9l
 	function getReadingTime() {
@@ -76,7 +69,7 @@
 </div>
 
 <article class="post flow" bind:this={article}>
-	<slot />
+	{@render children()}
 </article>
 
 <style lang="scss">

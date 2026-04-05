@@ -1,20 +1,20 @@
 <script>
-	export let data;
-	let sketches = data.sketches;
-	let tags = data.tags;
 	import Heading from '$lib/components/Heading.svelte';
 	import Accordion from '$lib/components/Accordion.svelte';
 	import Card from '$lib/components/Card.svelte';
 	import { titleFormat } from '$lib/assets/js/utils';
 	import { siteURL, siteAuthor } from '$lib/config';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { Head } from 'svead';
 	import image from '$lib/assets/images/sketches/og-image_sketches.png';
 
+	let { data } = $props();
+	let sketches = $derived(data.sketches);
+	let tags = $derived(data.tags);
 	let heading = 'Sketches';
 	let title = titleFormat(heading);
 	let description = 'The sketch listing page of sebastianlammers.com.';
-	let url = $page.url.toString;
+	let url = page.url.href;
 	let authorName = siteAuthor;
 	let website = siteURL;
 </script>

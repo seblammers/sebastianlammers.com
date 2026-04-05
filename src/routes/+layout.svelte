@@ -1,7 +1,7 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import { onMount, tick } from 'svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import Nav from '$lib/components/Nav.svelte';
 	import Datawrapper from '$lib/components/Datawrapper.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -19,15 +19,16 @@
 	// mono for code
 	import '@fontsource/ibm-plex-mono/400.css';
 
-	export let data;
+	let { data, children } = $props();
 
 	// When current page path changes, scroll to top (fixes https://github.com/sveltejs/kit/issues/2794)
-	let mounted = false;
-	onMount(() => {
-		mounted = true;
+	let mounted = $state(false);
+	onMount(() => { mounted = true; });
+	let path = $derived(page.url.pathname);
+	$effect(() => {
+		void path;
+		scrollTop();
 	});
-	$: path = $page.url.pathname;
-	$: path, scrollTop();
 	async function scrollTop() {
 		if (mounted) {
 			await tick();
@@ -46,7 +47,7 @@
 
 	{#key data.path}
 		<main in:fly={{ y: -50, duration: 250 }} class="flow">
-			<slot />
+			{@render children()}
 		</main>
 	{/key}
 

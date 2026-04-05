@@ -1,6 +1,6 @@
 <script>
 	import { siteURL, siteAuthor } from '$lib/config';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { dateFormat } from '$lib/assets/js/utils';
 	import Heading from '$lib/components/Heading.svelte';
 	import { titleFormat } from '$lib/assets/js/utils';
@@ -11,16 +11,11 @@
 	import Accordion from '$lib/components/Accordion.svelte';
 	import image from '$lib/assets/images/og-image.png';
 
-	export let title = 'I forgot the title!';
-	export let date = '1999-12-31';
-	export let categories = undefined;
-	export let updated = undefined;
-	export let href = undefined;
-	let REPLtitle = `A Svelte REPL showing ${title}`;
-	export let description = 'A sketch by Sebastian Lammers';
-	let heading = title;
-	title = titleFormat(title);
-	let url = $page.url.toString;
+	let { title: rawTitle = 'I forgot the title!', date = '1999-12-31', categories = undefined, updated = undefined, href = undefined, description = 'A sketch by Sebastian Lammers', children } = $props();
+	let REPLtitle = $derived(`A Svelte REPL showing ${rawTitle}`);
+	let heading = $derived(rawTitle);
+	let title = $derived(titleFormat(rawTitle));
+	let url = page.url.href;
 	let authorName = siteAuthor;
 	let website = siteURL;
 </script>
@@ -54,7 +49,7 @@
 </div>
 
 <article class="post flow">
-	<slot />
+	{@render children()}
 </article>
 
 <p>Play with the code here:</p>
