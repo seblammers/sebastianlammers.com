@@ -15,21 +15,21 @@ let data = [
 	
   import { scaleLinear } from "d3-scale";
 
-  let width;
-  let height;
+  let width = $state();
+  let height = $state();
 
   const margin = { top: 30, bottom: 30, left: 30, right: 30 };
 
-  $: xScale = scaleLinear()
+  let xScale = $derived(scaleLinear()
     .domain([1, 18])
-    .range([margin.left, width - margin.right]);
+    .range([margin.left, width - margin.right]));
 
-  $: yScale = scaleLinear()
+  let yScale = $derived(scaleLinear()
     .domain([1, 18])
-    .range([height - margin.top, margin.bottom]);
+    .range([height - margin.top, margin.bottom]));
 
-    $: xTicks = xScale.ticks();
-    $: yTicks = yScale.ticks();   
+  let xTicks = $derived(xScale.ticks());
+  let yTicks = $derived(yScale.ticks());
   </script>
   
   <div

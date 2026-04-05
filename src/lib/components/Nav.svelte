@@ -2,24 +2,24 @@
 	import { navItems } from '$lib/config';
 	import { onMount } from 'svelte';
 	import { beforeNavigate } from '$app/navigation';
-	import { navigating, page } from '$app/stores';
+	import { navigating, page } from '$app/state';
 	import { Hamburger } from 'svelte-hamburgers';
 	import Home from '$lib/components/Home.svelte';
 
-	let isMounted = false;
+	let isMounted = $state(false);
 	onMount(() => { isMounted = true; });
 
-	let width;
-	let scrollY;
+	let width = $state();
+	let scrollY = $state();
 
-	let open = false;
+	let open = $state(false);
 
-	$: mobile = width < 900;
-	$: scroll = scrollY > 0;
+	let mobile = $derived(width < 900);
+	let scroll = $derived(scrollY > 0);
 
-	$: if (!mobile || $navigating) open = false;
+	$effect(() => { if (!mobile || navigating) open = false; });
 
-	$: isActive = (url) => $page.url.pathname.includes(url);
+	let isActive = $derived((url) => page.url.pathname.includes(url));
 
 	beforeNavigate(() => {
 		open = false;
@@ -48,9 +48,9 @@
 		</div>
 
 		{#if isMounted && (open || !mobile)}
-			<div class="nav-sh" class:open={!$navigating && (open || !mobile)}>
+			<div class="nav-sh" class:open={!navigating && (open || !mobile)}>
 				<div class="links">
-					<a href="/" class:active={$page.url.pathname === '/'}> Home </a>
+					<a href="/" class:active={page.url.pathname === '/'}> Home </a>
 					{#each navItems as page, i (i)}
 						<a href={page.route} class:active={isActive(`${page.route}`)}>
 							{page.title}

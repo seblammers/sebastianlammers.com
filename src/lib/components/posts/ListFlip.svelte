@@ -4,17 +4,17 @@
 	import Switch from '$lib/components/Switch.svelte';
 	import Accordion from '$lib/components/Accordion.svelte';
 
-	let list = data;
-	let sliderValue = 'bad';
+	let list = $state([...data]);
+	let sliderValue = $state('bad');
 
-	$: {
+	$effect(() => {
 		if (sliderValue === 'bad') {
-			list = list.reverse();
+			list = [...list].reverse();
 		}
 		if (sliderValue === 'good') {
-			list = list.reverse();
+			list = [...list].reverse();
 		}
-	}
+	});
 </script>
 
 <div class="this-switch">

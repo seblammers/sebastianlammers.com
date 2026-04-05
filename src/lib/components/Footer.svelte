@@ -1,13 +1,13 @@
 <script>
-	import { navItems, siteAuthor } from '$lib/config';
-	import { navigating, page } from '$app/stores';
+	import { siteAuthor } from '$lib/config';
 	import IconStroke from './svg/IconStroke.svelte';
 	import Wave from './svg/WaveDivider.svelte';
 	import Mastodon from './svg/Mastodon.svelte';
 	import Bluesky from './svg/Bluesky.svelte';
-	export let path;
-	let width;
-	$: mobile = width < 900;
+
+	let { path } = $props();
+	let width = $state();
+	let mobile = $derived(width < 900);
 </script>
 
 <svelte:window bind:innerWidth={width} />
@@ -36,16 +36,9 @@
 
 	<IconStroke stroke="var(--surface2-light)" />
 
-	<p
+	<button
 		class="scroll-to-top"
-		on:click={() => {
-			window.scrollTo({
-				top: 0,
-				left: 0,
-				behavior: 'smooth'
-			});
-		}}
-		on:keydown={() => {
+		onclick={() => {
 			window.scrollTo({
 				top: 0,
 				left: 0,
@@ -54,7 +47,7 @@
 		}}
 	>
 		Scroll to top &uarr;
-	</p>
+	</button>
 </footer>
 
 <style lang="scss">
@@ -98,13 +91,9 @@
 		& > * {
 			flex: 0 1 auto;
 		}
-		p {
+		p, button {
 			margin: 0;
 			font-size: var(--step-0);
-
-			& > a:hover {
-				background-color: transparent;
-			}
 		}
 	}
 

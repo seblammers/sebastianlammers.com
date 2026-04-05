@@ -1,7 +1,7 @@
 <script>
 import { tweened } from 'svelte/motion';
 
-let width;    
+let width = $state();
 
 // I'll define some specs for the circles to be used on desktop
 // and below some specs for mobile to be tweened between
@@ -26,14 +26,18 @@ const tweenedSpecs = tweened(specs, {
 	});
 
 // watch width and toggle boolean `mobile`
-$: mobile = width < 900;
+let mobile = $derived(width < 900);
 
 // if boolean `mobile` is true
 // tween specs to mobile version
 // else tween to basic specs
-$: if (mobile) {
-    tweenedSpecs.set(specsMobile)
-} else {tweenedSpecs.set(specs)}
+$effect(() => {
+    if (mobile) {
+        tweenedSpecs.set(specsMobile);
+    } else {
+        tweenedSpecs.set(specs);
+    }
+});
 
 // create array of css variable names
 // 10 blue shades

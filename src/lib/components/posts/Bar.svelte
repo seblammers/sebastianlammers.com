@@ -1,9 +1,7 @@
 <script>
 	import * as d3 from 'd3';
 
-	export let data;
-	export let title = '';
-	export let description = '';
+	let { data, title = '', description = '' } = $props();
 
 	const formatLabel = d3.format(',.0f');
 
@@ -17,25 +15,25 @@
 		left: 0
 	};
 
-	let width = 400;
-	let height = 500;
+	let width = $state(400);
+	const height = 500;
 
-	$: innerWidth = width - margin.left - margin.right;
-	let innerHeight = height - margin.top - margin.bottom;
+	let innerWidth = $derived(width - margin.left - margin.right);
+	const innerHeight = height - margin.top - margin.bottom;
 
-	$: xScale = d3
+	let xScale = $derived(d3
 		.scaleLinear()
 		.domain([0, d3.max(data, xAccessor)])
-		.range([0, innerWidth]);
+		.range([0, innerWidth]));
 
-	const yScale = d3
+	let yScale = $derived(d3
 		.scaleBand()
 		.domain(data.map((d) => d.species))
 		.range([innerHeight, 0])
-		.padding(0.25);
+		.padding(0.25));
 
-	$: xAccessorScaled = (d) => xScale(xAccessor(d));
-	$: yAccessorScaled = (d) => yScale(yAccessor(d));
+	let xAccessorScaled = $derived((d) => xScale(xAccessor(d)));
+	const yAccessorScaled = (d) => yScale(yAccessor(d));
 </script>
 
 <div class="chart-wrapper" bind:clientWidth={width}>

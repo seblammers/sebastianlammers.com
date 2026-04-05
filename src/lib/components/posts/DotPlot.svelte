@@ -7,7 +7,7 @@
 	import Glow from './Glow.svelte';
 
 	// Receive plot data as prop.
-	export let data = [
+	let { data = [
 		{
 			name: 'Earth',
 			size: 6371,
@@ -18,9 +18,9 @@
 			size: 1.711 * 695508,
 			distance: 8.6
 		}
-	];
+	] } = $props();
 
-	// Specify the chart’s dimensions.
+	// Specify the chart's dimensions.
 	const width = 600;
 	const height = width / 4;
 	const nudge = 15;
@@ -32,16 +32,16 @@
 	};
 
 	// Prepare the scales for positional and color encodings.
-	const xScale = d3
+	let xScale = $derived(d3
 		.scaleLinear()
 		.domain([d3.max(data, (d) => d.distance), 0])
-		.rangeRound([margin.left, width - margin.right]);
+		.rangeRound([margin.left, width - margin.right]));
 
-	const yScale = d3
+	let yScale = $derived(d3
 		.scalePoint()
 		.domain(data, (d) => d.body)
 		.rangeRound([margin.top, height - margin.bottom])
-		.padding(1);
+		.padding(1));
 
 	const radiusScale = d3
 		.scaleSqrt()
@@ -49,16 +49,16 @@
 		.range([2, 10]);
 
 	// extract distance from data to pipe into tween-duration.
-	let duration = d3.max(data, (d) => d.distance) * 1000;
+	let duration = $derived(d3.max(data, (d) => d.distance) * 1000);
 	let tweenedNumber = tweened(0, {
 		delay: 0,
 		duration: duration,
 		easing: linear
 	});
 	// track toggle state
-	let show = 'hide';
+	let show = $state('hide');
 
-	$: {
+	$effect(() => {
 		if (show === 'show') {
 			tweenedNumber.set(duration);
 		}
@@ -66,7 +66,7 @@
 			// make sure the reset is fast
 			tweenedNumber.set(0, { duration: 0 });
 		}
-	}
+	});
 
 	// make sure to show always one decimal for Sirius
 	const s = d3.formatSpecifier('f');
@@ -76,7 +76,7 @@
 	// but display more for the Sun
 	const formatterSun = d3.format('.2');
 
-	let isSun = data.some((el) => el.name === 'Sun');
+	let isSun = $derived(data.some((el) => el.name === 'Sun'));
 </script>
 
 <div class="container flow">
@@ -129,7 +129,7 @@
 						dominant-baseline="middle"
 						fill="currentColor"
 					>
-						<!-- Toggle formatter if Sun is present, so that the tiny 
+						<!-- Toggle formatter if Sun is present, so that the tiny
                   number for the sun is displayed, yet also handle the tweened number
                   of Sirius gracefully with the respective formatting. -->
 						{isSun ? formatterSun($tweenedNumber / 1000) : formatter($tweenedNumber / 1000)} light years

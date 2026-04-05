@@ -111,15 +111,15 @@
 
 ### Batch C — Reactive / data-viz components
 
-- [ ] `src/lib/components/posts/Scatter.svelte`
-- [ ] `src/lib/components/posts/Bar.svelte`
-- [ ] `src/lib/components/posts/DotPlot.svelte`
-- [ ] `src/lib/components/posts/ListFlip.svelte`
-- [ ] `src/lib/components/Footer.svelte`
-- [ ] `src/lib/components/Circles.svelte`
-- [ ] `src/lib/components/Nav.svelte`
-- [ ] Build + smoke test
-- [ ] **Commit:** `refactor: migrate reactive components to Svelte 5 runes`
+- [x] `src/lib/components/posts/Scatter.svelte`
+- [x] `src/lib/components/posts/Bar.svelte`
+- [x] `src/lib/components/posts/DotPlot.svelte`
+- [x] `src/lib/components/posts/ListFlip.svelte`
+- [x] `src/lib/components/Footer.svelte`
+- [x] `src/lib/components/Circles.svelte`
+- [x] `src/lib/components/Nav.svelte`
+- [x] Build + smoke test — all 10 routes 200
+- [x] **Commit:** `refactor: migrate reactive components to Svelte 5 runes`
 
 ### Batch D — Layout & route components
 
