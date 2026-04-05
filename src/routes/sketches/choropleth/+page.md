@@ -24,4 +24,4 @@ categories:
 
 - Classic choropleth map of the USA
 - Custom colour legend
-- Svelte implementation of [this D3 example](https://observablehq.com/@d3/choropleth/2) 
+- Svelte implementation of [this D3 example](https://observablehq.com/@d3/choropleth/2)

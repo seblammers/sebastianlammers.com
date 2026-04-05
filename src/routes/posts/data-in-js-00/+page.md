@@ -22,12 +22,11 @@ categories:
 
 Welcome to this series.
 
-Instead of giving you one giant blog post, I give you multiple smaller ones. 
-You can decide if you read all of it or jump to the more advanced stuff in the later sections of the series. 
+Instead of giving you one giant blog post, I give you multiple smaller ones.
+You can decide if you read all of it or jump to the more advanced stuff in the later sections of the series.
 
-*This post* serves as the introduction and gives you an overview of what to expect in each of the parts.
+_This post_ serves as the introduction and gives you an overview of what to expect in each of the parts.
 It will also tell you about some of the conventions I use throughout the series and how to run the code examples.
-
 
 <TOC>
 
@@ -42,6 +41,7 @@ It will also tell you about some of the conventions I use throughout the series 
 </TOC>
 
 ## What is it all about?
+
 This series will give you an overview of how you can work with **tabular data** in the world of **vanilla JavaScript**.
 
 <Accordion summary="Vanilla???">
@@ -53,15 +53,16 @@ And no: no ice cream involved.
 
 If you are familiar with other programming languages such as **Python** or **R**, you might have some expectations about what a programming language delivers in terms of data manipulation tools.
 
-Well, let me tell you a good thing and a bad thing. 
+Well, let me tell you a good thing and a bad thing.
 
 <ListFlip />
 
-In the past, I have spent a lot of time on working with data in **R**. 
-When I started learning **JavaScript**, I often found myself wondering how to do certain tasks that I knew how to do in **R**. 
+In the past, I have spent a lot of time on working with data in **R**.
+When I started learning **JavaScript**, I often found myself wondering how to do certain tasks that I knew how to do in **R**.
 So I took some notes that formed the basis for what you are reading now.
 
 Let's go through a quick breakdown of the separate parts of this series.
+
 ## Brief contents of each post
 
 <Card post={posts[0]} />
@@ -87,6 +88,7 @@ The third part extends the basic methods that let you characterize a dataset.
 <hr>
 
 ## Conventions
+
 A lot of Accordions. I mean these things:
 
 <Accordion summary="I'm an Accordion!">
@@ -95,7 +97,7 @@ Overview first, details on demand.
 
 You decide how much you want to read.
 
-Some of these contain links to further resources. 
+Some of these contain links to further resources.
 Others contain some advanced examples.
 If you ignore all of them you will still get the main message of what each post is trying to say.
 </Accordion>
@@ -103,21 +105,22 @@ If you ignore all of them you will still get the main message of what each post 
 So feel free to just skim through the main texts, or go through the Bonus-Parts as well.
 
 ## How to run the code
+
 Since every line of code in this series is plain **vanilla JavaScript**, you can actually just run it the browser that you are using right now to read this --- and I think **that's beautiful**! Your browser is well equipped by default.
 
 If you're reading this on mobile that's fine too, but I assume you won't plan on running any code then.
- 
 
 So, there are two ways I recommend to run the code examples: the **console** or **REPLs**.
 
 ### 1: In your console
-If you never opened the console of your browser before, I encourage you to try this *right now* (tested on Firefox and Chrome): press `Shift + Ctrl + I`.
-This brings up your *developer tools*, of which there are many. 
+
+If you never opened the console of your browser before, I encourage you to try this _right now_ (tested on Firefox and Chrome): press `Shift + Ctrl + I`.
+This brings up your _developer tools_, of which there are many.
 In the top row select the `Console` tab and then copy & paste the following `alert` code and press `Enter`.
 
 <Accordion summary='Stop, I use Mac OS!'>
 
-If you're trying to do this on a Mac *for the first time*, it is slightly harder.
+If you're trying to do this on a Mac _for the first time_, it is slightly harder.
 Here are the steps you need to take:
 
 1. Click on the Safari menu in the top-left corner of the screen.
@@ -132,7 +135,7 @@ In the top row select the `Console` tab and then copy & paste the following code
 </Accordion>
 
 ```js
-alert("Hello world!")
+alert('Hello world!');
 ```
 
 Congrats, you're now a hacker! If you'd rather be an accountant, feel free to use the console as a fancy calculator on any website :)
@@ -143,11 +146,10 @@ No, but seriously: you can run all the code snippets in your browser's console l
 
 - [What are browser developer tools? in the MDN web docs](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools)
 
-
 </Accordion>
 
-
 ### 2: In REPLs
+
 If you'd rather have a more persistent scratchpad to run the code examples and maybe take some notes, then I recommend you try [a Svelte REPL](https://svelte.dev/repl/1d2f74c5ef564aa9be09d50e5f59eccb?version=3.55.1).
 
 Here is what the one linked to above looks like:
@@ -165,7 +167,7 @@ In the most basic way you can think of it this way: the `App.svelte` allows you 
 <Accordion summary='How to save your progress'>
 
 If you want to preserve your precious notes, you can simply **log in** with your **Github credentials**.
-But you can also use it *without logging in at all*.
+But you can also use it _without logging in at all_.
 
 If you don't want to log in, you can still **download** the current status of your REPL as a **zip file**.
 
@@ -178,7 +180,7 @@ Check out their guide [Getting started with Svelte](https://developer.mozilla.or
 
 <Accordion summary='What is a REPL?'>
 
-Glad you asked: REPL is short for [Read–eval–print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop), which Wikipedia defines as *"a simple interactive computer programming environment that takes single user inputs, executes them, and returns the result to the user"*.
+Glad you asked: REPL is short for [Read–eval–print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop), which Wikipedia defines as _"a simple interactive computer programming environment that takes single user inputs, executes them, and returns the result to the user"_.
 
 Frankly, a Svelte REPL is a little more sophisticated than that, because the user input is not very restricted.
 
@@ -186,6 +188,7 @@ You can define multiple components and build full apps within a Svelte REPL.
 </Accordion>
 
 ## Go!
+
 With all this out of the way: go ahead and read the first real post!
 
 <Card post={posts[0]} />

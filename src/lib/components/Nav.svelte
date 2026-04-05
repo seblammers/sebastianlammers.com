@@ -7,7 +7,9 @@
 	import Home from '$lib/components/Home.svelte';
 
 	let isMounted = $state(false);
-	onMount(() => { isMounted = true; });
+	onMount(() => {
+		isMounted = true;
+	});
 
 	let width = $state();
 	let scrollY = $state();
@@ -17,7 +19,9 @@
 	let mobile = $derived(width < 900);
 	let scroll = $derived(scrollY > 0);
 
-	$effect(() => { if (!mobile || navigating) open = false; });
+	$effect(() => {
+		if (!mobile || navigating) open = false;
+	});
 
 	let isActive = $derived((url) => page.url.pathname.includes(url));
 
@@ -76,12 +80,16 @@
 		background-color: var(--background-nav);
 
 		&.scroll {
-			box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+			box-shadow:
+				0 4px 10px -2px rgba(0, 0, 0, 0.2),
+				0 4px 20px 0 rgba(0, 0, 0, 0.19);
 			border-color: var(--accent);
 		}
 		@media (min-width: 900px) {
 			&.open {
-				box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+				box-shadow:
+					0 4px 10px -2px rgba(0, 0, 0, 0.2),
+					0 4px 20px 0 rgba(0, 0, 0, 0.19);
 				border-color: var(--accent);
 			}
 		}
@@ -148,7 +156,9 @@
 			font-weight: 600;
 			padding: 12px 8px;
 			border-bottom: 4px solid rgba(0, 0, 0, 0);
-			transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+			transition:
+				border-color 0.2s ease-in-out,
+				color 0.2s ease-in-out;
 			color: var(--text1-light);
 			text-decoration: none;
 			&.active {

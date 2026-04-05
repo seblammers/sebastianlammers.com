@@ -6,12 +6,12 @@ import { mdsvexGlobalComponents } from './src/lib/assets/js/mdsvex-global-compon
 const globalComponents = mdsvexGlobalComponents({
 	dir: `$lib/components`,
 	list: [
-		["CodeFence", "CodeFence.svelte"],
-		["Blockquote", "Blockquote.svelte"],
-		["Accordion", "Accordion.svelte"]
+		['CodeFence', 'CodeFence.svelte'],
+		['Blockquote', 'Blockquote.svelte'],
+		['Accordion', 'Accordion.svelte']
 	],
 	extensions
-  })
+});
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -21,11 +21,7 @@ const config = {
 
 	extensions: ['.svelte', ...extensions],
 
-	preprocess: [
-		globalComponents,
-		mdsvex,
-		vitePreprocess()
-	],
+	preprocess: [globalComponents, mdsvex, vitePreprocess()]
 };
 
 export default config;

@@ -7,9 +7,7 @@
 
 	let sideClass = `${side}-circle`;
 
-	let randomNumbers = Array.from({ length: numCircles }, () => ({
-		i: Math.floor(Math.random() * 1900)
-	}));
+	// randomNumbers was superseded by the Circles array below
 
 	// Define an array of random X and Y coordinates for the circles on the left side
 	const Circles = Array.from({ length: numCircles }, (x, i) => ({

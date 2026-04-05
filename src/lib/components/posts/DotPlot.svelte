@@ -7,18 +7,20 @@
 	import Glow from './Glow.svelte';
 
 	// Receive plot data as prop.
-	let { data = [
-		{
-			name: 'Earth',
-			size: 6371,
-			distance: 0
-		},
-		{
-			name: 'Sirius',
-			size: 1.711 * 695508,
-			distance: 8.6
-		}
-	] } = $props();
+	let {
+		data = [
+			{
+				name: 'Earth',
+				size: 6371,
+				distance: 0
+			},
+			{
+				name: 'Sirius',
+				size: 1.711 * 695508,
+				distance: 8.6
+			}
+		]
+	} = $props();
 
 	// Specify the chart's dimensions.
 	const width = 600;
@@ -32,16 +34,20 @@
 	};
 
 	// Prepare the scales for positional and color encodings.
-	let xScale = $derived(d3
-		.scaleLinear()
-		.domain([d3.max(data, (d) => d.distance), 0])
-		.rangeRound([margin.left, width - margin.right]));
+	let xScale = $derived(
+		d3
+			.scaleLinear()
+			.domain([d3.max(data, (d) => d.distance), 0])
+			.rangeRound([margin.left, width - margin.right])
+	);
 
-	let yScale = $derived(d3
-		.scalePoint()
-		.domain(data, (d) => d.body)
-		.rangeRound([margin.top, height - margin.bottom])
-		.padding(1));
+	let yScale = $derived(
+		d3
+			.scalePoint()
+			.domain(data, (d) => d.body)
+			.rangeRound([margin.top, height - margin.bottom])
+			.padding(1)
+	);
 
 	const radiusScale = d3
 		.scaleSqrt()
@@ -50,11 +56,13 @@
 
 	// extract distance from data to pipe into tween-duration.
 	let duration = $derived(d3.max(data, (d) => d.distance) * 1000);
-	let tweenedNumber = $derived(tweened(0, {
-		delay: 0,
-		duration: duration,
-		easing: linear
-	}));
+	let tweenedNumber = $derived(
+		tweened(0, {
+			delay: 0,
+			duration: duration,
+			easing: linear
+		})
+	);
 	// track toggle state
 	let show = $state('hide');
 

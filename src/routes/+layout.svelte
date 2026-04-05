@@ -23,7 +23,9 @@
 
 	// When current page path changes, scroll to top (fixes https://github.com/sveltejs/kit/issues/2794)
 	let mounted = $state(false);
-	onMount(() => { mounted = true; });
+	onMount(() => {
+		mounted = true;
+	});
 	let path = $derived(page.url.pathname);
 	$effect(() => {
 		void path;

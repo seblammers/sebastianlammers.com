@@ -37,6 +37,7 @@ categories:
 <Image {src} {alt} loading="eager"/>
 
 ## Description
+
 [Stories from the night sky]({href}) is a data-driven visual experiment:
 The light from the stars travels for years (and years) until it reaches your eyes. This **interactive map of the night sky** shows you for each star what happened on Earth when the light started traveling from the star to you. That way, any star has a story to tell you. You can zoom in, move around and hover all the stars to reveal the historical events they are connected to.
 
@@ -56,9 +57,11 @@ The light from the stars travels for years (and years) until it reaches your eye
 More details can be found in my [making-of blog post over here](https://sebastianlammers.com/posts/making-of-night-sky).
 
 ## Screen-recording of the whole project
+
 <Image src={tour} alt={alt_tour} loading="lazy"/>
 
 ## Images
+
 <Image src={a} alt={alt_a} loading="lazy"/>
 <Image src={b} alt={alt_a} loading="lazy"/>
 <Image src={c} alt={alt_c} loading="lazy"/>

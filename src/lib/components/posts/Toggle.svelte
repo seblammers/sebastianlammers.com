@@ -4,7 +4,13 @@
 	// On Designing and Building Toggle Switches by Sara Soueidan https://www.sarasoueidan.com/blog/toggle-switch-design/
 	// and this example by Scott O'hara https://codepen.io/scottohara/pen/zLZwNv
 
-	let { label = 'Toggle animation', design = 'multi', options = ['hide', 'show'], fontSize = 16, value = $bindable('hide') } = $props();
+	let {
+		label = 'Toggle animation',
+		design = 'multi',
+		options = ['hide', 'show'],
+		fontSize = 16,
+		value = $bindable('hide')
+	} = $props();
 
 	let checked = $state(false);
 
@@ -19,8 +25,6 @@
 
 		value = checked === true ? 'show' : 'hide';
 	}
-
-	const slugify = (str = '') => str.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
 </script>
 
 {#if design == 'inner'}

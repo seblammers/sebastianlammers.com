@@ -23,4 +23,4 @@ categories:
 
 - Scroll-driven animation
 - Synchronized text and data elements
-- Responsive layout 
+- Responsive layout

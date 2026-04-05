@@ -23,4 +23,4 @@ categories:
 
 - Interactive tooltip
 - Bar highlighting via CSS
-- Mean value indicated 
+- Mean value indicated

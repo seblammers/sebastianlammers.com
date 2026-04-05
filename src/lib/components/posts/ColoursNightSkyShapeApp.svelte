@@ -77,8 +77,14 @@
 	class="wrapper"
 	role="button"
 	tabindex="0"
-	onclick={(e) => { e.preventDefault(); handleClick(); }}
-	onkeydown={(e) => { e.preventDefault(); handleKeyDown(e); }}
+	onclick={(e) => {
+		e.preventDefault();
+		handleClick();
+	}}
+	onkeydown={(e) => {
+		e.preventDefault();
+		handleKeyDown(e);
+	}}
 >
 	<Shape
 		inner_left={$tweenedX[0]}

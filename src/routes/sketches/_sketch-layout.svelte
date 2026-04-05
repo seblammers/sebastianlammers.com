@@ -11,7 +11,15 @@
 	import Accordion from '$lib/components/Accordion.svelte';
 	import image from '$lib/assets/images/og-image.png';
 
-	let { title: rawTitle = 'I forgot the title!', date = '1999-12-31', categories = undefined, updated = undefined, href = undefined, description = 'A sketch by Sebastian Lammers', children } = $props();
+	let {
+		title: rawTitle = 'I forgot the title!',
+		date = '1999-12-31',
+		categories = undefined,
+		updated = undefined,
+		href = undefined,
+		description = 'A sketch by Sebastian Lammers',
+		children
+	} = $props();
 	let REPLtitle = $derived(`A Svelte REPL showing ${rawTitle}`);
 	let heading = $derived(rawTitle);
 	let title = $derived(titleFormat(rawTitle));
@@ -20,7 +28,16 @@
 	let website = siteURL;
 </script>
 
-<Head seo_config={{ title, description, url, open_graph_image: image, author_name: authorName, website }} />
+<Head
+	seo_config={{
+		title,
+		description,
+		url,
+		open_graph_image: image,
+		author_name: authorName,
+		website
+	}}
+/>
 
 <Heading>
 	{heading}

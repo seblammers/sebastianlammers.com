@@ -3,7 +3,15 @@
 	// https://github.com/connorrothschild/.com/blob/master/src/lib/Global/Image.svelte
 	import { fade } from 'svelte/transition';
 
-	let { src, alt, width = '100%', centered = false, style = '', loading = 'lazy', href = null } = $props();
+	let {
+		src,
+		alt,
+		width = '100%',
+		centered = false,
+		style = '',
+		loading = 'lazy',
+		href = null
+	} = $props();
 
 	let expanded = $state(false);
 
@@ -33,12 +41,27 @@
 		onclick={() => {
 			expanded = false;
 		}}
-		onkeydown={(e) => { e.key === 'Enter' && (expanded = false); }}
+		onkeydown={(e) => {
+			e.key === 'Enter' && (expanded = false);
+		}}
 	></div>
-	<img transition:fade class="expanded" {src} {alt} onclick={toggleExpand} />
+	<button class="expanded-btn" onclick={toggleExpand} transition:fade>
+		<img class="expanded" {src} {alt} />
+	</button>
 {/if}
-<a {href} target="_blank" rel="noopener noreferrer" class="no-underline">
-	<img {loading} {src} {alt} {width} {style} onclick={toggleExpand} class:centered class:href />
+<a
+	{href}
+	target="_blank"
+	rel="noopener noreferrer"
+	class="no-underline"
+	onclick={(e) => {
+		if (!href) {
+			e.preventDefault();
+			toggleExpand();
+		}
+	}}
+>
+	<img {loading} {src} {alt} {width} {style} class:centered class:href />
 </a>
 
 <style>
@@ -75,7 +98,10 @@
 		cursor: pointer;
 	}
 
-	.expanded {
+	.expanded-btn {
+		background: none;
+		border: none;
+		padding: 0;
 		z-index: 103;
 		max-height: 85%;
 		max-width: 85%;
@@ -83,9 +109,13 @@
 		top: 50%;
 		position: fixed;
 		transform: translate(-50%, -50%);
-		border-radius: 5px;
 		cursor: zoom-out;
+	}
+	.expanded {
+		border-radius: 5px;
 		object-fit: contain;
+		max-height: 100%;
+		max-width: 100%;
 	}
 
 	@media screen and (max-width: 768px) {

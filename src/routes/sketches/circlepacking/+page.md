@@ -20,5 +20,4 @@ categories:
 
 <Image {src} {alt} loading="eager"/>
 
-- Svelte implementation of [this D3 example](https://observablehq.com/@d3/pack/2) 
-
+- Svelte implementation of [this D3 example](https://observablehq.com/@d3/pack/2)

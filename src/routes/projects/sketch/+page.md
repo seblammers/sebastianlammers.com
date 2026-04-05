@@ -24,6 +24,7 @@ categories:
 <Image {src} {alt} loading="eager"/>
 
 ## Description
+
 This has been an ongoing project for a while now and it will probably always be ongoing, too.
 Whenever I see an **interesting chart-type** or interaction pattern, **I'm curious** how it was implemented.
 So I start sketching sth. similar with my own tools, most of the time **Svelte & D3**.

@@ -11,13 +11,18 @@
 	// don't need it
 	//import ScrollProgress from '../scroll/ScrollProgress'
 
-	let { selector, lang = 'en', template = '%time% min read', errorSlot, contentSlot, ...rest } = $props();
+	let {
+		selector,
+		lang = 'en',
+		template = '%time% min read',
+		errorSlot,
+		contentSlot,
+		...rest
+	} = $props();
 	//let withScroll = false
 
-	let totalTime = $state(0);
 	let time = $state(0);
 	let words = $state(0);
-	let rate = $state(0);
 	let isParsed = $state(false);
 	let error = $state(null);
 	let empty = 'No content to parse';
@@ -34,7 +39,7 @@
 			const { node: el } = await domObserver.wait(selector, null, { timeout: 1000 });
 
 			const rdm = new ReadPerMinute();
-			({ time, time: totalTime, words, rate } = rdm.parse(el.textContent, lang));
+			({ time, words } = rdm.parse(el.textContent, lang));
 
 			// if (withScroll) {
 			//     progressObserver = new ScrollProgress((_, progress) => {

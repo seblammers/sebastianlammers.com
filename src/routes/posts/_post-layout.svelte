@@ -8,7 +8,15 @@
 	import { Head } from 'svead';
 	import image from '$lib/assets/images/og-image.png';
 
-	let { title: rawTitle = 'I forgot the title!', date = '1999-12-31', categories = undefined, updated = undefined, description = 'A post by Sebastian Lammers', draft = true, data, form, children } = $props();
+	// draft, data, form are passed from SvelteKit/mdsvex but not used in this template
+	let {
+		title: rawTitle = 'I forgot the title!',
+		date = '1999-12-31',
+		categories = undefined,
+		updated = undefined,
+		description = 'A post by Sebastian Lammers',
+		children
+	} = $props();
 	let heading = $derived(rawTitle);
 	let title = $derived(titleFormat(rawTitle));
 	let url = page.url.href;
@@ -33,7 +41,16 @@
 	});
 </script>
 
-<Head seo_config={{ title, description, url, open_graph_image: image, author_name: authorName, website }} />
+<Head
+	seo_config={{
+		title,
+		description,
+		url,
+		open_graph_image: image,
+		author_name: authorName,
+		website
+	}}
+/>
 
 <Heading>
 	{heading}

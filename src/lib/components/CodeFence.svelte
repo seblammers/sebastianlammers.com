@@ -2,25 +2,16 @@
 	// adapted from: https://github.com/gitpod-io/website/pull/2322/files
 	import ClipboardSvg from './svg/ClipboardSVG.svelte';
 
-	let { lang = '', code = null, title = null, rawCode = null } = $props();
+	let { lang = '', code = null, rawCode = null } = $props();
 	let copiedSuccessfully = $state(false);
-
-	const displayLanguageMap = {
-		yaml: 'yml',
-		r: 'r',
-		shell: 'bash',
-		svelte: 'js' // gives an error when parsing svelte?
-	};
-
-	const mapDisplayLanguage = (str) => {
-		return displayLanguageMap[str.toLowerCase()] || str;
-	};
 
 	let copyCode = async () => {
 		try {
 			const copiedCode = rawCode;
 			await navigator.clipboard.writeText(copiedCode);
-		} catch (e) {}
+		} catch (e) {
+			/* clipboard write failed — fail silently */
+		}
 		copiedSuccessfully = true;
 	};
 

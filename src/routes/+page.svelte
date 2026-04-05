@@ -17,7 +17,6 @@
 	</div>
 
 	<div class="flex-items more" in:fly={{ x: 50, duration: 850, delay: 1500 }}>
-
 		<p>
 			This website is <strong>my playground</strong> to learn about HTML, CSS & JavaScript.
 			Sometimes I write

@@ -14,7 +14,7 @@ categories:
   import TOC from '$lib/components/posts/TOC.svelte';
 </script>
 
-I decided to keep some notes on the books that I've read that are directly or indirectly relevant for the field of data visualization. 
+I decided to keep some notes on the books that I've read that are directly or indirectly relevant for the field of data visualization.
 It'll be very short and sweet per book, so that it is easy to get an overview.
 I also list some books that I plan to read.
 Feel free to [suggest](/contact) other interesting books that I might enjoy!
@@ -35,20 +35,24 @@ Feel free to [suggest](/contact) other interesting books that I might enjoy!
 </TOC>
 
 ## Recently Read
+
 ### The Functional Art: an Introduction to Information Graphics and Visualization (Alberto Cairo)
+
 - gives an introduction to the fundamentals of info graphics and data viz
-- interesting model to better think about data viz pieces: the data visualization wheel 
+- interesting model to better think about data viz pieces: the data visualization wheel
 - ends with multiple interviews that briefly portray notable individuals (such as Stefanie Posavec, Moritz Stefaner, Gregor Aisch, and many more)
 - I thought the interviews were super-interesting to read, not only because it's always fascinating to me to hear about other peoples process and motivations, but also because it has been more than 10 years since the interviews... some things have changed drastically (looking at you Adobe Flash) while other things remain important :)
 - see the book on [the author's website](http://www.thefunctionalart.com/p/about-book.html)
 
 ### Factfulness (Hans Rosling)
+
 - teaches how to ask better questions about any data you encounter
 - see also the [Gapminder Foundation](https://www.gapminder.org/)
   - free graphics to teach about world development
 - see the book on [the publisher's website](https://us.macmillan.com/books/9781250123824/factfulness)
 
 ### Design for Developers (Stephanie Stimac)
+
 - good overview of basic principles of web design
 - not strictly related to dataviz, but rather web development in general
 - requires the reader to know HTML, CSS, and JavaScript basics
@@ -56,7 +60,8 @@ Feel free to [suggest](/contact) other interesting books that I might enjoy!
 - see the book on [the publisher's website](https://www.manning.com/books/design-for-developers)
 
 ### Hands-on Data Visualization (Jack Dougherty & Ilya Ilyankou)
-- *very* beginner-friendly
+
+- _very_ beginner-friendly
 - touches on
   - Excel / Google Sheets basics
   - Datawrapper (basics and advanced)
@@ -67,12 +72,14 @@ Feel free to [suggest](/contact) other interesting books that I might enjoy!
 - see the book on [the publisher's website](https://www.oreilly.com/library/view/hands-on-data-visualization/9781492085997/)
 
 ### Fundamentals of Data Visualization (Claus Wilke)
+
 - tool-agnostic overview of best-practices in dataviz
 - many visual examples (incl. "bad" and "ugly" anti-examples)
 - read it for free [on their website](https://clauswilke.com/dataviz/)
 - see the book on [the publisher's website](https://www.oreilly.com/library/view/fundamentals-of-data/9781492031079/)
 
 ### Interactive Data Visualization for the Web (Scott Murray)
+
 - This was my first foray into the world of [D3](https://d3js.org/) and it was very fun to read. (Seriously, Scott is an amazing writer.)
 - Soon after, I learned [Svelte](https://svelte.dev/) and I'm convinced that the combination of [Svelte & D3 is awesome](https://sebastianlammers.com/projects/awesome-svelte-and-d3).
 - I think combining D3 with a JavaScript framework like Svelte is superior to just working with D3 alone.
@@ -82,12 +89,15 @@ Feel free to [suggest](/contact) other interesting books that I might enjoy!
 - see the book on [the publisher's website](https://www.oreilly.com/library/view/interactive-data-visualization/9781449340223/)
 
 ## Wish List
+
 ### Building Science Graphics (Jen Christiansen)
-- this looks like a great read 
+
+- this looks like a great read
 - it comes with an [extensive list of resources](https://www.buildingsciencegraphics.com/more-to-explore) that even goes beyond the contents of the book
 - see the book on [the publisher's website](https://www.routledge.com/Building-Science-Graphics-An-illustrated-guide-to-communicating-science/Christiansen/p/book/9781032106748)
 
 ### Joyful Infographics (Nigel Holmes)
+
 - I listened to [this podcast episode](https://podcasters.spotify.com/pod/show/ddjpodcast/episodes/Nigel-Holmes-the-joy-of-data-e1s2sf3) that features the author as a guest and now I really look forward to reading this book
 - sounds like a fun and delighting read with lots and lots illustrations
 - see the book on [the publisher's website](https://www.routledge.com/Joyful-Infographics-A-Friendly-Human-Approach-to-Data/Holmes/p/book/9781032115580)

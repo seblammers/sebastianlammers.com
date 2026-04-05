@@ -23,4 +23,3 @@ categories:
 - Svelte implementation of a simple waffle chart (no D3 here actually).
 - Responsive layout of the blocks is handled via flexbox CSS.
 - Inspired by the D3 version in [this article by The Pudding](https://pudding.cool/process/flexbox-layout/).
-

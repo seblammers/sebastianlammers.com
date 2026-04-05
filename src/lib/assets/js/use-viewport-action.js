@@ -4,30 +4,30 @@
 let intersectionObserver;
 
 function ensureIntersectionObserver() {
-  if (intersectionObserver) return
+	if (intersectionObserver) return;
 
-  intersectionObserver = new IntersectionObserver(
-    entries => {
-      entries
-        .filter(({ isIntersecting }) => isIntersecting)
-        .forEach(entry => {
-          entry.target.dispatchEvent(new CustomEvent('enterViewport'))
-        })
-    },
-    {
-      rootMargin: '1000px',
-    }
-  )
+	intersectionObserver = new IntersectionObserver(
+		(entries) => {
+			entries
+				.filter(({ isIntersecting }) => isIntersecting)
+				.forEach((entry) => {
+					entry.target.dispatchEvent(new CustomEvent('enterViewport'));
+				});
+		},
+		{
+			rootMargin: '1000px'
+		}
+	);
 }
 
 export default function viewport(element) {
-  ensureIntersectionObserver()
+	ensureIntersectionObserver();
 
-  intersectionObserver.observe(element)
+	intersectionObserver.observe(element);
 
-  return {
-    destroy() {
-      intersectionObserver.unobserve(element)
-    },
-  }
+	return {
+		destroy() {
+			intersectionObserver.unobserve(element);
+		}
+	};
 }

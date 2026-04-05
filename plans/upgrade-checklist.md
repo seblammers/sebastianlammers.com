@@ -58,6 +58,7 @@
 - [x] `src/lib/components/Nav.svelte` — replace `svelte-mount` with `onMount` + boolean
 
 > **Additional fixes applied during Phase 1:**
+>
 > - `mdsvex.config.js`: switched from default import to named import (`compileMdsvex`); made layout paths absolute
 > - `svelte.config.js`: replaced `svelte-preprocess` with `vitePreprocess` (no `<style global>` usage; avoids globalStyle transformer bug on `.md` files)
 > - `src/routes/posts/data-in-js-00/+page.md`: escaped `<script>`, `<style>`, `{this}` in inline code with HTML entities (Svelte 5 stricter parser)
@@ -140,21 +141,22 @@
 
 ### Batch E — Store file (optional)
 
-- [ ] `src/lib/assets/js/store.js` — decide: keep `writable` stores or convert to runes (`.svelte.js`)
-- [ ] Build + smoke test
-- [ ] **Commit:** `refactor: update store to Svelte 5 idioms` (if changed)
+- [x] `src/lib/assets/js/store.js` — kept as-is; `writable` stores work unchanged in Svelte 5; `$app/env` fix already applied in Phase 1; `isMenuOpen`/`currentPage` are dead exports (only used by unused `Hamburger.svelte`)
 
 ---
 
 ## Phase 3: Cleanup & Polish
 
-- [ ] Check browser console for Svelte 3/4 compat warnings — fix any remaining
-- [ ] Verify `@fontsource` v5 imports render fonts correctly
-- [ ] Verify all markdown posts render correctly (mdsvex + inline Svelte components)
-- [ ] Verify SCSS styles in all 10 components with `lang="scss"`
-- [ ] Update `.prettierrc` if needed for Prettier 3
-- [ ] `npm run build` — final clean build
-- [ ] `npm run dev` — full manual smoke test (all routes)
+- [x] Build warnings: zero compiler/Svelte warnings remain
+- [x] `Image.svelte`: fixed expanded `<img>` → `<button>` wrapper; moved `onclick` to `<a>` tag
+- [x] `Bar.svelte`: `svelte-ignore a11y_no_noninteractive_tabindex` for intentional SVG keyboard a11y
+- [x] `.prettierrc` — added `prettier-plugin-svelte` plugin + svelte overrides (Prettier 3 no longer auto-discovers plugins)
+- [x] `npm run lint` — 0 errors, 4 warnings (all `{@html}` on trusted content, working as intended)
+  - Fixed: `eslint-plugin-svelte@3` → `^2.46.1` (v3 is ESLint 9 only)
+  - Fixed: `.eslintrc.cjs` rules for `_`-prefix vars, `no-at-html-tags: warn`, `valid-compile: ignoreWarnings`
+  - Fixed: `CodeFence`, `Toggle`, `Switch`, `Footer`, `Readotron`, `Scatter`, `Subfooter`, `Patterns`, `utils.js`, `+layout.js`, `_post-layout.svelte`
+- [x] `npm run build` — final clean build (zero warnings)
+- [ ] `npm run dev` — full manual browser smoke test (all routes, fonts, SCSS, markdown posts)
 - [ ] **Commit:** `chore: cleanup post-upgrade`
 - [ ] Merge branch into main
 - [ ] Deploy to Netlify and verify production
@@ -163,5 +165,5 @@
 
 ## Post-Upgrade (Future-Proofing)
 
-- [ ] Add Renovate Bot config (`renovate.json`) for automated monthly dependency PRs
+- [x] Added `renovate.json` — monthly schedule, Svelte ecosystem grouped, major releases require approval
 - [ ] Decide on Playwright test suite update (currently deprioritised)

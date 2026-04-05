@@ -21,5 +21,4 @@ categories:
 
 <Image {src} {alt} loading="eager"/>
 
-- Svelte implementation of [this D3 example](https://observablehq.com/@d3/dot-plot/2) 
-
+- Svelte implementation of [this D3 example](https://observablehq.com/@d3/dot-plot/2)

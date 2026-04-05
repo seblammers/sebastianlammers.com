@@ -4,7 +4,13 @@
 	// On Designing and Building Toggle Switches by Sara Soueidan https://www.sarasoueidan.com/blog/toggle-switch-design/
 	// and this example by Scott O'hara https://codepen.io/scottohara/pen/zLZwNv
 
-	let { label, design = 'inner label', options = [], fontSize = 16, value = $bindable('bad') } = $props();
+	let {
+		label,
+		design = 'inner label',
+		options = [],
+		fontSize = 16,
+		value = $bindable('bad')
+	} = $props();
 
 	let checked = $state(true);
 
@@ -19,8 +25,6 @@
 
 		value = checked === true ? 'bad' : 'good';
 	}
-
-	const slugify = (str = '') => str.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
 </script>
 
 {#if design == 'inner'}

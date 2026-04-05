@@ -22,6 +22,7 @@ categories:
 <Image {src} {alt} loading="eager"/>
 
 ## Description
+
 [The Awesome Svelte & D3 website]({href}) aims to collect great resources to help people learn about the **combination of Svelte and D3** for **data visualization** (and beyond).
 
 Both **real world projects** as well as **tutorials** are listed and can be filtered via tags.

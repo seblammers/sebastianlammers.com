@@ -21,16 +21,20 @@
 	let innerWidth = $derived(width - margin.left - margin.right);
 	const innerHeight = height - margin.top - margin.bottom;
 
-	let xScale = $derived(d3
-		.scaleLinear()
-		.domain([0, d3.max(data, xAccessor)])
-		.range([0, innerWidth]));
+	let xScale = $derived(
+		d3
+			.scaleLinear()
+			.domain([0, d3.max(data, xAccessor)])
+			.range([0, innerWidth])
+	);
 
-	let yScale = $derived(d3
-		.scaleBand()
-		.domain(data.map((d) => d.species))
-		.range([innerHeight, 0])
-		.padding(0.25));
+	let yScale = $derived(
+		d3
+			.scaleBand()
+			.domain(data.map((d) => d.species))
+			.range([innerHeight, 0])
+			.padding(0.25)
+	);
 
 	let xAccessorScaled = $derived((d) => xScale(xAccessor(d)));
 	const yAccessorScaled = (d) => yScale(yAccessor(d));
@@ -38,8 +42,10 @@
 
 <div class="chart-wrapper" bind:clientWidth={width}>
 	<h4 class="no-hover">{title}</h4>
+	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<svg class="chart" {width} {height} role="figure" tabindex="0">
 		<title>{description}</title>
+		<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 		<g
 			transform={`translate(${margin.left}, ${margin.top})`}
 			tabindex="0"
@@ -47,6 +53,7 @@
 			aria-label="bar chart bars"
 		>
 			{#each data as d}
+				<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 				<g
 					role="listitem"
 					tabindex="0"

@@ -17,7 +17,7 @@
 </script>
 
 <section class="snap">
-	{#each steps as { color, fontColor, text }, i}
+	{#each steps as { color, fontColor, text }}
 		<div class="step" style="--color: {color}; --fontColor: {fontColor}">
 			{text}
 		</div>

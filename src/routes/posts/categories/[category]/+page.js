@@ -1,13 +1,12 @@
-  export const load = async ({ params, fetch }) => {
-    const currentCategory = params.category
-    const response = await fetch('/api/posts.json')
-    const posts = await response.json()
+export const load = async ({ params, fetch }) => {
+	const currentCategory = params.category;
+	const response = await fetch('/api/posts.json');
+	const posts = await response.json();
 
-    const matchingPosts = posts
-      .filter(post => post.meta.categories.includes(currentCategory))
+	const matchingPosts = posts.filter((post) => post.meta.categories.includes(currentCategory));
 
-    return {
-      posts: matchingPosts,
-      category: currentCategory
-    }
-}
+	return {
+		posts: matchingPosts,
+		category: currentCategory
+	};
+};

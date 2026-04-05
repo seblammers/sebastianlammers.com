@@ -5,7 +5,8 @@
 	import Mastodon from './svg/Mastodon.svelte';
 	import Bluesky from './svg/Bluesky.svelte';
 
-	let { path } = $props();
+	// path is passed by +layout.svelte but not used in this component's template
+	let { path: _path } = $props();
 	let width = $state();
 	let mobile = $derived(width < 900);
 </script>
@@ -91,7 +92,8 @@
 		& > * {
 			flex: 0 1 auto;
 		}
-		p, button {
+		p,
+		button {
 			margin: 0;
 			font-size: var(--step-0);
 		}

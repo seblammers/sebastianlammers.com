@@ -17,7 +17,16 @@
 	let website = siteURL;
 </script>
 
-<Head seo_config={{ title, description, url, open_graph_image: image, author_name: authorName, website }} />
+<Head
+	seo_config={{
+		title,
+		description,
+		url,
+		open_graph_image: image,
+		author_name: authorName,
+		website
+	}}
+/>
 
 <Heading>{heading}</Heading>
 

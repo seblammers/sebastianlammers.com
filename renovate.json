@@ -1,0 +1,22 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:recommended",
+		"schedule:monthly",
+		":separateMajorReleases"
+	],
+	"packageRules": [
+		{
+			"matchPackageNames": ["svelte", "@sveltejs/*", "@sveltejs/vite-plugin-svelte"],
+			"groupName": "Svelte ecosystem"
+		},
+		{
+			"matchPackageNames": ["eslint*", "prettier*"],
+			"groupName": "Linting & formatting"
+		},
+		{
+			"matchUpdateTypes": ["major"],
+			"dependencyDashboardApproval": true
+		}
+	]
+}
