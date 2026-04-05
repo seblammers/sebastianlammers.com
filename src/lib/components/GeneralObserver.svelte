@@ -1,26 +1,21 @@
 <script>
 	import viewport from '$lib/assets/js/use-viewport-action.js';
 
-	import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
-
-	export let height = '100';
-	export let width = '100';
-	let intersecting;
+	let { height = '100', width = '100', children } = $props();
+	let intersecting = $state(false);
 </script>
 
 <div
 	use:viewport
-	on:enterViewport={() => {
+	onenterViewport={() => {
 		intersecting = true;
-		dispatch('enterViewport');
 	}}
 >
 	{#if intersecting}
 		<div class="flex-center" style={`width: ${width}`}>
-			<slot />
+			{@render children()}
 		</div>
 	{:else}
-		<div class="flex-center" style={`height:${height}px;width: 100%`} />
+		<div class="flex-center" style={`height:${height}px;width: 100%`}></div>
 	{/if}
 </div>

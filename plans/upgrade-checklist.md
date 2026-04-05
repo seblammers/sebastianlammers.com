@@ -96,18 +96,18 @@
 
 ### Batch B — Event handler components
 
-- [ ] `src/lib/components/posts/Toggle.svelte`
-- [ ] `src/lib/components/posts/ColoursNightSkyShapeApp.svelte`
-- [ ] `src/lib/components/Image.svelte`
-- [ ] `src/lib/components/Switch.svelte`
-- [ ] `src/lib/components/CodeFence.svelte`
-- [ ] `src/lib/components/PatternShuffle.svelte`
-- [ ] `src/lib/components/UnitSpan.svelte`
-- [ ] `src/lib/components/Hamburger.svelte`
-- [ ] `src/lib/components/GeneralObserver.svelte` (uses `createEventDispatcher`)
-- [ ] `src/lib/components/Readotron.svelte` (uses `createEventDispatcher`)
-- [ ] Build + smoke test
-- [ ] **Commit:** `refactor: migrate event handler components to Svelte 5 runes`
+- [x] `src/lib/components/posts/Toggle.svelte`
+- [x] `src/lib/components/posts/ColoursNightSkyShapeApp.svelte`
+- [x] `src/lib/components/Image.svelte`
+- [x] `src/lib/components/Switch.svelte`
+- [x] `src/lib/components/CodeFence.svelte`
+- [x] `src/lib/components/PatternShuffle.svelte`
+- [x] `src/lib/components/UnitSpan.svelte`
+- [x] `src/lib/components/Hamburger.svelte`
+- [x] `src/lib/components/GeneralObserver.svelte`
+- [x] `src/lib/components/Readotron.svelte`
+- [x] Build + smoke test — all 8 routes 200
+- [x] **Commit:** `refactor: migrate event handler components to Svelte 5 runes`
 
 ### Batch C — Reactive / data-viz components
 

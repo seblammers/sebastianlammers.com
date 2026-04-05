@@ -4,13 +4,9 @@
 	// On Designing and Building Toggle Switches by Sara Soueidan https://www.sarasoueidan.com/blog/toggle-switch-design/
 	// and this example by Scott O'hara https://codepen.io/scottohara/pen/zLZwNv
 
-	export let label;
-	export let design = 'inner label';
-	export let options = [];
-	export let fontSize = 16;
-	export let value = 'bad';
+	let { label, design = 'inner label', options = [], fontSize = 16, value = $bindable('bad') } = $props();
 
-	let checked = true;
+	let checked = $state(true);
 
 	const uniqueID = Math.floor(Math.random() * 100);
 
@@ -34,7 +30,7 @@
 			role="switch"
 			aria-checked={checked}
 			aria-labelledby={`switch-${uniqueID}`}
-			on:click={handleClick}
+			onclick={handleClick}
 		>
 			<span>on</span>
 			<span>off</span>
@@ -47,8 +43,8 @@
 			role="switch"
 			aria-checked={checked}
 			aria-labelledby={`switch-${uniqueID}`}
-			on:click={handleClick}
-		/>
+			onclick={handleClick}
+		></button>
 	</div>
 {:else}
 	<div class="s s--multi">

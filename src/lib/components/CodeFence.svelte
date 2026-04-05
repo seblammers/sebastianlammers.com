@@ -1,11 +1,9 @@
 <script>
 	// adapted from: https://github.com/gitpod-io/website/pull/2322/files
-	export let lang = '';
-	export let code = null;
-	export let title = null;
-	export let rawCode = null;
 	import ClipboardSvg from './svg/ClipboardSVG.svelte';
-	let copiedSuccessfully = false;
+
+	let { lang = '', code = null, title = null, rawCode = null } = $props();
+	let copiedSuccessfully = $state(false);
 
 	const displayLanguageMap = {
 		yaml: 'yml',
@@ -26,19 +24,20 @@
 		copiedSuccessfully = true;
 	};
 
-	$: if (copiedSuccessfully) {
-		setTimeout(() => {
-			copiedSuccessfully = false;
-		}, 1000);
-	}
-	$: title = title ?? mapDisplayLanguage(lang);
+	$effect(() => {
+		if (copiedSuccessfully) {
+			setTimeout(() => {
+				copiedSuccessfully = false;
+			}, 1000);
+		}
+	});
 </script>
 
 <div class="code-fence">
 	<div class="sticky title">
 		<div class="language">{lang}</div>
 
-		<button on:click={copyCode}
+		<button onclick={copyCode}
 			><span class={copiedSuccessfully ? 'hidden' : 'visible'}>copy code </span>
 
 			<span class="copied {copiedSuccessfully ? 'visible' : 'hidden'}" aria-hidden="true">

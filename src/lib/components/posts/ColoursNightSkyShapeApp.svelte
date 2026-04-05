@@ -26,7 +26,7 @@
 	});
 
 	// keep track of clicking
-	let clicked = false;
+	let clicked = $state(false);
 
 	// handle clicking
 	function handleClick() {
@@ -54,7 +54,7 @@
 	// a click will shift the elements to randomized positions
 	// next click will gather them in central position again
 	// (new click will randomize again)
-	$: {
+	$effect(() => {
 		if (clicked) {
 			tweenedX.set(shuffle(x));
 			tweenedY.set(shuffle(y));
@@ -65,7 +65,7 @@
 			tweenedX.set([-15, 15]);
 			tweenedY.set([26.25, -26.25, 8.75, -8.75]);
 		}
-	}
+	});
 
 	function handleKeyDown(e) {
 		if (e.key === 'Enter') handleClick();
@@ -75,8 +75,10 @@
 <!--We use a wrapper around our SVG to detect clicking to simplify things -->
 <div
 	class="wrapper"
-	on:click|preventDefault={handleClick}
-	on:keydown|preventDefault={handleKeyDown}
+	role="button"
+	tabindex="0"
+	onclick={(e) => { e.preventDefault(); handleClick(); }}
+	onkeydown={(e) => { e.preventDefault(); handleKeyDown(e); }}
 >
 	<Shape
 		inner_left={$tweenedX[0]}

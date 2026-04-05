@@ -4,13 +4,9 @@
 	// On Designing and Building Toggle Switches by Sara Soueidan https://www.sarasoueidan.com/blog/toggle-switch-design/
 	// and this example by Scott O'hara https://codepen.io/scottohara/pen/zLZwNv
 
-	export let label = 'Toggle animation';
-	export let design = 'multi';
-	export let options = ['hide', 'show'];
-	export let fontSize = 16;
-	export let value = 'hide';
+	let { label = 'Toggle animation', design = 'multi', options = ['hide', 'show'], fontSize = 16, value = $bindable('hide') } = $props();
 
-	let checked = false;
+	let checked = $state(false);
 
 	const uniqueID = Math.floor(Math.random() * 100);
 
@@ -34,7 +30,7 @@
 			role="switch"
 			aria-checked={checked}
 			aria-labelledby={`switch-${uniqueID}`}
-			on:click={handleClick}
+			onclick={handleClick}
 		>
 			<span>on</span>
 			<span>off</span>
@@ -47,8 +43,8 @@
 			role="switch"
 			aria-checked={checked}
 			aria-labelledby={`switch-${uniqueID}`}
-			on:click={handleClick}
-		/>
+			onclick={handleClick}
+		></button>
 	</div>
 {:else}
 	<div class="s s--multi">

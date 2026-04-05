@@ -1,18 +1,11 @@
 <script>
 	// kudos to connor!
 	// https://github.com/connorrothschild/.com/blob/master/src/lib/Global/Image.svelte
-	export let src;
-	export let alt;
-	export let width = '100%';
-	export let centered = false;
-	export let style = '';
-	// default to lazy loading but allow to load eager too
-	export let loading = 'lazy';
-	export let href = null;
-
 	import { fade } from 'svelte/transition';
 
-	let expanded = false;
+	let { src, alt, width = '100%', centered = false, style = '', loading = 'lazy', href = null } = $props();
+
+	let expanded = $state(false);
 
 	const toggleExpand = function () {
 		if (href) {
@@ -23,26 +16,29 @@
 </script>
 
 <svelte:window
-	on:scroll={() => {
+	onscroll={() => {
 		expanded ? (expanded = false) : null;
 	}}
-	on:keydown={(e) => {
+	onkeydown={(e) => {
 		e.key == 'Escape' ? (expanded = false) : null;
 	}}
 />
 
 {#if expanded}
 	<div
-		transition:fade|local
+		transition:fade
 		class="fullscreen-unscrollable"
-		on:click={() => {
+		role="button"
+		tabindex="0"
+		onclick={() => {
 			expanded = false;
 		}}
-	/>
-	<img transition:fade|local class="expanded" {src} {alt} on:click={toggleExpand} />
+		onkeydown={(e) => { e.key === 'Enter' && (expanded = false); }}
+	></div>
+	<img transition:fade class="expanded" {src} {alt} onclick={toggleExpand} />
 {/if}
 <a {href} target="_blank" rel="noopener noreferrer" class="no-underline">
-	<img {loading} {src} {alt} {width} {style} on:click={toggleExpand} class:centered class:href />
+	<img {loading} {src} {alt} {width} {style} onclick={toggleExpand} class:centered class:href />
 </a>
 
 <style>

@@ -1,16 +1,14 @@
 <script>
 	import { format } from 'd3-format';
-	export let value;
-	export let isKm;
-	export let handleClick;
-	export let formatString = '.3s';
-	let formatter = format(formatString);
+
+	let { value, isKm, handleClick, formatString = '.3s' } = $props();
+	let formatter = $derived(format(formatString));
 
 	// toggle between unit-labels
-	$: label = isKm ? 'km' : 'mi';
+	let label = $derived(isKm ? 'km' : 'mi');
 
 	// toggle between km and miles
-	$: shownValue = isKm ? value : value / 1.609334;
+	let shownValue = $derived(isKm ? value : value / 1.609334);
 
 	// title (shown on hover)
 	const title = 'Tap to toggle km / mi';
@@ -21,8 +19,8 @@
 	tabindex="0"
 	class="clickable"
 	{title}
-	on:click={handleClick}
-	on:keypress={handleClick}
+	onclick={handleClick}
+	onkeypress={handleClick}
 >
 	{formatter(shownValue)}
 	{label}

@@ -2,7 +2,7 @@
 	// copied and modified from
 	// https://github.com/untemps/svelte-readotron/blob/main/src/components/Readotron.svelte
 	// because direct installation via npm gave error related to SSR
-	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { ReadPerMinute } from '@untemps/read-per-minute';
 	import { DOMObserver } from '@untemps/dom-observer';
 	import { interpolate } from '@untemps/utils/string/interpolate';
@@ -11,23 +11,19 @@
 	// don't need it
 	//import ScrollProgress from '../scroll/ScrollProgress'
 
-	export let selector;
-	export let lang = 'en';
-	export let template = '%time% min read';
-	//export let withScroll = false
+	let { selector, lang = 'en', template = '%time% min read', errorSlot, contentSlot, ...rest } = $props();
+	//let withScroll = false
 
-	let totalTime = 0;
-	let time = 0;
-	let words = 0;
-	let rate = 0;
-	let isParsed = false;
-	let error = null;
+	let totalTime = $state(0);
+	let time = $state(0);
+	let words = $state(0);
+	let rate = $state(0);
+	let isParsed = $state(false);
+	let error = $state(null);
 	let empty = 'No content to parse';
 
 	let domObserver = null;
 	let progressObserver = null;
-
-	const dispatch = createEventDispatcher();
 
 	onMount(async () => {
 		if (!selector) {
@@ -64,12 +60,12 @@
 	});
 </script>
 
-{#if $$slots.error && !!error}
-	<slot name="error" {error} />
-{:else if $$slots.content && !error && isParsed}
-	<slot name="content" {time} {words} />
+{#if errorSlot && !!error}
+	{@render errorSlot(error)}
+{:else if contentSlot && !error && isParsed}
+	{@render contentSlot(time, words)}
 {:else}
-	<span data-testid="__readotron-root__" {...$$restProps}>
+	<span data-testid="__readotron-root__" {...rest}>
 		{#if !!error}
 			{error}
 		{:else if isParsed}
