@@ -1,10 +1,6 @@
 import adapter from '@sveltejs/adapter-netlify';
-import sveltePreprocess  from 'svelte-preprocess';
-//import { mdsvex } from 'mdsvex';
-import { mdsvex, extensions } from './mdsvex.config.js'
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import { highlightCode } from "./src/lib/assets/js/highlight.js";
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { mdsvex, extensions } from './mdsvex.config.js';
 import { mdsvexGlobalComponents } from './src/lib/assets/js/mdsvex-global-components.js';
 
 const globalComponents = mdsvexGlobalComponents({
@@ -26,9 +22,9 @@ const config = {
 	extensions: ['.svelte', ...extensions],
 
 	preprocess: [
-		sveltePreprocess(),
 		globalComponents,
-		mdsvex
+		mdsvex,
+		vitePreprocess()
 	],
 };
 

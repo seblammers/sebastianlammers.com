@@ -21,10 +21,10 @@
 		<p>
 			This website is <strong>my playground</strong> to learn about HTML, CSS & JavaScript.
 			Sometimes I write
-			<a sveltekit:prefetch href="/posts">blog posts</a>
+			<a href="/posts">blog posts</a>
 			about things I learned (to help others learn it too) and share
-			<a sveltekit:prefetch href="/projects">projects</a> and
-			<a sveltekit:prefetch href="/sketches">sketches</a> that I have built.
+			<a href="/projects">projects</a> and
+			<a href="/sketches">sketches</a> that I have built.
 		</p>
 	</div>
 </div>

@@ -1,5 +1,5 @@
 import { writable, get } from 'svelte/store';
-import { browser } from '$app/env';
+import { browser } from '$app/environment';
 
 // if I ever need to put something in localStorage:
 const storage = (key, initValue) => {

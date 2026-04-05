@@ -1,10 +1,13 @@
 <script>
 	import { navItems } from '$lib/config';
+	import { onMount } from 'svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { navigating, page } from '$app/stores';
 	import { Hamburger } from 'svelte-hamburgers';
-	import { mounted } from 'svelte-mount';
 	import Home from '$lib/components/Home.svelte';
+
+	let isMounted = false;
+	onMount(() => { isMounted = true; });
 
 	let width;
 	let scrollY;
@@ -44,12 +47,12 @@
 			</div>
 		</div>
 
-		{#if $mounted && (open || !mobile)}
+		{#if isMounted && (open || !mobile)}
 			<div class="nav-sh" class:open={!$navigating && (open || !mobile)}>
 				<div class="links">
 					<a href="/" class:active={$page.url.pathname === '/'}> Home </a>
 					{#each navItems as page, i (i)}
-						<a sveltekit:prefetch href={page.route} class:active={isActive(`${page.route}`)}>
+						<a href={page.route} class:active={isActive(`${page.route}`)}>
 							{page.title}
 						</a>
 					{/each}

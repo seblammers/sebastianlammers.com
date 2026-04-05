@@ -7,9 +7,9 @@
 
 ## Phase 0: Preparation
 
-- [ ] Create git branch `upgrade/svelte5-sveltekit2`
-- [ ] Verify current project builds (`npm install && npm run build`)
-- [ ] Commit any uncommitted changes
+- [x] Create git branch `upgrade/svelte5-sveltekit2` _(using `feat/upgrade-all-the-things`)_
+- [x] Verify current project builds (`npm install && npm run build`)
+- [x] Commit any uncommitted changes
 
 ---
 
@@ -17,52 +17,59 @@
 
 ### 1a. Package changes
 
-- [ ] Uninstall dead/removed packages: `@sveltejs/adapter-auto`, `@sveltejs/adapter-static`, `eslint-plugin-svelte3`, `svelte-mount`
-- [ ] Install updated devDependencies:
-  - [ ] `svelte@^5`
-  - [ ] `@sveltejs/kit@^2`
-  - [ ] `vite@^6`
-  - [ ] `@sveltejs/adapter-netlify@^6`
-  - [ ] `mdsvex@^0.12`
-  - [ ] `svelte-preprocess@^6`
-  - [ ] `prettier@^3`
-  - [ ] `prettier-plugin-svelte@^3`
-  - [ ] `eslint-plugin-svelte@^3`
-  - [ ] `eslint-config-prettier@^9`
-  - [ ] `sass@^1.99`
-  - [ ] `svead@latest`
-  - [ ] `svelte-hamburgers@^5`
-  - [ ] `d3@^7.9`
-- [ ] Install updated dependencies:
-  - [ ] `rehype-slug@^6`
-  - [ ] `rehype-autolink-headings@^7`
-  - [ ] `@fontsource/ibm-plex-mono@^5`
-  - [ ] `@fontsource/ibm-plex-sans@^5`
-  - [ ] `@fontsource/ibm-plex-sans-condensed@^5`
+- [x] Uninstall dead/removed packages: `@sveltejs/adapter-auto`, `@sveltejs/adapter-static`, `eslint-plugin-svelte3`, `svelte-mount`
+- [x] Install updated devDependencies:
+  - [x] `svelte@^5`
+  - [x] `@sveltejs/kit@^2`
+  - [x] `vite@^6` + pinned `@sveltejs/vite-plugin-svelte@^6` _(v7 requires Vite 8)_
+  - [x] `@sveltejs/adapter-netlify@^6`
+  - [x] `mdsvex@^0.12`
+  - [x] `svelte-preprocess@^6` _(removed — replaced by `vitePreprocess`)_
+  - [x] `prettier@^3`
+  - [x] `prettier-plugin-svelte@^3`
+  - [x] `eslint-plugin-svelte@^3`
+  - [x] `eslint-config-prettier@^9`
+  - [x] `sass@^1.99`
+  - [x] `svead@latest`
+  - [x] `svelte-hamburgers@^5`
+  - [x] `d3@^7.9`
+- [x] Install updated dependencies:
+  - [x] `rehype-slug@^6`
+  - [x] `rehype-autolink-headings@^7`
+  - [x] `@fontsource/ibm-plex-mono@^5`
+  - [x] `@fontsource/ibm-plex-sans@^5`
+  - [x] `@fontsource/ibm-plex-sans-condensed@^5`
 
 ### 1b. Config file updates
 
-- [ ] `svelte.config.js` — fix adapter & preprocessor imports
-- [ ] `.eslintrc.cjs` — replace `eslint-plugin-svelte3` with `eslint-plugin-svelte`
-- [ ] `mdsvex.config.js` — verify/fix import for mdsvex 0.12
-- [ ] `package.json` scripts — remove `--plugin-search-dir=.` from lint/format commands
+- [x] `svelte.config.js` — switched to `vitePreprocess()` from `@sveltejs/vite-plugin-svelte`; fixed mdsvex preprocessor order
+- [x] `.eslintrc.cjs` — replaced `eslint-plugin-svelte3` with `eslint-plugin-svelte`
+- [x] `mdsvex.config.js` — fixed named import from `mdsvex`; made layout paths absolute with `path.resolve`
+- [x] `package.json` scripts — removed `--plugin-search-dir=.` from lint/format commands
 
 ### 1c. SvelteKit 1→2 hard breaks (no compat mode)
 
-- [ ] `src/lib/assets/js/store.js` — `$app/env` → `$app/environment`
-- [ ] `src/routes/+layout.js` — `throw error()` → `error()`
-- [ ] Remove `sveltekit:prefetch` (5 occurrences):
-  - [ ] `src/lib/components/Card.svelte`
-  - [ ] `src/lib/components/Nav.svelte`
-  - [ ] `src/routes/+page.svelte` (3 links)
-- [ ] `src/lib/components/Nav.svelte` — replace `svelte-mount` with `onMount` + boolean
+- [x] `src/lib/assets/js/store.js` — `$app/env` → `$app/environment`
+- [x] `src/routes/+layout.js` — `throw error()` → `error()`
+- [x] Remove `sveltekit:prefetch` (5 occurrences):
+  - [x] `src/lib/components/Card.svelte`
+  - [x] `src/lib/components/Nav.svelte`
+  - [x] `src/routes/+page.svelte` (3 links)
+- [x] `src/lib/components/Nav.svelte` — replace `svelte-mount` with `onMount` + boolean
+
+> **Additional fixes applied during Phase 1:**
+> - `mdsvex.config.js`: switched from default import to named import (`compileMdsvex`); made layout paths absolute
+> - `svelte.config.js`: replaced `svelte-preprocess` with `vitePreprocess` (no `<style global>` usage; avoids globalStyle transformer bug on `.md` files)
+> - `src/routes/posts/data-in-js-00/+page.md`: escaped `<script>`, `<style>`, `{this}` in inline code with HTML entities (Svelte 5 stricter parser)
+> - `src/lib/components/Contact.svelte`: fixed self-closing `<textarea />`
+> - All 8 `svead` `Head` usages: updated to new `seo_config` object API
 
 ### 1d. Verify
 
-- [ ] `npm install` succeeds
-- [ ] `npm run build` succeeds
-- [ ] `npm run dev` — smoke test in browser (home, posts, nav, mobile menu)
-- [ ] **Commit:** `chore: upgrade to Svelte 5, SvelteKit 2, Vite 6`
+- [x] `npm install` succeeds
+- [x] `npm run build` succeeds
+- [x] `npm run dev` — smoke test: `/`, `/posts`, `/contact` all return HTTP 200
+- [x] **Commit:** `chore: upgrade to Svelte 5, SvelteKit 2, Vite 6`
 
 ---
 

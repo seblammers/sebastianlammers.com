@@ -158,9 +158,9 @@ Here is what the one linked to above looks like:
 
 In the most basic way you can think of it this way: the `App.svelte` allows you to combine three things in one place:
 
-1. you write **JavaScript code** in a script tag `<script>...</script>`
-2. you write **HTML markup** next to it and reference your **JavaScript** variables like `{this}`
-3. you write **CSS declarations** in a style tag `<style>...</style>`
+1. you write **JavaScript code** in a script tag `&lt;script&gt;...&lt;/script&gt;`
+2. you write **HTML markup** next to it and reference your **JavaScript** variables like `&#123;this&#125;`
+3. you write **CSS declarations** in a style tag `&lt;style&gt;...&lt;/style&gt;`
 
 <Accordion summary='How to save your progress'>
 

@@ -7,6 +7,6 @@ export const load = async ({ url, fetch }) => {
 		}
 	}
 	catch(err) {
-		throw error(500, err)
+		error(500, err)
 	}
 };

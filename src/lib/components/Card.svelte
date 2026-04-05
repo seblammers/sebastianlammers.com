@@ -4,7 +4,7 @@
 </script>
 
 <article class="card">
-	<a sveltekit:prefetch href={post.path}>
+	<a href={post.path}>
 		{#if post.meta.image !== false}
 			<img src={post.meta.image} alt="Preview of: {post.meta.title}" />
 		{/if}
