@@ -23,7 +23,7 @@
 				class="icon-link"
 				target="_blank"
 				style="color: var(--surface2-light)"
-				href="https://bsky.app/profile/seblammers.bsky.social"><Bluesky /></a
+				href="https://bsky.app/profile/sebastianlammers.com"><Bluesky /></a
 			>
 			<a
 				class="icon-link"

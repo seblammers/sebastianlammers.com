@@ -33,9 +33,10 @@
 		me with whatever questions you might have.
 	</p>
 	<p>
-		If you want to talk, find me <InlineLink url="https://vis.social/@seblammers"
-			>on Mastodon</InlineLink
-		> or use the form below.
+		If you want to talk, find me <InlineLink url="https://bsky.app/profile/sebastianlammers.com"
+			>on Bluesky</InlineLink
+		>, <InlineLink url="https://vis.social/@seblammers">on Mastodon</InlineLink>, or use the form
+		below.
 	</p>
 
 	<Contact />

@@ -16,7 +16,7 @@
 		},
 		{
 			title: 'is present on bluesky',
-			url: 'https://bsky.app/profile/seblammers.bsky.social',
+			url: 'https://bsky.app/profile/sebastianlammers.com',
 			description: 'Visit Bluesky',
 			type: 'external'
 		}

@@ -37,15 +37,15 @@ categories:
 <TOC>
 
 - [Count frequency of distinct values](#count-frequency-of-distinct-values)
-  - [Reduce to sum](#reduce-to-sum)
-  - [Count Gentoo](#count-gentoo)
-  - [A counting function](#a-counting-function)
+	- [Reduce to sum](#reduce-to-sum)
+	- [Count Gentoo](#count-gentoo)
+	- [A counting function](#a-counting-function)
 - [Sort the data](#sort-the-data)
-  - [Ascending vs. descending order](#ascending-vs-descending-order)
+	- [Ascending vs. descending order](#ascending-vs-descending-order)
 - [Mutate, select, rename columns](#mutate-select-rename-columns)
-  - [1: Mutate to add a new column](#1-mutate-to-add-a-new-column)
-  - [2: Select columns](#2-select-columns)
-  - [3: Rename columns](#3-rename-columns)
+	- [1: Mutate to add a new column](#1-mutate-to-add-a-new-column)
+	- [2: Select columns](#2-select-columns)
+	- [3: Rename columns](#3-rename-columns)
 - [Closing](#closing)
 
 </TOC>
@@ -506,4 +506,4 @@ Thanks for reading!
 I hope you learned something new and maybe even had some fun.
 
 Let me know :)
-If you want to talk, find me [on Mastodon](https://vis.social/@seblammers) or use [my form over here](/contact).
+If you want to talk, find me [on Bluesky](https://bsky.app/profile/sebastianlammers.com), [on Mastodon](https://vis.social/@seblammers), or use [my form over here](/contact).
