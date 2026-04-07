@@ -1,4 +1,5 @@
 <script>
+	import { untrack } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import data from './good-or-bad-data.js';
 	import Switch from '$lib/components/Switch.svelte';
@@ -8,11 +9,10 @@
 	let sliderValue = $state('bad');
 
 	$effect(() => {
-		if (sliderValue === 'bad') {
-			list = [...list].reverse();
-		}
-		if (sliderValue === 'good') {
-			list = [...list].reverse();
+		// Track only sliderValue as a dependency.
+		// Read list via untrack to avoid a write→read→re-run infinite loop.
+		if (sliderValue === 'bad' || sliderValue === 'good') {
+			list = untrack(() => [...list].reverse());
 		}
 	});
 </script>
