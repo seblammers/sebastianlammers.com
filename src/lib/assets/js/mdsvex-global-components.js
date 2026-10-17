@@ -5,7 +5,7 @@ import { join, basename, extname } from 'path';
 
 export const defaults = {
 	extensions: ['.svelte.md', '.md', '.svx'],
-	dir: `$lib`,
+	dir: `#lib`,
 	list: []
 };
 

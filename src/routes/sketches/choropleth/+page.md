@@ -15,8 +15,8 @@ categories:
 ---
 
 <script>
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/sketches/sketch-choro.png';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/sketches/sketch-choro.png';
   let alt = "A screenshot of a choropleth map of the USA."
 </script>
 

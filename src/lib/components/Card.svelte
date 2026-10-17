@@ -1,6 +1,6 @@
 <script>
 	export let post;
-	import { dateFormat } from '$lib/assets/js/utils';
+	import { dateFormat } from '#lib/assets/js/utils.js';
 </script>
 
 <article class="card">

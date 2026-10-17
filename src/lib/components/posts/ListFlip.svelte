@@ -2,8 +2,8 @@
 	import { untrack } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import data from './good-or-bad-data.js';
-	import Switch from '$lib/components/Switch.svelte';
-	import Accordion from '$lib/components/Accordion.svelte';
+	import Switch from '#lib/components/Switch.svelte';
+	import Accordion from '#lib/components/Accordion.svelte';
 
 	let list = $state([...data]);
 	let sliderValue = $state('bad');

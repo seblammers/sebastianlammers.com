@@ -14,8 +14,8 @@ categories:
 ---
 
 <script>
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/sketches/sketch-histo.png';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/sketches/sketch-histo.png';
   let alt = "A Screenshot of a histogram with a mouse cursor and a tooltip."
 </script>
 

@@ -13,8 +13,8 @@ categories:
 ---
 
 <script>
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/sketches/sketch-waffle.gif';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/sketches/sketch-waffle.gif';
   let alt = "A gif of a waffle chart that adapts in layout based on the available space. The user drags the border of the window, making the available space smaller. The layout of the individual blocks in the waffle charts fluidly responds to the available space, breaking into new rows where needed. The user then drags the border back to the initial state."
 </script>
 

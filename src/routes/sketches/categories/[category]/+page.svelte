@@ -1,7 +1,7 @@
 <script>
-	import Card from '$lib/components/Card.svelte';
-	import Meta from '$lib/components/Meta.svelte';
-	import Button from '$lib/components/ButtonBack.svelte';
+	import Card from '#lib/components/Card.svelte';
+	import Meta from '#lib/components/Meta.svelte';
+	import Button from '#lib/components/ButtonBack.svelte';
 	let { data } = $props();
 
 	let heading = $derived(

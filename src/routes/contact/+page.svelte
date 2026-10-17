@@ -1,11 +1,11 @@
 <script>
-	import Heading from '$lib/components/Heading.svelte';
-	import Contact from '$lib/components/Contact.svelte';
-	import InlineLink from '$lib/components/InlineLink.svelte';
-	import { titleFormat } from '$lib/assets/js/utils';
-	import { siteURL, siteAuthor } from '$lib/config';
+	import Heading from '#lib/components/Heading.svelte';
+	import Contact from '#lib/components/Contact.svelte';
+	import InlineLink from '#lib/components/InlineLink.svelte';
+	import { titleFormat } from '#lib/assets/js/utils.js';
+	import { siteURL, siteAuthor } from '#lib/config.js';
 	import { Head } from 'svead';
-	import image from '$lib/assets/images/og-image.png';
+	import image from '#lib/assets/images/og-image.png';
 	let heading = 'Contact';
 	let title = titleFormat(heading);
 	let description = 'Contact Sebastian Lammers';

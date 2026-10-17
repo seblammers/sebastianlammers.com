@@ -1,12 +1,12 @@
 <script>
-	import Heading from '$lib/components/Heading.svelte';
-	import Accordion from '$lib/components/Accordion.svelte';
-	import Card from '$lib/components/Card.svelte';
-	import { titleFormat } from '$lib/assets/js/utils';
-	import { siteURL, siteAuthor } from '$lib/config';
+	import Heading from '#lib/components/Heading.svelte';
+	import Accordion from '#lib/components/Accordion.svelte';
+	import Card from '#lib/components/Card.svelte';
+	import { titleFormat } from '#lib/assets/js/utils.js';
+	import { siteURL, siteAuthor } from '#lib/config.js';
 	import { page } from '$app/state';
 	import { Head } from 'svead';
-	import image from '$lib/assets/images/sketches/og-image_sketches.png';
+	import image from '#lib/assets/images/sketches/og-image_sketches.png';
 
 	let { data } = $props();
 	let sketches = $derived(data.sketches);

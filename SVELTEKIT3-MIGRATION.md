@@ -4,15 +4,15 @@
 
 ## Current State
 
-| Dependency | Current | Required |
-|---|---|---|
-| Node | v22.23.3 | ≥ v22.17 ✅ |
-| SvelteKit | ^2.56.0 | 3.x |
-| Svelte | ^5.55.0 | ≥ 5.57.1 |
-| Vite | ^6.0.0 | ≥ 8.0.12 |
-| @sveltejs/vite-plugin-svelte | ^6.0.0 | 7.x |
-| TypeScript | not installed | ≥ 6 (optional, JS project) |
-| adapter-netlify | ^6.0.0 | needs SK3-compatible version |
+| Dependency                   | Current       | Required                     |
+| ---------------------------- | ------------- | ---------------------------- |
+| Node                         | v22.23.3      | ≥ v22.17 ✅                  |
+| SvelteKit                    | ^2.56.0       | 3.x                          |
+| Svelte                       | ^5.55.0       | ≥ 5.57.1                     |
+| Vite                         | ^6.0.0        | ≥ 8.0.12                     |
+| @sveltejs/vite-plugin-svelte | ^6.0.0        | 7.x                          |
+| TypeScript                   | not installed | ≥ 6 (optional, JS project)   |
+| adapter-netlify              | ^6.0.0        | needs SK3-compatible version |
 
 ---
 
@@ -37,6 +37,7 @@ Review the generated TODO list and verify the changes before moving on.
 `svelte.config.js` is **no longer supported**. All config must move into the `sveltekit()` Vite plugin.
 
 **Current `svelte.config.js`** has:
+
 - `adapter: adapter()` (adapter-netlify)
 - `extensions: ['.svelte', ...mdsvex extensions]`
 - `preprocess: [globalComponents, mdsvex, vitePreprocess()]`
@@ -51,68 +52,72 @@ import { mdsvex, extensions } from './mdsvex.config.js';
 import { mdsvexGlobalComponents } from './src/lib/assets/js/mdsvex-global-components.js';
 
 const globalComponents = mdsvexGlobalComponents({
-  dir: `#lib/components`,
-  list: [
-    ['CodeFence', 'CodeFence.svelte'],
-    ['Blockquote', 'Blockquote.svelte'],
-    ['Accordion', 'Accordion.svelte'],
-  ],
-  extensions,
+	dir: `#lib/components`,
+	list: [
+		['CodeFence', 'CodeFence.svelte'],
+		['Blockquote', 'Blockquote.svelte'],
+		['Accordion', 'Accordion.svelte']
+	],
+	extensions
 });
 
 export default defineConfig({
-  plugins: [
-    sveltekit({
-      adapter: adapter(),
-      extensions: ['.svelte', ...extensions],
-      preprocess: [globalComponents, mdsvex],  // vitePreprocess is built-in now
-    }),
-  ],
+	plugins: [
+		sveltekit({
+			adapter: adapter(),
+			extensions: ['.svelte', ...extensions],
+			preprocess: [globalComponents, mdsvex] // vitePreprocess is built-in now
+		})
+	]
 });
 ```
 
 Then **delete `svelte.config.js`**.
 
-> ⚠️ **mdsvex compatibility**: `mdsvex` and the custom `mdsvexGlobalComponents` helper reference `$lib` internally — this needs updating too (see 2.2). Verify mdsvex works with Vite 8 / vite-plugin-svelte v7.
+> ⚠️ **mdsvex compatibility**: `mdsvex` and the custom `mdsvexGlobalComponents` helper reference `#lib` internally — this needs updating too (see 2.2). Verify mdsvex works with Vite 8 / vite-plugin-svelte v7.
 
 ---
 
-#### 2.2 — `$lib` → `#lib` (44 files affected)
+#### 2.2 — `#lib` → `#lib` (44 files affected)
 
-SvelteKit 3 replaces the magic `$lib` alias with Node subpath imports (`#lib`). Imports also require file extensions.
+SvelteKit 3 replaces the magic `#lib` alias with Node subpath imports (`#lib`). Imports also require file extensions.
 
 **Add to `package.json`:**
+
 ```json
 {
-  "imports": {
-    "#lib": "./src/lib/index.js",
-    "#lib/*": "./src/lib/*"
-  }
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
+	}
 }
 ```
 
 **Find & replace across codebase:**
-- `$lib/` → `#lib/` in all `.svelte`, `.js`, `.ts`, `.md`, `.svx` files
+
+- `#lib/` → `#lib/` in all `.svelte`, `.js`, `.ts`, `.md`, `.svx` files
 - Add file extensions to bare imports (e.g. `#lib/foo` → `#lib/foo.js`)
 
 **Files to update** (44 files across `src/`):
+
 - `src/lib/components/*.svelte` (9 files)
 - `src/lib/assets/js/*.js` (2 files)
 - `src/routes/**/*.svelte` (15+ files)
 - `src/routes/**/*.md` (18+ markdown/mdsvex files)
 
-> ⚠️ **mdsvex gotcha**: The `mdsvexGlobalComponents` helper uses `$lib/components` as a `dir` path — must become `#lib/components`. Also check if mdsvex layout files resolve `$lib` imports correctly after the rename.
+> ⚠️ **mdsvex gotcha**: The `mdsvexGlobalComponents` helper uses `#lib/components` as a `dir` path — must become `#lib/components`. Also check if mdsvex layout files resolve `$lib` imports correctly after the rename.
 
 ---
 
 #### 2.3 — `$app/environment` → `$app/env` (2 files)
 
-| File | Import |
-|---|---|
+| File                                    | Import                                       |
+| --------------------------------------- | -------------------------------------------- |
 | `src/lib/components/Datawrapper.svelte` | `import { browser } from '$app/environment'` |
-| `src/lib/assets/js/store.js` | `import { browser } from '$app/environment'` |
+| `src/lib/assets/js/store.js`            | `import { browser } from '$app/environment'` |
 
 Change to:
+
 ```js
 import { browser } from '$app/env';
 ```
@@ -144,6 +149,7 @@ npm install @sveltejs/kit@3 svelte@latest vite@8 @sveltejs/vite-plugin-svelte@7 
 ```
 
 **Check compatibility of:**
+
 - [ ] `mdsvex` (^0.12.0) — may need update or replacement for Vite 8
 - [ ] `svelte-preprocess` (^6.0.0) — likely no longer needed (vitePreprocess is built-in in SK3)
 - [ ] `svelte-hamburgers` (^5.0.0) — check Svelte 5 / SK3 compat
@@ -164,13 +170,13 @@ npm install @sveltejs/kit@3 svelte@latest vite@8 @sveltejs/vite-plugin-svelte@7 
 
 ## Risk Assessment
 
-| Risk | Impact | Mitigation |
-|---|---|---|
-| **mdsvex + Vite 8** | High — core content depends on it | Test early; check mdsvex GitHub for Vite 8 support |
-| **mdsvexGlobalComponents** | Medium — custom preprocessor | May need adaptation for new config shape |
-| **$lib→#lib in .md files** | Medium — 18+ markdown files with component imports | Systematic find/replace + manual verification |
-| **svelte-preprocess removal** | Low — vitePreprocess is built-in | Just remove from deps |
-| **adapter-netlify** | Low — likely just a version bump | Check latest adapter version |
+| Risk                          | Impact                                             | Mitigation                                         |
+| ----------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| **mdsvex + Vite 8**           | High — core content depends on it                  | Test early; check mdsvex GitHub for Vite 8 support |
+| **mdsvexGlobalComponents**    | Medium — custom preprocessor                       | May need adaptation for new config shape           |
+| **$lib→#lib in .md files**    | Medium — 18+ markdown files with component imports | Systematic find/replace + manual verification      |
+| **svelte-preprocess removal** | Low — vitePreprocess is built-in                   | Just remove from deps                              |
+| **adapter-netlify**           | Low — likely just a version bump                   | Check latest adapter version                       |
 
 ---
 

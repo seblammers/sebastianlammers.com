@@ -1,10 +1,10 @@
 <script>
-	import { siteURL, siteAuthor } from '$lib/config';
+	import { siteURL, siteAuthor } from '#lib/config.js';
 	import { page } from '$app/state';
-	import Heading from '$lib/components/Heading.svelte';
-	import { titleFormat } from '$lib/assets/js/utils';
+	import Heading from '#lib/components/Heading.svelte';
+	import { titleFormat } from '#lib/assets/js/utils.js';
 	import { Head } from 'svead';
-	import image from '$lib/assets/images/og-image.png';
+	import image from '#lib/assets/images/og-image.png';
 
 	let { title: rawTitle, description, children } = $props();
 	// preserve heading title

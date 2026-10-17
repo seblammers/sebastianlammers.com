@@ -1,5 +1,5 @@
 <script>
-	import viewport from '$lib/assets/js/use-viewport-action.js';
+	import viewport from '#lib/assets/js/use-viewport-action.js';
 
 	let { height = '100', width = '100', children } = $props();
 	let intersecting = $state(false);

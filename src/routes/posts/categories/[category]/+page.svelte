@@ -1,6 +1,6 @@
 <script>
-	import Card from '$lib/components/Card.svelte';
-	import Meta from '$lib/components/Meta.svelte';
+	import Card from '#lib/components/Card.svelte';
+	import Meta from '#lib/components/Meta.svelte';
 	let { data } = $props();
 	let posts = $derived(data.posts);
 	let category = $derived(data.category);

@@ -1,15 +1,15 @@
 <script>
-	import { siteURL, siteAuthor } from '$lib/config';
+	import { siteURL, siteAuthor } from '#lib/config.js';
 	import { page } from '$app/state';
-	import { dateFormat } from '$lib/assets/js/utils';
-	import Heading from '$lib/components/Heading.svelte';
-	import { titleFormat } from '$lib/assets/js/utils';
+	import { dateFormat } from '#lib/assets/js/utils.js';
+	import Heading from '#lib/components/Heading.svelte';
+	import { titleFormat } from '#lib/assets/js/utils.js';
 	import { Head } from 'svead';
-	import Button from '$lib/components/ButtonSimple.svelte';
-	import ButtonBack from '$lib/components/ButtonBack.svelte';
-	import Embed from '$lib/components/EmbedIFrame.svelte';
-	import Accordion from '$lib/components/Accordion.svelte';
-	import image from '$lib/assets/images/og-image.png';
+	import Button from '#lib/components/ButtonSimple.svelte';
+	import ButtonBack from '#lib/components/ButtonBack.svelte';
+	import Embed from '#lib/components/EmbedIFrame.svelte';
+	import Accordion from '#lib/components/Accordion.svelte';
+	import image from '#lib/assets/images/og-image.png';
 
 	let {
 		title: rawTitle = 'I forgot the title!',

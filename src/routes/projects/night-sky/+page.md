@@ -13,16 +13,16 @@ categories:
 ---
 
 <script>
-  import Button from '$lib/components/ButtonSimple.svelte';
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/projects/night-sky/title.png';
-  import a from '$lib/assets/images/projects/night-sky/overview.png';
-  import b from '$lib/assets/images/projects/night-sky/overview-hover.png';
-  import c from '$lib/assets/images/projects/night-sky/detail-scheat.png';
-  import tour from '$lib/assets/images/projects/night-sky/full-tour.gif';
-  import m5 from '$lib/assets/images/projects/night-sky/mobile/mobile-5.png';
-  import m6 from '$lib/assets/images/projects/night-sky/mobile/mobile-6.png';
-  import m7 from '$lib/assets/images/projects/night-sky/mobile/mobile-7.png';
+  import Button from '#lib/components/ButtonSimple.svelte';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/projects/night-sky/title.png';
+  import a from '#lib/assets/images/projects/night-sky/overview.png';
+  import b from '#lib/assets/images/projects/night-sky/overview-hover.png';
+  import c from '#lib/assets/images/projects/night-sky/detail-scheat.png';
+  import tour from '#lib/assets/images/projects/night-sky/full-tour.gif';
+  import m5 from '#lib/assets/images/projects/night-sky/mobile/mobile-5.png';
+  import m6 from '#lib/assets/images/projects/night-sky/mobile/mobile-6.png';
+  import m7 from '#lib/assets/images/projects/night-sky/mobile/mobile-7.png';
 
   let alt = "Screenshot with a big text that reads 'Stories from the night sky' in bold white letters on a dark blue background. On top there is a star-shaped icon and below the large text, smaller text reads 'A data-driven visual experiment.' and on a new line 'By Sebastian Lammers'.";
   let alt_a = "Screenshot of a map of the night sky. On top there is text that reads 'Which star tells the most interesting story to you?'. The map shows around 5,000 stars, depicted as white circles on a dark blue background. Below the map there is a group of buttons that include arrow buttons for all directions, zoom-buttons, a reset button and a button with a star-symbol.";

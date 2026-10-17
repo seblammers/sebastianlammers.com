@@ -14,8 +14,8 @@ categories:
 ---
 
 <script>
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/sketches/sketch-map.gif';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/sketches/sketch-map.gif';
   let alt = "A gif of a world map with varying projections based on user input via a dropdown menu."
 </script>
 

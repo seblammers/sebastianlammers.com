@@ -13,8 +13,8 @@ categories:
 ---
 
 <script>
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/sketches/sketch-pie.png';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/sketches/sketch-pie.png';
   let alt = "A screenshot of a pie chart with way too many slices and colours."
 </script>
 

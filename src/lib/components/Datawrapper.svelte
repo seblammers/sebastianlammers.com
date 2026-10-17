@@ -3,7 +3,7 @@
 	// on the page and handle their resizing
 	// implemented this way to let you use the generic
 	// EmbedIFrame.svelte also for Datawrapper charts
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 	if (browser) {
 		// via https://developer.datawrapper.de/docs/responsive-iframe
 		window.addEventListener('message', function (e) {

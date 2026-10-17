@@ -14,8 +14,8 @@ categories:
 ---
 
 <script>
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/sketches/sketch-dotplot.png';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/sketches/sketch-dotplot.png';
   let alt = "A screenshot of a dotplot with a colour legend."
 </script>
 

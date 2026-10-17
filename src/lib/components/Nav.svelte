@@ -1,10 +1,10 @@
 <script>
-	import { navItems } from '$lib/config';
+	import { navItems } from '#lib/config.js';
 	import { onMount } from 'svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { navigating, page } from '$app/state';
 	import { Hamburger } from 'svelte-hamburgers';
-	import Home from '$lib/components/Home.svelte';
+	import Home from '#lib/components/Home.svelte';
 
 	let isMounted = $state(false);
 	onMount(() => {
@@ -25,7 +25,9 @@
 
 	let isActive = $derived((url) => page.url.pathname.includes(url));
 
-	beforeNavigate(() => {
+	beforeNavigate(({ shallow, type }) => {
+		if (shallow && type === 'goto') return;
+
 		open = false;
 	});
 </script>

@@ -13,8 +13,8 @@ categories:
 ---
 
 <script>
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/sketches/sketch-circle.png';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/sketches/sketch-circle.png';
   let alt = "A screenshot of a circlepacking chart."
 </script>
 

@@ -1,12 +1,12 @@
 <script>
-	import { siteURL, siteAuthor } from '$lib/config';
+	import { siteURL, siteAuthor } from '#lib/config.js';
 	import { page } from '$app/state';
-	import { dateFormat } from '$lib/assets/js/utils';
+	import { dateFormat } from '#lib/assets/js/utils.js';
 	import { onMount } from 'svelte';
-	import Heading from '$lib/components/Heading.svelte';
-	import { titleFormat } from '$lib/assets/js/utils';
+	import Heading from '#lib/components/Heading.svelte';
+	import { titleFormat } from '#lib/assets/js/utils.js';
 	import { Head } from 'svead';
-	import image from '$lib/assets/images/og-image.png';
+	import image from '#lib/assets/images/og-image.png';
 
 	// draft, data, form are passed from SvelteKit/mdsvex but not used in this template
 	let {

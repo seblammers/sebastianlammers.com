@@ -1,6 +1,6 @@
 <script>
-	import PatternShuffle from '$lib/components/PatternShuffle.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import PatternShuffle from '#lib/components/PatternShuffle.svelte';
+	import Footer from '#lib/components/Footer.svelte';
 
 	let steps = [
 		{ color: '#000333', fontColor: 'white', text: '' },

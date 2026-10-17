@@ -1,7 +1,7 @@
 <script>
 	import { tweened } from 'svelte/motion';
 	import { cubicInOut } from 'svelte/easing';
-	import Shape from '$lib/components/svg/Shape.svelte';
+	import Shape from '#lib/components/svg/Shape.svelte';
 
 	// initial position for all elements
 	// x-axis

@@ -12,9 +12,9 @@ categories:
 ---
 
 <script>
-  import Button from '$lib/components/ButtonSimple.svelte';
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/projects/awesome-svelte-and-d3/awesome-svelte-and-d3.png';
+  import Button from '#lib/components/ButtonSimple.svelte';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/projects/awesome-svelte-and-d3/awesome-svelte-and-d3.png';
 
   let alt = "A multi-screenshot image (desktop, tablet, mobile) of the Awesome Svelte & D3 Website powered by https://ui.dev/amiresponsive"
 </script>

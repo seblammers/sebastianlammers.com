@@ -10,12 +10,12 @@ categories:
 ---
 
 <script>
-  import TOC from '$lib/components/posts/TOC.svelte';
-  import Table from '$lib/components/posts/TableView.svelte';
-  import { maxByKey } from '$lib/assets/js/utils';
-  import Bar from '$lib/components/posts/Bar.svelte';
-  import Embed from '$lib/components/EmbedIFrame.svelte';
-  import Link from '$lib/components/InlineLink.svelte';
+  import TOC from '#lib/components/posts/TOC.svelte';
+  import Table from '#lib/components/posts/TableView.svelte';
+  import { maxByKey } from '#lib/assets/js/utils.js';
+  import Bar from '#lib/components/posts/Bar.svelte';
+  import Embed from '#lib/components/EmbedIFrame.svelte';
+  import Link from '#lib/components/InlineLink.svelte';
 
 
   // data is fetched from internal API in +page.js
@@ -37,15 +37,15 @@ categories:
 <TOC>
 
 - [Count frequency of distinct values](#count-frequency-of-distinct-values)
-	- [Reduce to sum](#reduce-to-sum)
-	- [Count Gentoo](#count-gentoo)
-	- [A counting function](#a-counting-function)
+  - [Reduce to sum](#reduce-to-sum)
+  - [Count Gentoo](#count-gentoo)
+  - [A counting function](#a-counting-function)
 - [Sort the data](#sort-the-data)
-	- [Ascending vs. descending order](#ascending-vs-descending-order)
+  - [Ascending vs. descending order](#ascending-vs-descending-order)
 - [Mutate, select, rename columns](#mutate-select-rename-columns)
-	- [1: Mutate to add a new column](#1-mutate-to-add-a-new-column)
-	- [2: Select columns](#2-select-columns)
-	- [3: Rename columns](#3-rename-columns)
+  - [1: Mutate to add a new column](#1-mutate-to-add-a-new-column)
+  - [2: Select columns](#2-select-columns)
+  - [3: Rename columns](#3-rename-columns)
 - [Closing](#closing)
 
 </TOC>

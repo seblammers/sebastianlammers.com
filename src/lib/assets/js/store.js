@@ -1,5 +1,5 @@
 import { writable, get } from 'svelte/store';
-import { browser } from '$app/environment';
+import { browser } from '$app/env';
 
 // if I ever need to put something in localStorage:
 const storage = (key, initValue) => {
@@ -30,7 +30,7 @@ const storage = (key, initValue) => {
 };
 // This can be used like this:
 
-// import storage from '$lib/assets/js/store'
+// import storage from '#lib/assets/js/store.js'
 //
 // export const auth = storage("auth", { jwt: "" })
 

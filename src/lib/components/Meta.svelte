@@ -1,6 +1,6 @@
 <script>
 	import { Head } from 'svead';
-	import image from '$lib/assets/images/og-image.png';
+	import image from '#lib/assets/images/og-image.png';
 
 	let title = 'Sebastian Lammers';
 	let description = 'Data Visualization & Information Design';

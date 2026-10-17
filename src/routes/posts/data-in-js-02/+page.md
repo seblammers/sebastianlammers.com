@@ -10,11 +10,11 @@ categories:
 ---
 
 <script>
-  import TOC from '$lib/components/posts/TOC.svelte';
-  import Card from '$lib/components/Card.svelte';
-  import Table from '$lib/components/posts/TableView.svelte';
-  import Embed from '$lib/components/EmbedIFrame.svelte';
-  import Link from '$lib/components/InlineLink.svelte';
+  import TOC from '#lib/components/posts/TOC.svelte';
+  import Card from '#lib/components/Card.svelte';
+  import Table from '#lib/components/posts/TableView.svelte';
+  import Embed from '#lib/components/EmbedIFrame.svelte';
+  import Link from '#lib/components/InlineLink.svelte';
 
   // data is fetched from internal API in +page.js
   export let data;

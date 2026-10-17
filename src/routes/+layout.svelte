@@ -2,12 +2,12 @@
 	import { fly } from 'svelte/transition';
 	import { onMount, tick } from 'svelte';
 	import { page } from '$app/state';
-	import Nav from '$lib/components/Nav.svelte';
-	import Datawrapper from '$lib/components/Datawrapper.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import Nav from '#lib/components/Nav.svelte';
+	import Datawrapper from '#lib/components/Datawrapper.svelte';
+	import Footer from '#lib/components/Footer.svelte';
 	import Subfooter from '../lib/components/Subfooter.svelte';
 
-	import '$lib/styles/global.scss';
+	import '#lib/styles/global.scss';
 
 	import '@fontsource/ibm-plex-sans/300.css';
 	import '@fontsource/ibm-plex-sans/400.css';

@@ -11,8 +11,8 @@ categories:
 ---
 
 <script>
-  import Embed from '$lib/components/EmbedIFrame.svelte';
-  import Back from '$lib/components/ButtonBack.svelte';
+  import Embed from '#lib/components/EmbedIFrame.svelte';
+  import Back from '#lib/components/ButtonBack.svelte';
 </script>
 
 ## Background

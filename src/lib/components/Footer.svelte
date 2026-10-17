@@ -1,5 +1,5 @@
 <script>
-	import { siteAuthor } from '$lib/config';
+	import { siteAuthor } from '#lib/config.js';
 	import IconStroke from './svg/IconStroke.svelte';
 	import Wave from './svg/WaveDivider.svelte';
 	import Mastodon from './svg/Mastodon.svelte';

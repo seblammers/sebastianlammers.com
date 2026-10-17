@@ -14,8 +14,8 @@ categories:
 ---
 
 <script>
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/sketches/sketch-scrolly.gif';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/sketches/sketch-scrolly.gif';
   let alt = "A gif of a scatterplot that changes it's configuration based on the user's scroll-position."
 </script>
 

@@ -1,5 +1,3 @@
-import { json } from '@sveltejs/kit';
-
 export async function GET() {
 	const allPostFiles = import.meta.glob('../../posts/**/*.md');
 	const iterablePostFiles = Object.entries(allPostFiles);
@@ -20,5 +18,5 @@ export async function GET() {
 		return new Date(b.meta.date) - new Date(a.meta.date);
 	});
 
-	return json(sortedPosts);
+	return Response.json(sortedPosts);
 }

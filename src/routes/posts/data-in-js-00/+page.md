@@ -10,11 +10,11 @@ categories:
 ---
 
 <script>
-  import TOC from '$lib/components/posts/TOC.svelte';
-  import ListFlip from '$lib/components/posts/ListFlip.svelte';
-  import Card from '$lib/components/Card.svelte';
-  import Table from '$lib/components/posts/TableView.svelte';
-  import Embed from '$lib/components/EmbedIFrame.svelte';
+  import TOC from '#lib/components/posts/TOC.svelte';
+  import ListFlip from '#lib/components/posts/ListFlip.svelte';
+  import Card from '#lib/components/Card.svelte';
+  import Table from '#lib/components/posts/TableView.svelte';
+  import Embed from '#lib/components/EmbedIFrame.svelte';
 
   export let data;
   let posts = data.posts;

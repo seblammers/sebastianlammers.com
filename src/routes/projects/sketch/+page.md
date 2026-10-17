@@ -14,9 +14,9 @@ categories:
 ---
 
 <script>
-  import Button from '$lib/components/ButtonSimple.svelte';
-  import Image from '$lib/components/Image.svelte';
-  import src from '$lib/assets/images/projects/sketches/preview-sketches.png';
+  import Button from '#lib/components/ButtonSimple.svelte';
+  import Image from '#lib/components/Image.svelte';
+  import src from '#lib/assets/images/projects/sketches/preview-sketches.png';
 
   let alt = "Multiple charts and maps layed out in a grid."
 </script>

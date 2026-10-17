@@ -12,23 +12,23 @@ categories:
 ---
 
 <script>
-  import TOC from '$lib/components/posts/TOC.svelte';
-  import DotPlot from '$lib/components/posts/DotPlot.svelte';
-  import Button from '$lib/components/ButtonSimple.svelte';
-  import UnitSpan from '$lib/components/UnitSpan.svelte';
-  import Image from '$lib/components/Image.svelte';
-  import Toggle from '$lib/components/Switch.svelte';
-  import src from '$lib/assets/images/projects/night-sky/detail-almach.png';
-  import Embed from '$lib/components/EmbedIFrame.svelte';
-  import Colours from '$lib/components/posts/ColoursNightSky.svelte';
-  import firstMap from '$lib/assets/images/projects/night-sky/process/01-first-map.png';
-  import thirdMap from '$lib/assets/images/projects/night-sky/process/03-no-voronoi.gif';
-  import voronoiGif from '$lib/assets/images/projects/night-sky/process/04-voronoi.gif';
-  import histogram from '$lib/assets/images/projects/night-sky/process/stars-histogram.png';
-  import accent from '$lib/assets/images/projects/night-sky/process/accent.png';
-  import hero from '$lib/assets/images/projects/night-sky/title.png';
-  import gridDesktop from '$lib/assets/images/projects/night-sky/process/grid-desktop.png';
-  import gridMobile from '$lib/assets/images/projects/night-sky/process/grid-mobile_wide.png';
+  import TOC from '#lib/components/posts/TOC.svelte';
+  import DotPlot from '#lib/components/posts/DotPlot.svelte';
+  import Button from '#lib/components/ButtonSimple.svelte';
+  import UnitSpan from '#lib/components/UnitSpan.svelte';
+  import Image from '#lib/components/Image.svelte';
+  import Toggle from '#lib/components/Switch.svelte';
+  import src from '#lib/assets/images/projects/night-sky/detail-almach.png';
+  import Embed from '#lib/components/EmbedIFrame.svelte';
+  import Colours from '#lib/components/posts/ColoursNightSky.svelte';
+  import firstMap from '#lib/assets/images/projects/night-sky/process/01-first-map.png';
+  import thirdMap from '#lib/assets/images/projects/night-sky/process/03-no-voronoi.gif';
+  import voronoiGif from '#lib/assets/images/projects/night-sky/process/04-voronoi.gif';
+  import histogram from '#lib/assets/images/projects/night-sky/process/stars-histogram.png';
+  import accent from '#lib/assets/images/projects/night-sky/process/accent.png';
+  import hero from '#lib/assets/images/projects/night-sky/title.png';
+  import gridDesktop from '#lib/assets/images/projects/night-sky/process/grid-desktop.png';
+  import gridMobile from '#lib/assets/images/projects/night-sky/process/grid-mobile_wide.png';
 
   const distanceSun = 149600000;
   const distanceWorld = 28081;

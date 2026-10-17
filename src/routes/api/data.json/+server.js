@@ -1,4 +1,3 @@
-import { json } from '@sveltejs/kit';
 
 export async function GET({ url }) {
 	const allFiles = import.meta.glob('./*.json', { eager: true });
@@ -26,7 +25,7 @@ export async function GET({ url }) {
 	if (index !== -1) {
 		const data = dataNames[index][param];
 
-		return json(data);
+		return Response.json(data);
 	}
 
 	return new Response('I think you messed up, sorry. Make sure you type in the correct ?name=');

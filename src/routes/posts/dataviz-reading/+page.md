@@ -11,7 +11,7 @@ categories:
 ---
 
 <script>
-  import TOC from '$lib/components/posts/TOC.svelte';
+  import TOC from '#lib/components/posts/TOC.svelte';
 </script>
 
 I decided to keep some notes on the books that I've read that are directly or indirectly relevant for the field of data visualization.

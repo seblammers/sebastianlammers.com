@@ -1,7 +1,7 @@
 <script>
-	import self from '$lib/assets/images/cv/profile_removebg_BW.png';
-	import Image from '$lib/components/Image.svelte';
-	import Meta from '$lib/components/Meta.svelte';
+	import self from '#lib/assets/images/cv/profile_removebg_BW.png';
+	import Image from '#lib/components/Image.svelte';
+	import Meta from '#lib/components/Meta.svelte';
 	import { fly } from 'svelte/transition';
 </script>
 
